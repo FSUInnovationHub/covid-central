@@ -43,5 +43,6 @@ The bulk of the data and articles in Covid Central come from the Covid Tracking 
 We are also compiling a list of more resources and APIs that will be used to present data.
 
 1. Twitter API [for commentary] 
+2. CNN API [for news]
 
 
