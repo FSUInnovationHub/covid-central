@@ -29,11 +29,19 @@ Show Me
 **Form Results** 
 
 The form will redirect the user to the next page depending on their input.
+
 For example, if a user says they're feeling sad and they want to be shown the facts then we will tailor their page so they can primarily see the number of recovered patients. 
+
 At the bottom of the users tailored results there will be a reset button that will take the user back to the launch page. 
 
 ## The Data
 
-The bulk of the data and articles that the 
+The bulk of the data and articles in Covid Central come from the Covid Tracking Project API.
+
+> "The COVID Tracking Project collects information from 50 US states, the District of Columbia, and 5 other US territories to provide the most comprehensive testing data we can collect for the novel coronavirus, SARS-CoV-2. We attempt to include positive and negative results, pending tests, and total people tested for each state or district currently reporting that data." https://covidtracking.com/
+
+We are also compiling a list of more resources and APIs that will be used to present data.
+
+1. Twitter API [for commentary] 
 
 
