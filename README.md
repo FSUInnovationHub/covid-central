@@ -13,13 +13,16 @@ For this project we will be using the following frameworks and libraries.
 ## The Mechanics
 
 The schema of Covid Central is simple.
+
 ###### Form 
 On the launch page there is a form with the following categories.
 
 **I'm Feeling**
+
 *There will be a list of feelings listed here [TBD]. For example, sad, curious, or anxious*
 
 **Show Me**
+
 *There will be a list of content listed here [TBD]. For example, the facts, stats, news, or commentary*
 
 
