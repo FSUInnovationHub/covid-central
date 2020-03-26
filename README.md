@@ -6,7 +6,7 @@
 
 For this project we will be using the following frameworks and libraries.
 1. ReactJS 
-> A. ReactJS allows for the quick implementaion of dynamically rendered web applications using the fundamentals of JavaScript and a rich library of NPM packages.
+> ReactJS allows for the quick implementaion of dynamically rendered web applications using the fundamentals of JavaScript and a rich library of NPM packages.
 2. Flask
-> B. Flask allows for the quick implementation of a backend server that will host some of our desired endpoints.
+> Flask allows for the quick implementation of a backend server that will host some of our desired endpoints.
 
