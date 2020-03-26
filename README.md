@@ -10,3 +10,15 @@ For this project we will be using the following frameworks and libraries.
 2. Flask
 > Flask allows for the quick implementation of a backend server that will host some of our desired endpoints.
 
+## The Mechanics
+
+The schema of Covid Central is simple.
+###### Form 
+On the launch page there is a form with the following categories.
+
+** I'm Feeling **
+
+** Show Me **
+
+
+
