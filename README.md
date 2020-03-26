@@ -20,11 +20,11 @@ On the launch page there is a form with the following categories.
 
 I'm Feeling
 
-*There will be a list of feelings listed here [TBD]. For example, sad, curious, or anxious*
+*There will be a list of feelings listed here [TBD]. For example, sad, curious, or anxious.*
 
 Show Me
 
-*There will be a list of content listed here [TBD]. For example, the facts, stats, news, or commentary*
+*There will be a list of content listed here [TBD]. For example, the facts, stats, news, or commentary.*
 
 
 **Form Results** 
@@ -47,4 +47,12 @@ We are also compiling a list of more resources and APIs that will be used to pre
 
 2. CNN API [for news]
 
+## The Team
+
+As previously mentioned, this is an effort created by a group of interns at Florida State University's Innovation Hub. The Hub's mission statement is quoted below:
+> "To foster a collaborative community founded on a culture of creativity and innovation that identifies issues, explores opportunities, and develops solutions using design thinking and emerging technologies." https://innovation.fsu.edu/
+
+## How to Help
+
+If you would like to contribute in any way to this project or have any ideas please email **info@innovation.fsu.edu**. 
 
