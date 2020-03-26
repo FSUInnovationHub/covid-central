@@ -14,20 +14,20 @@ For this project we will be using the following frameworks and libraries.
 
 The schema of Covid Central is simple.
 
-**Form**
+##### **Form**
 
 On the launch page there is a form with the following categories.
 
-I'm Feeling
+**I'm Feeling**
 
 *There will be a list of feelings listed here [TBD]. For example, sad, curious, or anxious.*
 
-Show Me
+**Show Me**
 
 *There will be a list of content listed here [TBD]. For example, the facts, stats, news, or commentary.*
 
 
-**Form Results** 
+##### **Results**
 
 The form will redirect the user to the next page depending on their input.
 
