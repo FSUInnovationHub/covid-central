@@ -54,5 +54,5 @@ As previously mentioned, this is an effort created by a group of interns at Flor
 
 ## How to Help
 
-If you would like to contribute in any way to this project or have any ideas please email **info@innovation.fsu.edu**. 
+If you would like to contribute in any way to this project or have any ideas please email **info@innovation.fsu.edu**
 
