@@ -31,9 +31,9 @@ Show Me
 
 The form will redirect the user to the next page depending on their input.
 
-For example, if a user says they're feeling sad and they want to be shown the facts then we will tailor their page so they can primarily see the number of recovered patients. 
+For example, if a user says they're feeling **anxious** and they want to be shown **the stats** then we will show them the number of recovered patients primarily. 
 
-At the bottom of the users tailored results there will be a reset button that will take the user back to the launch page. 
+At the bottom of the user's tailored results there will be a reset button that will take them back to the launch page. 
 
 ## The Data
 
