@@ -15,6 +15,7 @@ For this project we will be using the following frameworks and libraries.
 The schema of Covid Central is simple.
 
 **Form**
+
 On the launch page there is a form with the following categories.
 
 I'm Feeling
@@ -43,6 +44,7 @@ The bulk of the data and articles in Covid Central come from the Covid Tracking 
 We are also compiling a list of more resources and APIs that will be used to present data.
 
 1. Twitter API [for commentary] 
+
 2. CNN API [for news]
 
 
