@@ -11,6 +11,7 @@ const routing = (
   <Router>
     <Switch>
       <Route exact path="/" component={Temp}/>
+      <Route exact path="/*" exact component={Temp} />
     </Switch>
   </Router>
 )
