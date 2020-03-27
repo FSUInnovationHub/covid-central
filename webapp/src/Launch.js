@@ -7,6 +7,8 @@ import 'react-spinning-wheel/dist/style.css';
 import NumberFormat from 'react-number-format';
 import Select from 'react-select';
 
+
+/*array of form values*/
 const emotionsList = [
   { value: 'anxious', label: 'anxious' },
   { value: 'curious', label: 'curious' },
@@ -19,9 +21,11 @@ const sourcesList = [
   { value: 'commentary', label: 'commentary' },
 ];
 
-//This page will display the current statistics from the COVID-19 Outbreak Specific to the USA
-class Stats extends React.Component { 
+/*This page will display a form that will redirect the user to different views based on their input. 
+It functions with React states and react Redirects*/
+class Launch extends React.Component { 
 
+  //the states of emotion and source will be set to null initially until the user had filled out the form.
   constructor() {
     super();
     this.state = {
@@ -31,22 +35,18 @@ class Stats extends React.Component {
    
   }
   
+
   handleEmotion = emotion => {
     this.setState({ emotion });
-    console.log(`Option selected:`, emotion);
   };
 
   handleSource = source => {
     this.setState({ source });
-    console.log(`Option selected:`, source);
   };
-  
-
 
 
   render()
   {  
-    const { selectedOption } = this.state;
     return (   
       <div className="noScroll"> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
         <div className="launchCont">
@@ -59,9 +59,7 @@ class Stats extends React.Component {
               options={emotionsList}
             />
           </div>
-
           <h2 className="showMeThe">show me the</h2>
-
           <div className="dropdown">
             <Select
               value={this.state.source}
@@ -69,19 +67,10 @@ class Stats extends React.Component {
               options={sourcesList}
             />
            </div>
-          
-          
-          
-        <NavLink style={{ textDecoration: 'none' }} className="submitTxt" to="/dashboard"> submit </NavLink>
-    
-          
-    
-         
-       </div>
-       
-       
+          <NavLink style={{ textDecoration: 'none' }} className="submitTxt" to="/dashboard"> submit </NavLink>   
+       </div> 
       </div>
       )
   }
 }
-export default Stats;
+export default Launch;
