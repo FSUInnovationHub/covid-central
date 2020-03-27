@@ -13,6 +13,7 @@ code {
     monospace;
 }
 
+/*used for "logo"*/
 h1 {
   font-size: 7vw;
   color: white;
@@ -82,6 +83,7 @@ h2 {
   background-color: #7da4ff;
 }
 
+/*rules for the text bar at the bottom of the page*/
 .submitTxt
 {
   background-color: transparent;
@@ -95,27 +97,12 @@ h2 {
   text-align-last: center;
   margin-top: 5vh;
   bottom: 0vh;
+  position: fixed;
+    bottom: 0;
   
 }
 
-select {
-  
-  font-size: 7vw;
-  width: 100vw;
-  height: 10vh;
-  text-align: center;
-  text-align-last: center;
-}
-
-footer {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 100px;
-  width: 100%;
-  overflow: hidden;
-}
-
+/*rules for launch page spacing*/
 .imFeeling {
   margin-top: 5vh;
 }
@@ -126,10 +113,12 @@ footer {
 
 /*special CSS rules for mobile devices*/
 @media only screen and (max-width: 1024px) {
+  /*wraps clock*/
   .clockWrapper {
     visibility: visible;
   }
 
+  /*used for "logo"*/
   h1 {
     font-size: 14vw;
     color: white;
@@ -147,6 +136,7 @@ footer {
     
   }
 
+  /*used for launch form spacing*/
   .imFeeling {
     margin-top: 15vh;
   }
@@ -171,34 +161,35 @@ footer {
     color: black;
   }
 
-  /*select option css*/
-.dropdown {
-  align-self: center;
-  margin-top: 2vh;
-  width: 50vw;
-  height: 4vh;
-  
+  /*select option wrapper*/
+  .dropdown {
+    align-self: center;
+    margin-top: 2vh;
+    width: 50vw;
+    height: 4vh; 
+  }
+
+  /*rules for "submit" on form*/
+  .submitTxt
+  {
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    color: white;
+    font-size: 14vw;
+    width: 100vw;
+    height: 10vh;
+    text-align: center;
+    text-align-last: center;
+    bottom: 0vh;
+    position: fixed;
+      bottom: 0;
 }
-.submitTxt
-{
-  background-color: transparent;
-  border: none;
-  font-weight: bold;
-  color: white;
-  font-size: 14vw;
-  width: 100vw;
-  height: 10vh;
-  text-align: center;
-  text-align-last: center;
- 
-  
-  bottom: 0vh;
-  position: fixed;
-    bottom: 0;
-}
-.noScroll {
-  overflow: hidden;
-  position:fixed;
-}
+
+  /*prevents any scrolling*/
+  .noScroll {
+    overflow: hidden;
+    position:fixed;
+  }
 
 }

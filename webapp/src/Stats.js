@@ -17,11 +17,9 @@ class Stats extends React.Component {
       deaths: null,
       totalTests: null,
     };
-    //this.numberWithCommas = this.numberWithCommas.bind(this)
   }
   
-  
-  
+  //connects to the covidtracking api. I have asked them to include a "last modified: " category to their endpoints.
   componentDidMount() {
     Promise.all([
       fetch('https://covidtracking.com/api/us'),
@@ -41,7 +39,6 @@ class Stats extends React.Component {
   }
 
 
-
   render()
   {  
     return (   
@@ -52,8 +49,6 @@ class Stats extends React.Component {
        <h1>DEATHS: <NumberFormat value={this.state.deaths} displayType={'text'} thousandSeparator={true}/></h1>
        <h1>TOTAL TESTS COMPLETED: <NumberFormat value={this.state.totalTests} displayType={'text'} thousandSeparator={true}/></h1>
        <h1>PENDING: <NumberFormat value={this.state.pending} displayType={'text'} thousandSeparator={true}/></h1>
-       
-       
       </div>
       )
   }
