@@ -97,9 +97,16 @@ h2 {
   text-align-last: center;
   margin-top: 5vh;
   bottom: 0vh;
-  position: fixed;
-    bottom: 0;
-  
+}
+
+.submitTxt:hover
+{
+  color: #03bb85;
+}
+
+.submitTxt:active
+{
+  color: #03bb85;
 }
 
 /*rules for launch page spacing*/
@@ -184,7 +191,17 @@ h2 {
     bottom: 0vh;
     position: fixed;
       bottom: 0;
-}
+  }
+
+  .submitTxt:hover
+  {
+    color: #03bb85;
+  }
+
+  .submitTxt:active
+  {
+    color: #03bb85;
+  }
 
   /*prevents any scrolling*/
   .noScroll {
