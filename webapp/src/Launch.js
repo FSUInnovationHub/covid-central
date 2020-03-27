@@ -4,7 +4,7 @@ import { css } from "@emotion/core";
 import { Redirect } from 'react-router-dom';
 import 'react-spinning-wheel/dist/style.css';
 import NumberFormat from 'react-number-format';
-import Select from 'react-select';
+import {Select} from 'react-select';
 
 const emotionsList = [
   { value: 'anxious', label: 'anxious' },
@@ -52,7 +52,7 @@ class Stats extends React.Component {
           <h1>Covid Central</h1>
           <h2 className="imFeeling">i'm feeling</h2>
           <div className="dropdown">
-            <Select
+           {/* <Select
               value={this.state.emotion}
               onChange={this.handleChange}
               options={emotionsList}
@@ -67,7 +67,8 @@ class Stats extends React.Component {
               onChange={this.handleChange}
               options={sourcesList}
             />
-          </div>
+           </div>*/}
+           </div>
           
           <form action="https://covid-central.netlify.com/error" method="POST" > 
           
