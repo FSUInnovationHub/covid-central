@@ -14,15 +14,25 @@ code {
 }
 
 h1 {
-  font-size: 10vw;
+  font-size: 8vw;
   color: white;
   text-align: center;
   margin-bottom: 0vh;
+  margin-top: 2vh;
+}
+
+/*used for launch form*/
+h2 {
+  font-size: 6vw;
+  color: white;
+  text-align: center;
+  margin-bottom: 0vh;
+  margin-top: 2vh;
 }
 
 /*link on temp page*/
 .see {
-  font-size: 5.5vw;
+  font-size: 4.5vw;
   text-align: center;
   color: black;
 }
@@ -33,7 +43,7 @@ h1 {
 
 /*container for Temp class*/
 .tempCont { 
-  margin-top: 0vh;
+  margin-top: 5vh;
   width: 100vw;
   height: 50vh;
   display: flex;
@@ -45,10 +55,90 @@ h1 {
   visibility: visible;
 }
 
+/*container for launch class*/
+.launchCont { 
+  margin-top: 0vh;
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/*select option css*/
+.dropdown {
+  margin-top: 2vh;
+  width: 100vw;
+  height: 10vh;
+  background-color: #7da4ff;
+}
+
+/*submit option css*/
+.submit {
+  margin-top: 2vh;
+  width: 100vw;
+  height: 15vh;
+  background-color: #7da4ff;
+}
+
+.submitTxt
+{
+  font-weight: bold;
+  color: white;
+  font-size: 15vw;
+  width: 100vw;
+  height: 10vh;
+  text-align: center;
+  text-align-last: center;
+  margin-top: 2vh;
+}
+
+select {
+  color: white;
+  font-size: 7vw;
+  width: 100vw;
+  height: 10vh;
+  text-align: center;
+  text-align-last: center;
+}
+
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 100px;
+  width: 100%;
+  overflow: hidden;
+}
+
 /*special CSS rules for mobile devices*/
 @media only screen and (max-width: 1024px) {
   .clockWrapper {
     visibility: visible;
+  }
+
+  h1 {
+    font-size: 14vw;
+    color: white;
+    text-align: center;
+    margin-bottom: 0vh;
+    margin-top: 2vh;
+  }
+
+  /*used for launch form*/
+  h2 {
+    font-size: 10vw;
+    color: white;
+    text-align: center;
+    margin-bottom: 0vh;
+    
+  }
+
+  .imFeeling {
+    margin-top: 15vh;
+  }
+
+  .showMeThe {
+    margin-top: 2vh;
   }
 
   /*container for Temp class*/
@@ -58,5 +148,12 @@ h1 {
     height: 50vh;
     display: flex;
     flex-direction: column;
+  }
+
+  /*link on temp page*/
+  .see {
+    font-size: 5.5vw;
+    text-align: center;
+    color: black;
   }
 }
