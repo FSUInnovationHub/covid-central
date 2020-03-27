@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
+import { NavLink } from 'react-router-dom'
 import { css } from "@emotion/core";
 import { Redirect } from 'react-router-dom';
 import 'react-spinning-wheel/dist/style.css';
@@ -30,12 +31,12 @@ class Stats extends React.Component {
    
   }
   
-  handleChange = emotion => {
+  handleEmotion = emotion => {
     this.setState({ emotion });
     console.log(`Option selected:`, emotion);
   };
 
-  handleChange = source => {
+  handleSource = source => {
     this.setState({ source });
     console.log(`Option selected:`, source);
   };
@@ -54,7 +55,7 @@ class Stats extends React.Component {
           <div className="dropdown">
            <Select
               value={this.state.emotion}
-              onChange={this.handleChange}
+              onChange={this.handleEmotion}
               options={emotionsList}
             />
           </div>
@@ -64,26 +65,15 @@ class Stats extends React.Component {
           <div className="dropdown">
             <Select
               value={this.state.source}
-              onChange={this.handleChange}
+              onChange={this.handleSource}
               options={sourcesList}
             />
            </div>
           
           
-          <form action="https://covid-central.netlify.com/error" method="POST" > 
           
-     
-
-          
+        <NavLink style={{ textDecoration: 'none' }} className="submitTxt" to="/dashboard"> submit </NavLink>
     
-          
-
-          
-      
-      
-      
-  <button className="submitTxt" type="submit" value="Submit">submit</button>
-    </form>
           
     
          
