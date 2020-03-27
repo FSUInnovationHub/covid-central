@@ -48,7 +48,7 @@ class Stats extends React.Component {
   {  
     const { selectedOption } = this.state;
     return (   
-      <div> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
+      <div className="noScroll"> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
         <div className="launchCont">
           <h1>Covid Central</h1>
           <h2 className="imFeeling">i'm feeling</h2>
