@@ -32,6 +32,7 @@ class Temp extends React.Component {
           <br></br>
           <a className="see" href="https://github.com/FSUInnovationHub/covid-central" target="_blank">See what we're up to...</a>
        </div>
+       
       </div>
       )
   }

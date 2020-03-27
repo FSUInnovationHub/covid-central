@@ -3,11 +3,9 @@ import './App.css';
 import { css } from "@emotion/core";
 import { Redirect } from 'react-router-dom';
 import 'react-spinning-wheel/dist/style.css';
-import ClockLoader from "react-spinners/ClockLoader";
+import NumberFormat from 'react-number-format';
 
-
-
-//The stats page will temporarily display 
+//This page will display the current statistics from the COVID-19 Outbreak Specific to the USA
 class Stats extends React.Component { 
 
   constructor() {
@@ -18,10 +16,12 @@ class Stats extends React.Component {
       pending: null,
       deaths: null,
       totalTests: null,
-      
-
     };
+    //this.numberWithCommas = this.numberWithCommas.bind(this)
   }
+  
+  
+  
   componentDidMount() {
     Promise.all([
       fetch('https://covidtracking.com/api/us'),
@@ -32,40 +32,27 @@ class Stats extends React.Component {
         positives: data1[0].positive,
         negatives: data1[0].negative,
         deaths: data1[0].death,
-        pending: data2[0].pending,
         totalTests: data1[0].totalTestResults,
+        pending: data2[0].pending,
 
        
       })
       );
-    /*
-    fetch('https://covidtracking.com/api/us')
-    .then(results => results.json())
-    .then(data => {
-      this.setState({
-        positives: data[0].positive,
-        negatives: data[0].negative,
-        deaths: data[0].death,
-        totalTests: data[0].totalTestResults
-      })
-    })
-
-    fetch('https://covidtracking.com/data/')
-    .then(results => results.text())
-    .then(results => {
-      this.setState({message: results})
-    })*/
   }
+
+
+
   render()
   {  
     return (   
       <div> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
        <h1>STATS</h1>
-       <h1>POSITIVES: {this.state.positives}</h1>
-       <h1>NEGATIVES: {this.state.negatives}</h1>
-       <h1>DEATHS: {this.state.deaths}</h1>
-       <h1>TOTAL TESTS: {this.state.totalTests}</h1>
-       <h1>PENDING: {this.state.pending}</h1>
+       <h1>POSITIVES: <NumberFormat value={this.state.positives} displayType={'text'} thousandSeparator={true}/></h1>
+       <h1>NEGATIVES: <NumberFormat value={this.state.negatives} displayType={'text'} thousandSeparator={true}/></h1>
+       <h1>DEATHS: <NumberFormat value={this.state.deaths} displayType={'text'} thousandSeparator={true}/></h1>
+       <h1>TOTAL TESTS COMPLETED: <NumberFormat value={this.state.totalTests} displayType={'text'} thousandSeparator={true}/></h1>
+       <h1>PENDING: <NumberFormat value={this.state.pending} displayType={'text'} thousandSeparator={true}/></h1>
+       
        
       </div>
       )
