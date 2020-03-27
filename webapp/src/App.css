@@ -14,7 +14,7 @@ code {
 }
 
 h1 {
-  font-size: 8vw;
+  font-size: 7vw;
   color: white;
   text-align: center;
   margin-bottom: 0vh;
@@ -59,9 +59,10 @@ h2 {
 .launchCont { 
   margin-top: 0vh;
   width: 100vw;
-  height: 50vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 /*select option css*/
@@ -69,7 +70,7 @@ h2 {
   align-self: center;
   margin-top: 2vh;
   width: 30vw;
-  height: 10vh;
+  max-height: 4vh;
   background-color: #7da4ff;
 }
 
@@ -87,12 +88,12 @@ h2 {
   border: none;
   font-weight: bold;
   color: white;
-  font-size: 15vw;
+  font-size: 10vw;
   width: 100vw;
   height: 10vh;
   text-align: center;
   text-align-last: center;
-  margin-top: 25vh;
+  margin-top: 5vh;
   bottom: 0vh;
   
 }
@@ -113,6 +114,14 @@ footer {
   height: 100px;
   width: 100%;
   overflow: hidden;
+}
+
+.imFeeling {
+  margin-top: 5vh;
+}
+
+.showMeThe {
+  margin-top: 8vh;
 }
 
 /*special CSS rules for mobile devices*/
@@ -143,7 +152,7 @@ footer {
   }
 
   .showMeThe {
-    margin-top: 2vh;
+    margin-top: 8vh;
   }
 
   /*container for Temp class*/
@@ -167,7 +176,24 @@ footer {
   align-self: center;
   margin-top: 2vh;
   width: 50vw;
-  height: 10vh;
-  background-color: #7da4ff;
+  height: 4vh;
+  
 }
+.submitTxt
+{
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+  color: white;
+  font-size: 14vw;
+  width: 100vw;
+  height: 10vh;
+  text-align: center;
+  text-align-last: center;
+  
+  bottom: 0vh;
+  position: fixed;
+    bottom: 0;
+}
+
 }
