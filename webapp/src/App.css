@@ -1,5 +1,15 @@
+/*this is so  there is no extra space around the html or body components*/
+html,body {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  margin:0;
+  padding: 0;
+  background-repeat: no-repeat;
+}
+
 body {
-  margin: 0;
+  
+  background-repeat: no-repeat;
   background-color: #7276e8ff;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -193,7 +203,8 @@ footer {
   text-align-last: center;
   
   bottom: 0vh;
-  
+  position: fixed;
+    bottom: 0;
 }
 
 }
