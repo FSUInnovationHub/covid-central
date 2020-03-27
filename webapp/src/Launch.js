@@ -4,7 +4,7 @@ import { css } from "@emotion/core";
 import { Redirect } from 'react-router-dom';
 import 'react-spinning-wheel/dist/style.css';
 import NumberFormat from 'react-number-format';
-import {Select} from 'react-select';
+import Select from 'react-select';
 
 const emotionsList = [
   { value: 'anxious', label: 'anxious' },
