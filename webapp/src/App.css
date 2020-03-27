@@ -126,6 +126,7 @@ footer {
 
 /*special CSS rules for mobile devices*/
 @media only screen and (max-width: 1024px) {
+
   .clockWrapper {
     visibility: visible;
   }
@@ -192,8 +193,7 @@ footer {
   text-align-last: center;
   
   bottom: 0vh;
-  position: fixed;
-    bottom: 0;
+  
 }
 
 }
