@@ -66,8 +66,9 @@ h2 {
 
 /*select option css*/
 .dropdown {
+  align-self: center;
   margin-top: 2vh;
-  width: 100vw;
+  width: 30vw;
   height: 10vh;
   background-color: #7da4ff;
 }
@@ -82,6 +83,8 @@ h2 {
 
 .submitTxt
 {
+  background-color: transparent;
+  border: none;
   font-weight: bold;
   color: white;
   font-size: 15vw;
@@ -89,11 +92,13 @@ h2 {
   height: 10vh;
   text-align: center;
   text-align-last: center;
-  margin-top: 2vh;
+  margin-top: 25vh;
+  bottom: 0vh;
+  
 }
 
 select {
-  color: white;
+  
   font-size: 7vw;
   width: 100vw;
   height: 10vh;
@@ -156,4 +161,13 @@ footer {
     text-align: center;
     color: black;
   }
+
+  /*select option css*/
+.dropdown {
+  align-self: center;
+  margin-top: 2vh;
+  width: 50vw;
+  height: 10vh;
+  background-color: #7da4ff;
+}
 }
