@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom';
 import 'react-spinning-wheel/dist/style.css';
 import NumberFormat from 'react-number-format';
 import Select from 'react-select'
+import {NavLink} from 'react-router-dom'
 
 /*empty array of form values*/
 var listOfCountries = [];
@@ -26,6 +27,7 @@ class Stats extends React.Component {
       positives: null,
       recovered: null,
       deaths: null,
+      lastUpdated: null,
     };
   }
   
@@ -44,10 +46,12 @@ class Stats extends React.Component {
     */
     
     Promise.all([
-      fetch('https://api.covid19api.com/summary')])
+      fetch('https://api.covid19api.com/summary'),
+    ])
       .then(([res1]) => Promise.all([res1.json()]))
       .then(([data1]) => 
-        {
+        {  
+          //this.setState({lastUpdated: new Date(data1['Date'])})
           //this for loop iterates through the entire APi response and pushed each cluster of data to the listOfCountries array.
           for(var i = 0; i < data1['Countries'].length; i++)
           {
@@ -104,9 +108,12 @@ class Stats extends React.Component {
             <h1 className="numbers">Recoveries: <br></br><NumberFormat style={green} value={this.state.recovered} displayType={'text'} thousandSeparator={true}/></h1>
             <h1 className="numbers">Deaths: <br></br><NumberFormat style={red} value={this.state.deaths} displayType={'text'} thousandSeparator={true}/></h1>
             <br></br>
-            <a style={link} href="https://github.com/CSSEGISandData/COVID-19" target="_blank">Data Source</a>
+            <a>{this.state.lastUpdated} </a>
+            <a className=".dataSource" style={link} href="https://github.com/CSSEGISandData/COVID-19" target="_blank"><div className="dataSource"> Source </div></a>
           </div>
           </div>
+          {/*redirects the user back to the launch page*/}
+          <NavLink style={{ textDecoration: 'none' }} className="resetTxt" to="/"> reset </NavLink>    
       </div>
       )
   }
