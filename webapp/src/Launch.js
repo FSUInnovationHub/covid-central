@@ -69,7 +69,17 @@ class Launch extends React.Component {
               options={sourcesList}
             />
            </div>
-          <NavLink style={{ textDecoration: 'none' }} className="submitTxt" to="/dashboard"> submit </NavLink>   
+            {/*prevents the user from submititng the "form" if they havent answered*/}
+            {  
+              (this.state.emotion === null || this.state.source === null) && (
+                <a className="submitTxt">submit</a> 
+              )
+            }
+            {/*uses the Nav Link router option to forward the user to their tailored page. */}
+            { (this.state.emotion !== null &&  this.state.source !== null) && ( 
+                <NavLink style={{ textDecoration: 'none' }} className="submitTxt" to={"/" + this.state.source['value']}> submit </NavLink>  
+              )
+            }
        </div> 
       </div>
       )
