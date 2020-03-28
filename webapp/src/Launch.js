@@ -59,6 +59,7 @@ class Launch extends React.Component {
               value={this.state.emotion}
               onChange={this.handleEmotion}
               options={emotionsList}
+              isSearchable={false}
             />
           </div>
           <h2 className="showMeThe">show me the</h2>
@@ -67,6 +68,7 @@ class Launch extends React.Component {
               value={this.state.source}
               onChange={this.handleSource}
               options={sourcesList}
+              isSearchable={false}
             />
            </div>
             {/*prevents the user from submititng the "form" if they havent answered*/}
