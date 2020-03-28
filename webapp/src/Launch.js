@@ -12,6 +12,8 @@ import Select from 'react-select';
 const emotionsList = [
   { value: 'anxious', label: 'anxious' },
   { value: 'curious', label: 'curious' },
+  { value: 'creative', label: 'creative'},
+  
 ];
 
 const sourcesList = [
