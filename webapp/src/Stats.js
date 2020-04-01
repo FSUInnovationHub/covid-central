@@ -7,6 +7,8 @@ import NumberFormat from 'react-number-format';
 import Select from 'react-select'
 import {NavLink} from 'react-router-dom'
 
+import * as Util from './Shared/Util.js'
+
 /*empty array of form values*/
 var listOfCountries = [];
 var listOfStates = [];
@@ -91,7 +93,7 @@ class Stats extends React.Component {
                 statePositives: data2[i].positive,
                 stateNegatives: data2[i].negative,
                 stateDead: data2[i].death,
-                stateUpdated: data2[i].dateModified
+                stateUpdated: Util.IsoToLocalFormatted(data2[i].dateModified)
               })
             }
             listOfStates.push({ value: data2[i].state, label: data2[i].state, positives: data2[i].positive, negatives: data2[i].negative, deaths: data2[i].death, lastUpdated: data2[i].dateModified})
@@ -102,7 +104,7 @@ class Stats extends React.Component {
             positives: sumWorldPos,
             recovered: sumWorldRec,
             deaths: sumWorldDea,
-            lastUpdated: data1['Date']
+            lastUpdated: Util.IsoToLocalFormatted(data1['Date'])
           })
       });
   }
@@ -124,7 +126,7 @@ class Stats extends React.Component {
       statePositives: state['positives'],
       stateNegatives: state['negatives'],
       stateDead: state['deaths'],
-      stateUpdated: state['lastUpdated']
+      stateUpdated: Util.IsoToLocalFormatted(state['lastUpdated'])
     })
   } 
 
