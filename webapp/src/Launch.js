@@ -21,6 +21,7 @@ const sourcesList = [
   { value: 'stats', label: 'stats' },
   { value: 'news', label: 'news' },
   { value: 'commentary', label: 'commentary' },
+  
 ];
 
 /*This page will display a form that will redirect the user to different views based on their input. 
