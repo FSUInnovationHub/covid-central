@@ -87,10 +87,6 @@ class Stats extends React.Component {
           {
             if(data2[i].state === "FL")
             {
-
-              console.log(data2[i].dateModified);
-              console.log(Util.IsoToLocalFormatted(data2[i].dateModified));
-
               //the default state will be florida, therefore the initial states are set
               this.setState({
                 state: "FL",
