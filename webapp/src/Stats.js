@@ -146,8 +146,11 @@ class Stats extends React.Component {
             <h1 className="numbers">Recoveries: <br></br><NumberFormat style={green} value={this.state.recovered} displayType={'text'} thousandSeparator={true}/></h1>
             <h1 className="numbers">Deaths: <br></br><NumberFormat style={red} value={this.state.deaths} displayType={'text'} thousandSeparator={true}/></h1>
             <br></br>
-            <a style={gray}>Updated at: {this.state.lastUpdated} </a>
             <a className=".dataSource" style={link} href="https://covid19api.com/" target="_blank"><div className="dataSource"> Source </div></a>
+            <br></br>
+            <a style={gray}>Updated at: {this.state.lastUpdated} </a>
+            <br></br>
+            
           </div>
           </div>
           <div className="statsCont">
@@ -161,10 +164,12 @@ class Stats extends React.Component {
             <h1 className="numbers">Positives: <br></br><NumberFormat style={orange} value={this.state.statePositives} displayType={'text'} thousandSeparator={true}/></h1>
             <h1 className="numbers">Negatives: <br></br><NumberFormat style={green} value={this.state.stateNegatives} displayType={'text'} thousandSeparator={true}/></h1>
             <h1 className="numbers">Deaths: <br></br><NumberFormat style={red} value={this.state.stateDead} displayType={'text'} thousandSeparator={true}/></h1>
-            <br></br>
-            <a style={gray}> Updated At: {this.state.stateUpdated}</a>
+            
             <a className=".dataSource" style={link} href="https://covidtracking.com/" target="_blank"><div className="dataSource"> Source </div></a>
             <br></br>
+            <a style={gray}> Updated At: {this.state.stateUpdated}</a>
+            <br></br>
+            
           </div>
           </div>
 

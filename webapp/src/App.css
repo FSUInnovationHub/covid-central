@@ -379,7 +379,6 @@ h2 {
   .selectCountry{
     width: 50vw;
     margin-left: 0vw;
-    
   }
   
   /*used for any links*/
@@ -395,6 +394,12 @@ h2 {
   .lastItem {
    margin-bottom: 30vh;
     
+  }
+
+  /*used for sources*/
+  .dataSource {
+    font-size: 4.5vw;
+    float: left;
   }
   
 
