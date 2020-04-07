@@ -5,8 +5,13 @@ import { css } from "@emotion/core";
 import { Redirect } from 'react-router-dom';
 import 'react-spinning-wheel/dist/style.css';
 import NumberFormat from 'react-number-format';
-import Select from 'react-select';
+//import Select from 'react-select';
 
+import Button from '@material-ui/core/Button';
+import Divider from '@material-ui/core/Divider';
+import Link from '@material-ui/core/Link';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
 
 /*array of form values*/
 const emotionsList = [
@@ -15,13 +20,18 @@ const emotionsList = [
   { value: 'creative', label: 'creative'},
   
 ];
+const emotions = [ 'Anxious', 'Curious', 'Creative' ];
 
+/*
 const sourcesList = [
   { value: 'facts', label: 'facts' },
   { value: 'stats', label: 'stats' },
   { value: 'news', label: 'news' },
   { value: 'commentary', label: 'commentary' },
+  
 ];
+*/
+const sources = [ 'Facts', 'Stats', 'News', 'Commentary' ];
 
 /*This page will display a form that will redirect the user to different views based on their input. 
 It functions with React states and react Redirects*/
@@ -31,10 +41,9 @@ class Launch extends React.Component {
   constructor() {
     super();
     this.state = {
-      emotion: null,
-      source: null,
+      emotion: '',
+      source: '',
     };
-   
   }
   
 
@@ -42,46 +51,45 @@ class Launch extends React.Component {
     this.setState({ emotion });
   };
 
-  handleSource = source => {
-    this.setState({ source });
+  handleSource = newSource => {
+    this.setState({source: newSource.target.value});
   };
-
 
   render()
   {  
     return (   
       <div className="noScroll"> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
-        <div className="launchCont">
+        <div className="launchCont" style={{position:'relative'}}>
           <h1>Covid Central</h1>
-          <h2 className="imFeeling">i'm feeling</h2>
-          <div className="dropdown">
-           <Select
-              value={this.state.emotion}
-              onChange={this.handleEmotion}
-              options={emotionsList}
-              isSearchable={false}
-            />
-          </div>
+
           <h2 className="showMeThe">show me the</h2>
           <div className="dropdown">
+
             <Select
-              value={this.state.source}
-              onChange={this.handleSource}
-              options={sourcesList}
-              isSearchable={false}
-            />
+              style={{width:'auto',display:'block'}}
+              autoWidth={true}
+              renderValue={(selected => { return !selected ? "Pick category" : selected})}
+              displayEmpty={true}
+              value={this.state.source || ''}
+              onChange={this.handleSource}>
+              { 
+                sources.map((label, index) => 
+                  <MenuItem key={index} value={label}>{label}</MenuItem>
+              )}
+            </Select>
            </div>
-            {/*prevents the user from submititng the "form" if they havent answered*/}
-            {  
-              (this.state.emotion === null || this.state.source === null) && (
-                <a className="submitTxt">submit</a> 
-              )
-            }
-            {/*uses the Nav Link router option to forward the user to their tailored page. */}
-            { (this.state.emotion !== null &&  this.state.source !== null) && ( 
-                <NavLink style={{ textDecoration: 'none' }} className="submitTxt" to={"/" + this.state.source['value']}> submit </NavLink>  
-              )
-            }
+
+           <div style={{position:'absolute',bottom:'0'}}>
+              <hr className="solid"></hr>
+              <Button 
+                  className="submitTxt"
+                  style={{fontSize:'10vw'}} 
+                  variant="text"
+                  href={"/" + this.state.source}
+                  disabled={this.state.source == ""}>
+                  Submit
+              </Button>
+            </div>
        </div> 
       </div>
       )
