@@ -25,6 +25,7 @@ const topTenOptionsState = [
   { value: 'deaths', label: 'By Known Deaths', color: 'red' },
 ]
 
+
 /*shorthand css*/
 const green = {color: 'green'};
 const orange = {color: 'orange'};
@@ -80,6 +81,7 @@ class Stats extends React.Component {
       topTenStates: [],
       byKnownWorld: "",
       byKnownStates: "",
+
     };
   }
   
@@ -144,6 +146,21 @@ class Stats extends React.Component {
             listOfStates.push({ value: data2[i].state, label: data2[i].state, positives: data2[i].positive, negatives: data2[i].negative, deaths: data2[i].death, lastUpdated: data2[i].dateModified})
           }
           
+          for(var i = 0; i < data2.length; i++)
+          {
+            if(data2[i].state === "FL")
+            {
+              //the default state will be florida, therefore the initial states are set
+              this.setState({
+                state: "FL",
+                statePositives: data2[i].positive,
+                stateNegatives: data2[i].negative,
+                stateDead: data2[i].death,
+                stateUpdated: Util.IsoToLocalFormatted(data2[i].dateModified)
+              })
+            }
+            listOfStates.push({ value: data2[i].state, label: data2[i].state, positives: data2[i].positive, negatives: data2[i].negative, deaths: data2[i].death, lastUpdated: data2[i].dateModified})
+          }
           //this allows for the default values to be set to "World"
           this.setState({
             country: "World",
