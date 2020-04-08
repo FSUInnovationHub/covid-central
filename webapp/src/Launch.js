@@ -5,7 +5,6 @@ import { css } from "@emotion/core";
 import { Redirect } from 'react-router-dom';
 import 'react-spinning-wheel/dist/style.css';
 import NumberFormat from 'react-number-format';
-//import Select from 'react-select';
 
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
@@ -13,26 +12,8 @@ import Link from '@material-ui/core/Link';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 
-/*array of form values*/
-const emotionsList = [
-  { value: 'anxious', label: 'anxious' },
-  { value: 'curious', label: 'curious' },
-  { value: 'creative', label: 'creative'},
-  
-];
-const emotions = [ 'Anxious', 'Curious', 'Creative' ];
-
-/*
-const sourcesList = [
-  { value: 'facts', label: 'facts' },
-  { value: 'stats', label: 'stats' },
-  { value: 'news', label: 'news' },
-  { value: 'commentary', label: 'commentary' },
-  
-];
-*/
 const sources = [ 'Facts', 'Stats', 'News', 'Commentary' ];
-
+  
 /*This page will display a form that will redirect the user to different views based on their input. 
 It functions with React states and react Redirects*/
 class Launch extends React.Component { 
