@@ -81,6 +81,10 @@ h2 {
   overflow: hidden;
 }
 
+.navBanner {
+  width: 100vw;
+}
+
 /*select option css*/
 .dropdown {
   align-self: center;

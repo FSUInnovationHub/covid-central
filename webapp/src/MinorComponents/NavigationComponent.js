@@ -1,7 +1,5 @@
-import React, {useState} from 'react';
+import React from 'react';
 import '../App.css';
-import { css } from "@emotion/core";
-import { Redirect } from 'react-router-dom';
 import 'react-spinning-wheel/dist/style.css';
 
 // material ui
@@ -29,7 +27,7 @@ class NavigationComponent extends React.Component {
     return (   
 
 <div className="navBanner"> 
-    <AppBar position="static">
+    <AppBar position="fixed">
         <Toolbar>
           <Typography variant="title" color="inherit">Title</Typography>
 
