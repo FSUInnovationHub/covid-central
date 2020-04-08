@@ -14,12 +14,48 @@ import { Button } from '@material-ui/core';
 var listOfCountries = [];
 var listOfStates = [];
 
+//sort by world or state options NOTE- No recoveries have been reported by states.
+const topTenOptions = [
+  { value: 'positives', label: 'By Known Cases', color: 'orange' },
+  {value: 'recovered', label: 'By Known Recoveries', color: 'green' },
+  { value: 'deaths', label: 'By Known Deaths', color: 'red' },
+];
+const topTenOptionsState = [
+  { value: 'positives', label: 'By Known Cases', color: 'orange' },
+  { value: 'deaths', label: 'By Known Deaths', color: 'red' },
+]
+
+
 /*shorthand css*/
 const green = {color: 'green'};
 const orange = {color: 'orange'};
 const red = {color: 'red'};
 const gray = {color: 'gray'};
 const link = {color: '#7da4ff'};
+
+//this function converts the time to the local user's time zone and then seperates the day and time
+//0 is day, 1 is time
+var dateArray = function(apiDate) {
+  var timestamp = Util.IsoToLocalFormatted(apiDate);
+  var day = [];
+  var time = [];
+  var returnArr = [];
+  for(var d = 0; d < timestamp.length; d++)
+  { 
+    if(timestamp[d] == " ")
+    {
+      for(var t = d; t < timestamp.length; t++)
+      {
+        time.push(timestamp[t])
+      }
+      break
+    }
+      day.push(timestamp[d])
+  }
+  returnArr.push(day.join(""))
+  returnArr.push(time.join(""))
+  return returnArr;
+}
 
 //This page will display the current statistics from the COVID-19 Outbreak Specific to the USA
 class Stats extends React.Component { 
@@ -32,13 +68,20 @@ class Stats extends React.Component {
       positives: null,
       recovered: null,
       deaths: null,
-      lastUpdated: null,
+      worldUpdatedDay: null,
+      worldUpdatedTime: null,
+      topTenCountries: [],
       state: "",
       statePositives: null,
       stateNegatives: null,
       stateDead: null,
       stateTotalTests: null, 
-      stateUpdated: null,
+      stateUpdatedDay: null,
+      stateUpdatedTime: null,
+      topTenStates: [],
+      byKnownWorld: "",
+      byKnownStates: "",
+
     };
   }
   
@@ -83,6 +126,25 @@ class Stats extends React.Component {
 
           //creates a world option since the API doesn't provide one
           listOfCountries.push({ value: "World", label: "World", positives: sumWorldPos, recovered: sumWorldRec, deaths: sumWorldDea})
+          this.sortTop(listOfCountries)
+          for(var i = 0; i < data2.length; i++)
+          {
+            
+            if(data2[i].state === "FL")
+            {
+              dateArray(data2[i].dateModified)
+              //the default state will be florida, therefore the initial states are set
+              this.setState({
+                state: "FL",
+                statePositives: data2[i].positive,
+                stateNegatives: data2[i].negative,
+                stateDead: data2[i].death,
+                stateUpdatedDay: dateArray(data2[i].dateModified)[0],
+                stateUpdatedTime: dateArray(data2[i].dateModified)[1],
+              })
+            }
+            listOfStates.push({ value: data2[i].state, label: data2[i].state, positives: data2[i].positive, negatives: data2[i].negative, deaths: data2[i].death, lastUpdated: data2[i].dateModified})
+          }
           
           for(var i = 0; i < data2.length; i++)
           {
@@ -105,9 +167,32 @@ class Stats extends React.Component {
             positives: sumWorldPos,
             recovered: sumWorldRec,
             deaths: sumWorldDea,
-            lastUpdated: Util.IsoToLocalFormatted(data1['Date'])
+            worldUpdatedDay: dateArray(data1['Date'])[0],
+            worldUpdatedTime: dateArray(data1['Date'])[1],
+            topTenCountries: (this.sortTop(listOfCountries, 'positives')),
+            topTenStates: (this.sortTop(listOfStates, 'positives'))
           })
       });
+
+      
+  }
+
+  //this fnc sorts through the list and arranges it in descending order based on the query put in ex) by known cases
+  sortTop(list, query) {
+    var sortedList = list.sort(function(a,b) {return (b[query] - a[query])})
+    var topTen = []
+    var upper = 10;
+    for(var i = 0; i < upper; i++)
+    {
+      //world was forced to the beginning of the listOfCountries array. This ensures it doesn't get counted in the top ten.
+      if(sortedList[i]['label'] === "World"){
+        upper++;
+        continue
+      }
+      //2 dimenstional array allows for the list value and its query to be saved... ex) India, positives
+      topTen.push([sortedList[i]['label'], sortedList[i][query]])
+    }
+    return topTen
   }
 
   handleCountry = country => {
@@ -127,17 +212,78 @@ class Stats extends React.Component {
       statePositives: state['positives'],
       stateNegatives: state['negatives'],
       stateDead: state['deaths'],
-      stateUpdated: Util.IsoToLocalFormatted(state['lastUpdated'])
+      stateUpdatedDay: dateArray(state['lastUpdated'])[0],
+      stateUpdatedTime: dateArray(state['lastUpdated'])[1]
+    })
+  } 
+
+  handleByKnownWorld = byKnownWorld => {
+    //sets states for the individual country being queried
+    this.setState({
+      byKnownWorld,
+      topTenCountries: this.sortTop(listOfCountries, byKnownWorld['value']),
+    })
+  } 
+
+  handleByKnownStates = byKnownStates => {
+    //sets states for the individual state being queried
+    this.setState({
+      byKnownStates,
+      topTenStates: this.sortTop(listOfStates, byKnownStates['value']),
     })
   } 
 
   render()
   {  
+    //maps out the top ten countries. the conditional rendering is used to pick the color of the figures being shown. 
+    //ex) recoveries renders green
+    const topTenCountryNames = this.state.topTenCountries.map((item) =>
+      <li key={item}>{item[0]} 
+      (
+      {this.state.byKnownWorld['value'] === "deaths" ? (
+        <NumberFormat style={red} value={item[1]} displayType={'text'} thousandSeparator={true}/>
+      )
+      :
+      (
+        this.state.byKnownWorld['value'] === "recovered" ? (
+          <NumberFormat style={green} value={item[1]} displayType={'text'} thousandSeparator={true}/>
+        )
+        :
+        (
+          <NumberFormat style={orange} value={item[1]} displayType={'text'} thousandSeparator={true}/>
+        )
+      )})
+      </li>
+    );
+
+    //maps out the top ten states. the conditional rendering is used to pick the color of the figures being shown. 
+    //ex) recoveries renders green
+    const topTenStates = this.state.topTenStates.map((item) =>
+      <li key={item}>{item[0]} 
+      (
+      {this.state.byKnownStates['value'] === "deaths" ? (
+        <NumberFormat style={red} value={item[1]} displayType={'text'} thousandSeparator={true}/>
+      )
+      :
+      (
+        this.state.byKnownStates['value'] === "recovered" ? (
+          <NumberFormat style={green} value={item[1]} displayType={'text'} thousandSeparator={true}/>
+        )
+        :
+        (
+          <NumberFormat style={orange} value={item[1]} displayType={'text'} thousandSeparator={true}/>
+        )
+      )})
+      </li>
+    );
+
     return (   
       <div className="statsPage"> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
+      
+      {/*COUNTRY TRACKER WIDGET*/}
        <div className="statsCont">
-       <Select className="selectCountry"
-       placeholder={"World"}
+        <Select className="selectCountry"
+          placeholder={"World"}
           value={this.state.country}
           onChange={this.handleCountry}
           options={listOfCountries}
@@ -147,30 +293,68 @@ class Stats extends React.Component {
             <h1 className="numbers">Recoveries: <br></br><NumberFormat style={green} value={this.state.recovered} displayType={'text'} thousandSeparator={true}/></h1>
             <h1 className="numbers">Deaths: <br></br><NumberFormat style={red} value={this.state.deaths} displayType={'text'} thousandSeparator={true}/></h1>
             <br></br>
-            <a style={gray}>Updated at: {this.state.lastUpdated} </a>
+            <a className="updatedAt" style={gray}>{this.state.worldUpdatedTime} </a>
+            <br></br>
+            <a className="updatedAt" style={gray}>{this.state.worldUpdatedDay} </a>
             <a className=".dataSource" style={link} href="https://covid19api.com/" target="_blank"><div className="dataSource"> Source </div></a>
+            <br></br>
           </div>
-          </div>
-          <div className="statsCont">
-       <Select className="selectCountry"
-       placeholder={"FL"}
-          value={this.state.state}
-          onChange={this.handleState}
-          options={listOfStates}
-        />
+        </div>
+
+      {/*STATE TRACKER WIDGET*/}
+        <div className="statsCont">
+          <Select className="selectCountry"
+            placeholder={"FL"}
+            value={this.state.state}
+            onChange={this.handleState}
+            options={listOfStates}
+          />
           <div>
             <h1 className="numbers">Positives: <br></br><NumberFormat style={orange} value={this.state.statePositives} displayType={'text'} thousandSeparator={true}/></h1>
             <h1 className="numbers">Negatives: <br></br><NumberFormat style={green} value={this.state.stateNegatives} displayType={'text'} thousandSeparator={true}/></h1>
             <h1 className="numbers">Deaths: <br></br><NumberFormat style={red} value={this.state.stateDead} displayType={'text'} thousandSeparator={true}/></h1>
             <br></br>
-            <a style={gray}> Updated At: {this.state.stateUpdated}</a>
+            <a style={gray} className="updatedAt"> {this.state.stateUpdatedTime}</a>
+            <br></br>
+            <a style={gray} className="updatedAt"> {this.state.stateUpdatedDay}</a>
             <a className=".dataSource" style={link} href="https://covidtracking.com/" target="_blank"><div className="dataSource"> Source </div></a>
+          </div>
+        </div>
+
+      {/*TOP TEN COUNTRIES WIDGET*/}
+        <div className="statsCont">
+          <h1 className="topTenHeader">Top Ten Countries <br></br></h1>
+          <Select className="selectCountry"
+            placeholder={"By Known Cases"}
+            value={this.state.byKnownWorld}
+            onChange={this.handleByKnownWorld}
+            options={topTenOptions}
+          />
+          <div>
+            <ol className="topTen">{topTenCountryNames}</ol>
             <br></br>
           </div>
-          </div>
+            <a className=".dataSource" style={link} href="https://covid19api.com/" target="_blank"><div className="dataSource"> Source </div></a>
+        </div>
 
-          {/*redirects the user back to the launch page*/}
-          <NavLink style={{ textDecoration: 'none' }} className="resetTxt" to="/"> reset </NavLink>    
+      {/*TOP TEN STATES WIDGET*/}
+        <div className="statsCont">
+          <h1 className="topTenHeader">Top Ten States <br></br></h1>
+          <Select className="selectCountry"
+            placeholder={"By Known Cases"}
+            value={this.state.byKnownStates}
+            onChange={this.handleByKnownStates}
+            options={topTenOptionsState}
+          />
+          <div>
+            <ol className="topTen">{topTenStates}</ol>
+            <br></br>
+          </div>
+            <a className=".dataSource" style={link} href="https://covidtracking.com/" target="_blank"><div className="dataSource"> Source </div></a>
+        </div>
+      
+      {/*redirects the user back to the launch page*/}
+        <NavLink style={{ textDecoration: 'none' }} className="resetTxt" to="/"> reset </NavLink>    
       </div>
       )
   }

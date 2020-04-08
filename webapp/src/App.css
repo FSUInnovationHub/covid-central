@@ -24,7 +24,11 @@ h1 {
 
 /*used for link*/
 a {
-  font-size: 2vw;
+  font-size: 2.5vw;
+}
+
+.updatedAt {
+  font-size: 2.5vw;
 }
 
 /*used for sources*/
@@ -165,13 +169,14 @@ h2 {
   align-items: stretch;
   /*flex-direction: row-reverse;*/
   align-items: flex-start;
-  overflow-x: hidden;
+  overflow-x: scroll;
   overflow-y: scroll;
 }
 
 /*container for Temp class*/
 .statsCont { 
   /*CHANGE IN FUTURE*/
+  
   margin-bottom: 20vh;
   margin-top: 3vh;
   width: 25vw;
@@ -197,9 +202,23 @@ h2 {
 /*stats text*/
 .numbers
 {
+  
   font-size: 4vw;
 }
 
+.topTenHeader {
+  /*stats text*/
+  font-size: 3vw;
+
+}
+.topTen {
+  font-size: 2.5vw;
+  color: white;
+  text-align: left;
+  margin-bottom: 0vh;
+  margin-top: 2vh;
+  font-weight: bold;
+}
 
 /*special CSS rules for mobile devices*/
 @media only screen and (max-width: 600px) {
@@ -342,6 +361,7 @@ h2 {
   height: auto;
   display: flex;
   margin-left: 22vw;
+  margin-right: 22vw;
   flex-direction: column;
   background-color: #2b2d2f;
   padding-top: 3vh;
@@ -379,7 +399,6 @@ h2 {
   .selectCountry{
     width: 50vw;
     margin-left: 0vw;
-    
   }
   
   /*used for any links*/
@@ -396,6 +415,32 @@ h2 {
    margin-bottom: 30vh;
     
   }
-  
+
+  /*used for sources*/
+  .dataSource {
+    font-size: 4.25vw;
+    float: left;
+  }
+
+  .updatedAt {
+    float: right;
+    font-size: 4.25vw;
+  }
+
+  .topTen {
+    font-size: 4.25vw;
+    color: white;
+    text-align: left;
+    margin-bottom: 0vh;
+    margin-top: 2vh;
+    font-weight: bold;
+  }
+
+  .topTenHeader {
+    /*stats text*/
+    font-size: 5vw;
+    margin-bottom: 1vh;
+    margin-top: 0vh;
+  }
 
 }
