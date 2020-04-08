@@ -281,7 +281,7 @@ class Stats extends React.Component {
 
     return (   
       <div className="statsPage"> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
-      <NavigationComponent />
+      <NavigationComponent title="Stats" />
 
       {/*COUNTRY TRACKER WIDGET*/}
        <div className="statsCont">
@@ -356,8 +356,6 @@ class Stats extends React.Component {
             <a className=".dataSource" style={link} href="https://covidtracking.com/" target="_blank"><div className="dataSource"> Source </div></a>
         </div>
       
-      {/*redirects the user back to the launch page*/}
-        <NavLink style={{ textDecoration: 'none' }} className="resetTxt" to="/"> reset </NavLink>    
       </div>
       )
   }

@@ -14,9 +14,10 @@ import RefreshIcon from '@material-ui/icons/Refresh';
 
 class NavigationComponent extends React.Component { 
 
-  constructor() {
-    super();
-    //this.title = this.props.title
+  constructor(props) {
+    super(props);
+    this.title = this.props.title
+    //this.refreshCallback = this.props.refreshCallback
     this.state = {
 
     };
@@ -29,7 +30,7 @@ class NavigationComponent extends React.Component {
 <div className="navBanner"> 
     <AppBar position="fixed">
         <Toolbar>
-          <Typography variant="title" color="inherit">Title</Typography>
+          <Typography variant="title" color="inherit">{this.title}</Typography>
 
           <section style={{marginLeft: 'auto'}}>
               <IconButton href={"/launch"} color="inherit">

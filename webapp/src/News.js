@@ -6,7 +6,7 @@ import NavigationComponent from './MinorComponents/NavigationComponent'
 
 // icons
 
-var articles = [];
+//var articles = [];
 
 class NewsPage extends React.Component { 
 
@@ -26,7 +26,7 @@ class NewsPage extends React.Component {
     return (   
 
 <div className="newsContainer"> 
-    <NavigationComponent />
+    <NavigationComponent title="News" />
 </div>
 
       )
