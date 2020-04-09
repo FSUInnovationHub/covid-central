@@ -27,6 +27,10 @@ class NewsPage extends React.Component {
 
 <div className="newsContainer"> 
     <NavigationComponent title="News" />
+
+    <div style={{marginTop: '40px'}}>
+
+    </div>
 </div>
 
       )

@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {rennder} from 'react-dom';
 import './App.css';
 import * as serviceWorker from './serviceWorker';
-import { Redirect, Switch, Route, BrowserRouter as Router, Link } from 'react-router-dom';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import Temp from './Temp'
 import Stats from './Stats'
 import Launch from './Launch'
 import NewsPage from './News'
+
 /*using react router we set a constant equal to whatever component
 we would like to render*/
 const routing = (

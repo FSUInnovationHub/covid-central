@@ -1,14 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
-import { NavLink } from 'react-router-dom'
-import { css } from "@emotion/core";
-import { Redirect } from 'react-router-dom';
 import 'react-spinning-wheel/dist/style.css';
-import NumberFormat from 'react-number-format';
 
 import Button from '@material-ui/core/Button';
-import Divider from '@material-ui/core/Divider';
-import Link from '@material-ui/core/Link';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 
@@ -67,7 +61,7 @@ class Launch extends React.Component {
                   style={{fontSize:'10vw'}} 
                   variant="text"
                   href={"/" + this.state.source}
-                  disabled={this.state.source == ""}>
+                  disabled={this.state.source === ""}>
                   Submit
               </Button>
             </div>
