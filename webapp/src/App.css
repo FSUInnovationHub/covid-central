@@ -1,3 +1,10 @@
+<link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+  crossorigin="anonymous"
+/>
+
 body {
   margin: 0;
   background-color: #7276e8ff;
@@ -6,6 +13,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+
 }
 
 code {
@@ -58,7 +67,7 @@ h2 {
 }
 
 /*container for Temp class*/
-.tempCont { 
+.tempCont {
   margin-top: 5vh;
   width: 100vw;
   height: 50vh;
@@ -72,7 +81,7 @@ h2 {
 }
 
 /*container for launch class*/
-.launchCont { 
+.launchCont {
   margin-top: 0vh;
   width: 100vw;
   height: 100vh;
@@ -112,7 +121,7 @@ h2 {
   text-align-last: center;
   margin-top: 5vh;
   bottom: 0vh;
-  
+
 }
 
 .submitTxt:hover
@@ -125,22 +134,21 @@ h2 {
   color: #03bb85;
 }
 
-/*rules for "reset" on form*/
+/*rules for "reset" on form
 .resetTxt
 {
   background-color: gray;;
   border: none;
   font-weight: bold;
   color: white;
-  font-size: 3vw; /*change back to 8*/
-  width: 100vw;
+  font-size: 7vw; /*change back to 8
+  width: 100%;
   height: auto;
   text-align: center;
-  text-align-last: center;
-  bottom: 0vh;
-  position: fixed;
-    bottom: 0;
+  bottom: 0;
+  position:fixed;
 }
+*/
 
 .resetTxt:hover
 {
@@ -173,13 +181,21 @@ h2 {
   overflow-y: scroll;
 }
 
+.container-fluid {
+    width: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 /*container for Temp class*/
-.statsCont { 
+.statsCont {
   /*CHANGE IN FUTURE*/
-  
-  margin-bottom: 20vh;
+
+  /*margin-bottom: 20vh;*/
   margin-top: 3vh;
-  width: 25vw;
+  width: auto;
   height: auto;
   display: flex;
   margin-left: 3vw;
@@ -196,13 +212,13 @@ h2 {
 /*limit size of dropdown on stats page*/
 .selectCountry{
   width: 15vw;
-  margin-left: 5vw;
+  margin: 0 auto;
 }
 
 /*stats text*/
 .numbers
 {
-  
+
   font-size: 4vw;
 }
 
@@ -242,7 +258,7 @@ h2 {
     color: white;
     text-align: center;
     margin-bottom: 0vh;
-    
+
   }
 
   /*used for launch form spacing*/
@@ -255,7 +271,7 @@ h2 {
   }
 
   /*container for Temp class*/
-  .tempCont { 
+  .tempCont {
     margin-top: 20vh;
     width: 100vw;
     height: 50vh;
@@ -275,7 +291,7 @@ h2 {
     align-self: center;
     margin-top: 2vh;
     width: 50vw;
-    height: 4vh; 
+    height: 4vh;
   }
 
   /*rules for "submit" on form*/
@@ -305,23 +321,7 @@ h2 {
     color: #03bb85;
   }
 
-  /*rules for "reset" on form*/
-  .resetTxt
-  {
-    background-color: gray;;
-    border: none;
-    font-weight: bold;
-    color: white;
-    font-size: 14vw;
-    width: 100vw;
-    height: auto;
-    text-align: center;
-    text-align-last: center;
-    bottom: 0vh;
-    /*CHANGE IN FUTURE*/
-    position: fixed;
-      bottom: 0;
-  }
+
 
   .resetTxt:hover
   {
@@ -354,8 +354,10 @@ h2 {
   overflow-y: scroll;
 }
 
+
 /*container for Temp class*/
-.statsCont { 
+/*
+.statsCont {
   margin-top: 3vh;
   width: 50vw;
   height: auto;
@@ -371,21 +373,27 @@ h2 {
   border-radius: 0.694vw;
   align-content: center;
 }
+*/
 
-/*limit size of dropdown on stats page*/
+/*limit size of dropdown on stats page
 .selectCountry{
   width: 30vw;
   margin-left: 10vw;
 }
+*/
+
   /*stats page wrapper*/
+
 .statsPage {
   width: 100vw;
   height: 100vh;
   flex-direction: column;
   overflow: scroll;
 }
+
   /*container for Temp class*/
-  .statsCont { 
+  /*
+  .statsCont {
     margin-bottom: 0vh;
     border-radius: 2.5vw;
     margin-top: 3vh;
@@ -393,14 +401,13 @@ h2 {
     height: auto;
     display: flex;
     flex-direction: column;
-  }
-
+  }*/
   /*limit size of dropdown on stats page*/
   .selectCountry{
     width: 50vw;
-    margin-left: 0vw;
+    margin: 0 auto;
   }
-  
+
   /*used for any links*/
   a {
     font-size: 4vw;
@@ -410,10 +417,10 @@ h2 {
     width: auto;
     height: 100vh;
   }
-  
+
   .lastItem {
    margin-bottom: 30vh;
-    
+
   }
 
   /*used for sources*/
