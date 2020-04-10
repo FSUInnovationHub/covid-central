@@ -347,7 +347,7 @@ h2 {
   height: 100vh;
   flex-direction: row-reverse;
   overflow-x: hidden;
-  overflow-y: scroll;
+  /*overflow-y: auto;*/
 }
 
 
@@ -384,7 +384,7 @@ h2 {
   width: 100vw;
   height: 100vh;
   flex-direction: column;
-  overflow: scroll;
+  /*overflow: scroll;*/
 }
 
   /*container for Temp class*/
