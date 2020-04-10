@@ -8,7 +8,9 @@ import Select from 'react-select'
 import {NavLink} from 'react-router-dom'
 
 import * as Util from './Shared/Util.js'
-import { Button } from '@material-ui/core';
+//import { Button } from '@material-ui/core';
+import { Button } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 
 /*empty array of form values*/
 var listOfCountries = [];
@@ -41,7 +43,7 @@ var dateArray = function(apiDate) {
   var time = [];
   var returnArr = [];
   for(var d = 0; d < timestamp.length; d++)
-  { 
+  {
     if(timestamp[d] == " ")
     {
       for(var t = d; t < timestamp.length; t++)
@@ -58,7 +60,7 @@ var dateArray = function(apiDate) {
 }
 
 //This page will display the current statistics from the COVID-19 Outbreak Specific to the USA
-class Stats extends React.Component { 
+class Stats extends React.Component {
 
   constructor() {
     super();
@@ -75,7 +77,7 @@ class Stats extends React.Component {
       statePositives: null,
       stateNegatives: null,
       stateDead: null,
-      stateTotalTests: null, 
+      stateTotalTests: null,
       stateUpdatedDay: null,
       stateUpdatedTime: null,
       topTenStates: [],
@@ -84,7 +86,7 @@ class Stats extends React.Component {
 
     };
   }
-  
+
   //connects to the covid19api.com, which is sourced from Johns Hopkins CSSE
   componentDidMount() {
     //world totals will increment as as the api response is iterated through.
@@ -95,23 +97,23 @@ class Stats extends React.Component {
     /*
       The API response is wrapped in the following manner...
         res = response['Countries'][Country Code].Category
-      For example, if I want to see the USA's total i would say 
+      For example, if I want to see the USA's total i would say
         usTotal = response['Countries'][215].TotalConfirmed
     */
-    
+
     Promise.all([
       fetch('https://api.covid19api.com/summary'),
       fetch('https://covidtracking.com/api/states'),
     ])
       .then(([res1, res2]) => Promise.all([res1.json(), res2.json()]))
-      .then(([data1, data2]) => 
-        {  
+      .then(([data1, data2]) =>
+        {
           //this.setState({lastUpdated: new Date(data1['Date'])})
           //this for loop iterates through the entire APi response and pushed each cluster of data to the listOfCountries array.
           for(var i = 0; i < data1['Countries'].length; i++)
           {
             if(data1['Countries'][i].Country === 'US')
-            { 
+            {
               listOfCountries.push({ value: data1['Countries'][i].Country, label: "United States", code: i, positives: data1['Countries'][i].TotalConfirmed, recovered: data1['Countries'][i].TotalRecovered, deaths: data1['Countries'][i].TotalDeaths})
             }
             else
@@ -129,7 +131,7 @@ class Stats extends React.Component {
           this.sortTop(listOfCountries)
           for(var i = 0; i < data2.length; i++)
           {
-            
+
             if(data2[i].state === "FL")
             {
               dateArray(data2[i].dateModified)
@@ -145,7 +147,7 @@ class Stats extends React.Component {
             }
             listOfStates.push({ value: data2[i].state, label: data2[i].state, positives: data2[i].positive, negatives: data2[i].negative, deaths: data2[i].death, lastUpdated: data2[i].dateModified})
           }
-          
+
           for(var i = 0; i < data2.length; i++)
           {
             if(data2[i].state === "FL")
@@ -174,7 +176,7 @@ class Stats extends React.Component {
           })
       });
 
-      
+
   }
 
   //this fnc sorts through the list and arranges it in descending order based on the query put in ex) by known cases
@@ -196,7 +198,7 @@ class Stats extends React.Component {
   }
 
   handleCountry = country => {
-    //sets states for the individual country being queried 
+    //sets states for the individual country being queried
     this.setState({
       country,
       positives: country['positives'],
@@ -215,7 +217,7 @@ class Stats extends React.Component {
       stateUpdatedDay: dateArray(state['lastUpdated'])[0],
       stateUpdatedTime: dateArray(state['lastUpdated'])[1]
     })
-  } 
+  }
 
   handleByKnownWorld = byKnownWorld => {
     //sets states for the individual country being queried
@@ -223,7 +225,7 @@ class Stats extends React.Component {
       byKnownWorld,
       topTenCountries: this.sortTop(listOfCountries, byKnownWorld['value']),
     })
-  } 
+  }
 
   handleByKnownStates = byKnownStates => {
     //sets states for the individual state being queried
@@ -231,14 +233,14 @@ class Stats extends React.Component {
       byKnownStates,
       topTenStates: this.sortTop(listOfStates, byKnownStates['value']),
     })
-  } 
+  }
 
   render()
-  {  
-    //maps out the top ten countries. the conditional rendering is used to pick the color of the figures being shown. 
+  {
+    //maps out the top ten countries. the conditional rendering is used to pick the color of the figures being shown.
     //ex) recoveries renders green
     const topTenCountryNames = this.state.topTenCountries.map((item) =>
-      <li key={item}>{item[0]} 
+      <li key={item}>{item[0]}
       (
       {this.state.byKnownWorld['value'] === "deaths" ? (
         <NumberFormat style={red} value={item[1]} displayType={'text'} thousandSeparator={true}/>
@@ -256,10 +258,10 @@ class Stats extends React.Component {
       </li>
     );
 
-    //maps out the top ten states. the conditional rendering is used to pick the color of the figures being shown. 
+    //maps out the top ten states. the conditional rendering is used to pick the color of the figures being shown.
     //ex) recoveries renders green
     const topTenStates = this.state.topTenStates.map((item) =>
-      <li key={item}>{item[0]} 
+      <li key={item}>{item[0]}
       (
       {this.state.byKnownStates['value'] === "deaths" ? (
         <NumberFormat style={red} value={item[1]} displayType={'text'} thousandSeparator={true}/>
@@ -277,9 +279,10 @@ class Stats extends React.Component {
       </li>
     );
 
-    return (   
+    return (
+
       <div className="statsPage"> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
-      
+<Container fluid>
       {/*COUNTRY TRACKER WIDGET*/}
        <div className="statsCont">
         <Select className="selectCountry"
@@ -300,7 +303,8 @@ class Stats extends React.Component {
             <br></br>
           </div>
         </div>
-
+</Container>
+<Container fluid>
       {/*STATE TRACKER WIDGET*/}
         <div className="statsCont">
           <Select className="selectCountry"
@@ -320,7 +324,8 @@ class Stats extends React.Component {
             <a className=".dataSource" style={link} href="https://covidtracking.com/" target="_blank"><div className="dataSource"> Source </div></a>
           </div>
         </div>
-
+</Container>
+<Container fluid>
       {/*TOP TEN COUNTRIES WIDGET*/}
         <div className="statsCont">
           <h1 className="topTenHeader">Top Ten Countries <br></br></h1>
@@ -336,11 +341,14 @@ class Stats extends React.Component {
           </div>
             <a className=".dataSource" style={link} href="https://covid19api.com/" target="_blank"><div className="dataSource"> Source </div></a>
         </div>
+</Container>
 
       {/*TOP TEN STATES WIDGET*/}
+<Container fluid>
         <div className="statsCont">
+
           <h1 className="topTenHeader">Top Ten States <br></br></h1>
-          <Select className="selectCountry"
+        <Select className="selectCountry"
             placeholder={"By Known Cases"}
             value={this.state.byKnownStates}
             onChange={this.handleByKnownStates}
@@ -352,10 +360,19 @@ class Stats extends React.Component {
           </div>
             <a className=".dataSource" style={link} href="https://covidtracking.com/" target="_blank"><div className="dataSource"> Source </div></a>
         </div>
-      
-      {/*redirects the user back to the launch page*/}
-        <NavLink style={{ textDecoration: 'none' }} className="resetTxt" to="/"> reset </NavLink>    
+
+</Container>
+
+      &nbsp;
+
+
+
+
+     {/*redirects the user back to the launch page*/}
+        <NavLink style={{ textDecoration: 'none' }} className="resetTxt" to="/"> reset </NavLink>
       </div>
+
+
       )
   }
 }
