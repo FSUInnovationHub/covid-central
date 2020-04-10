@@ -81,6 +81,10 @@ h2 {
   overflow: hidden;
 }
 
+.navBanner {
+  width: 100vw;
+}
+
 /*select option css*/
 .dropdown {
   align-self: center;
@@ -162,6 +166,7 @@ h2 {
 
 /*stats page wrapper*/
 .statsPage {
+  margin-top: 40px;
   width: 100vw;
   height: auto;
   display: flex;

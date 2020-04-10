@@ -8,9 +8,12 @@ import Select from 'react-select'
 import {NavLink} from 'react-router-dom'
 
 import * as Util from './Shared/Util.js'
+import NavigationComponent from './MinorComponents/NavigationComponent'
+import { Button } from '@material-ui/core';
 //import { Button } from '@material-ui/core';
 import { Button } from 'react-bootstrap';
 import { Container, Row, Col } from 'react-bootstrap';
+
 
 /*empty array of form values*/
 var listOfCountries = [];
@@ -282,6 +285,8 @@ class Stats extends React.Component {
     return (
 
       <div className="statsPage"> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
+      <NavigationComponent title="Stats" />
+
 <Container fluid>
       {/*COUNTRY TRACKER WIDGET*/}
        <div className="statsCont">

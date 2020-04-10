@@ -7,6 +7,7 @@ import { Redirect, Switch, Route, BrowserRouter as Router, Link } from 'react-ro
 import Temp from './Temp'
 import Stats from './Stats'
 import Launch from './Launch'
+import NewsPage from './News'
 import CardsArray from './CardsArray'
 
 /*using react router we set a constant equal to whatever component
@@ -17,6 +18,7 @@ const routing = (
       <Route exact path="/" component={Launch}/>
       <Route exact path="/launch" component={Launch}/>
       <Route exact path="/stats" component={Stats}/>
+      <Route exact path="/news" component={NewsPage}/>
       <Route exact path="/CardsArray" component={CardsArray} />
       <Route exact path="/*" exact component={Temp} />
     </Switch>
