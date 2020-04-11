@@ -205,6 +205,25 @@ h2 {
   align-content: center;
 }
 
+.newsCont {
+  /*CHANGE IN FUTURE*/
+
+  /*margin-bottom: 20vh;*/
+  margin-top: 2vh;
+  width: 90vw;
+  height: auto;
+  display: flex;
+  margin-left: 3vw;
+  flex-direction: column;
+  background-color: #2b2d2f;
+  padding-left: 3vw;
+  padding-right: 3vw;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  border-radius: 3vw;
+  align-content: center;
+}
+
 /*limit size of dropdown on stats page*/
 .selectCountry{
   width: 15vw;
@@ -446,4 +465,12 @@ h2 {
     margin-top: 0vh;
   }
 
+  /* cards text styling */
+  .cardTitle {
+    font-size: 3vw;
+    color: white;
+  }
+
 }
+
+
