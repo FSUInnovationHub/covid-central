@@ -27,10 +27,8 @@ class CardsArray extends React.Component {
       statsArr: [],
     };
   }
-  
-  //Connects to the google sheets public endpoint and returns all data in json format
-  componentDidMount() {
 
+  loadSheetsData() {
     Promise.all([
       fetch(SheetsUrl),
     ])
@@ -147,8 +145,11 @@ class CardsArray extends React.Component {
           })
       });   
   }
-
   
+  componentDidMount() {
+    this.loadSheetsData();
+  }
+
   render()
   {     
     return (   

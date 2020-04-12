@@ -31,9 +31,11 @@ class NewsPage extends React.Component {
 <div className="statsPage"> 
     <NavigationComponent title="News" />
 
-    <div style={{padding: '25px 10px 0px 10px'}}>
+    <div style={{padding: '25px 10px 25px 10px'}}>
 
-      <Typography variant="caption" color="inherit">Last Updated: {(new Date()).toLocaleTimeString()}</Typography>
+      <Typography variant="caption" color="inherit">
+        Last Updated: {(new Date()).toLocaleTimeString()}
+      </Typography>
 
       <CardsArray resourceType={CardResourceTypes.NEWS} />
 
