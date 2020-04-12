@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
-import { css } from "@emotion/core";
 import 'react-spinning-wheel/dist/style.css';
-import * as Util from './Shared/Util.js'
 
+import { CardResourceTypes, Emotions } from './Shared/Enums'
+import { SheetsUrl } from './Shared/Constants'
+import NewsCardComponent from './MinorComponents/NewsCardComponent'
 
 //number of categories asked for on any one path of the form
 const numberOfCategories = 7;
@@ -17,8 +18,8 @@ const inspiring = "Motivating activism/self-care [things we can do to help/pick 
 //This page will display the current statistics from the COVID-19 Outbreak Specific to the USA
 class CardsArray extends React.Component { 
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       factsArr: [],
       newsArr: [],
@@ -29,9 +30,9 @@ class CardsArray extends React.Component {
   
   //Connects to the google sheets public endpoint and returns all data in json format
   componentDidMount() {
-    
+
     Promise.all([
-      fetch('https://spreadsheets.google.com/feeds/cells/187Oua2qj26uUd6lRYbuJoSVHw8-OGC9QvKvJfEewnkA/1/public/full?alt=json'),
+      fetch(SheetsUrl),
     ])
       .then(([res1]) => Promise.all([res1.json()]))
       .then(([data1]) => 
@@ -50,7 +51,11 @@ class CardsArray extends React.Component {
               continue;
             }
             var category = data1['feed']['entry'][i]['gs$cell']['inputValue']
-            if(category === "NEWS" || category=== "FACTS" || category === "STATS" || category === "RESOURCES")
+
+            if(category === CardResourceTypes.NEWS || 
+               category === CardResourceTypes.FACTS || 
+               category === CardResourceTypes.STATS || 
+               category === CardResourceTypes.RESOURCES)
             {
               var dictData = [];
               //run loop until the number of categories/fields is reached
@@ -66,20 +71,21 @@ class CardsArray extends React.Component {
                     switch(emotionStrArr[k])
                     {
                       case moodImprovement:
-                        emotionStrArr[k] = "anxiety"
+                        emotionStrArr[k] = Emotions.ANXIETY
                         break;
                       case innovation:
-                        emotionStrArr[k] = "innovation"
+                        emotionStrArr[k] = Emotions.INNOVATION
                         break;
                       case curiousity:
-                        emotionStrArr[k] = "curiousity"
+                        emotionStrArr[k] = Emotions.CURIOSITY
                         break;
                       case factual:
-                        emotionStrArr[k] = "factual"
+                        emotionStrArr[k] = Emotions.FACTUAL
                         break;
                       case inspiring:
-                        emotionStrArr[k] = "inspiring"
+                        emotionStrArr[k] = Emotions.INSPIRING
                         break;
+                      default:
                     }
                   }
                   dictData.push(emotionStrArr)
@@ -103,16 +109,16 @@ class CardsArray extends React.Component {
 
               switch(category) 
               {
-                case "FACTS":     
+                case CardResourceTypes.FACTS:     
                   tmpFacts.push(dict)
                   continue
-                case "NEWS":
+                case CardResourceTypes.NEWS:
                   tmpNews.push(dict)
                   continue;
-                case "STATS":
+                case CardResourceTypes.STATS:
                   tmpStats.push(dict)
                   continue; 
-                case "RESOURCES":
+                case CardResourceTypes.RESOURCES:
                   //alternate dict for RESOURCES
                   var altDict = {
                     page: dictData[0],
@@ -126,7 +132,7 @@ class CardsArray extends React.Component {
                   }
                   tmpResources.push(altDict)
                   continue;
-                  
+                default:
               }
               //add the offset to i to make it properly iterate
               i += numberOfCategories;
@@ -146,13 +152,21 @@ class CardsArray extends React.Component {
   render()
   {     
     return (   
-      <div className="statsPage"> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
-        <h1>{console.log(this.state.factsArr)}</h1>
-        <h1>{console.log(this.state.statsArr)}</h1>
-        <h1>{console.log(this.state.newsArr)}</h1>
-        <h1>{console.log(this.state.resourcesArr)}</h1>
-      </div>
+<div>
+{
+  (() => {
+        switch (this.props.resourceType) {
+          case CardResourceTypes.NEWS:
+            return <NewsCardComponent articles={this.state.newsArr} />
+            break;
+          default:
+            return null;
+        }
+  })()
+}
+</div>
       )
   }
 }
+
 export default CardsArray;

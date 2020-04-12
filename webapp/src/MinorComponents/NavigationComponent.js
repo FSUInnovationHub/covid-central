@@ -30,7 +30,7 @@ class NavigationComponent extends React.Component {
 <div className="navBanner"> 
     <AppBar position="fixed">
         <Toolbar>
-          <Typography variant="title" color="inherit">{this.title}</Typography>
+          <Typography variant="h4" color="inherit">{this.title}</Typography>
 
           <section style={{marginLeft: 'auto'}}>
               <IconButton href={"/launch"} color="inherit">

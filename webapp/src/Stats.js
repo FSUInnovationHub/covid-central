@@ -1,17 +1,12 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
-import { css } from "@emotion/core";
-import { Redirect } from 'react-router-dom';
 import 'react-spinning-wheel/dist/style.css';
 import NumberFormat from 'react-number-format';
 import Select from 'react-select'
-import {NavLink} from 'react-router-dom'
 
 import * as Util from './Shared/Util.js'
 import NavigationComponent from './MinorComponents/NavigationComponent'
-import { Button } from '@material-ui/core';
-import { Container, Row, Col } from 'react-bootstrap';
-
+import { Container } from 'react-bootstrap';
 
 /*empty array of form values*/
 var listOfCountries = [];
@@ -45,7 +40,7 @@ var dateArray = function(apiDate) {
   var returnArr = [];
   for(var d = 0; d < timestamp.length; d++)
   {
-    if(timestamp[d] == " ")
+    if(timestamp[d] === " ")
     {
       for(var t = d; t < timestamp.length; t++)
       {
@@ -130,7 +125,7 @@ class Stats extends React.Component {
           //creates a world option since the API doesn't provide one
           listOfCountries.push({ value: "World", label: "World", positives: sumWorldPos, recovered: sumWorldRec, deaths: sumWorldDea})
           this.sortTop(listOfCountries)
-          for(var i = 0; i < data2.length; i++)
+          for(i = 0; i < data2.length; i++)
           {
 
             if(data2[i].state === "FL")
@@ -351,16 +346,7 @@ class Stats extends React.Component {
 
 </Container>
 
-      &nbsp;
-
-
-
-
-     {/*redirects the user back to the launch page*/}
-        <NavLink style={{ textDecoration: 'none' }} className="resetTxt" to="/"> reset </NavLink>
-      </div>
-
-
+</div>
       )
   }
 }
