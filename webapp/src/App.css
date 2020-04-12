@@ -205,6 +205,22 @@ h2 {
   align-content: center;
 }
 
+.newsCont {
+  margin-top: 2vh;
+  width: 90vw;
+  height: auto;
+  display: flex;
+  margin-left: 3vw;
+  flex-direction: column;
+  background-color: #2b2d2f;
+  padding-left: 3vw;
+  padding-right: 3vw;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  border-radius: 3vw;
+  align-content: center;
+}
+
 /*limit size of dropdown on stats page*/
 .selectCountry{
   width: 15vw;
@@ -446,4 +462,38 @@ h2 {
     margin-top: 0vh;
   }
 
+  /* cards styling */
+  .cardTitle {
+    font-size: 3vw;
+    color: white;
+    font-weight: bold;
+  }
+
+  .newsCardFooter {
+    margin-top: 1vh;
+    display: flex;
+    justify-content: space-between;
+    vertical-align: center;
+  }
+
+  .newsCardHeader {
+    margin-bottom: 1vh;
+  }
+
+  .newsCardBody {
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+  }
+
+  .cardDivider {
+    margin: auto;
+    width: 100%;
+    border: 1px solid gray;
+  }
+
+  .emotionChip {
+    margin-left: 1vw;
+  }
 }
+
+
