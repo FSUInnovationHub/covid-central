@@ -60,7 +60,8 @@ class NewsCardComponent extends React.Component {
             <Button 
                 size="small" 
                 variant="contained" 
-                color="primary" 
+                color="primary"
+                target="_blank" 
                 href={article.url} 
                 disableElevation>
               {article.datePublished}
