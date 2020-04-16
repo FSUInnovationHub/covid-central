@@ -8,9 +8,6 @@ import { CardResourceTypes } from './Shared/Enums'
 
 import Typography from '@material-ui/core/Typography';
 
-
-//var articles = [];
-
 class NewsPage extends React.Component { 
 
   constructor() {
@@ -33,7 +30,7 @@ class NewsPage extends React.Component {
 
     <div style={{padding: '25px 10px 25px 10px'}}>
 
-      <Typography variant="caption" color="inherit">
+      <Typography variant="caption" color="inherit" style={{float: "right"}}>
         Last Updated: {(new Date()).toLocaleTimeString()}
       </Typography>
 
