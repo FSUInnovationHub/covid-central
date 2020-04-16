@@ -18,6 +18,7 @@ const inspiring = "Motivating activism/self-care [things we can do to help/pick 
 //This page will display the current statistics from the COVID-19 Outbreak Specific to the USA
 class CardsArray extends React.Component { 
 
+
   constructor(props) {
     super(props);
     this.state = {
@@ -159,6 +160,9 @@ class CardsArray extends React.Component {
         switch (this.props.resourceType) {
           case CardResourceTypes.NEWS:
             return <NewsCardComponent articles={this.state.newsArr} />
+            break;
+          case CardResourceTypes.STATS:
+            return <NewsCardComponent articles={this.state.statsArr} />
             break;
           default:
             return null;

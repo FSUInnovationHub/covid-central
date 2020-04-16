@@ -40,7 +40,7 @@ class NewsCardComponent extends React.Component {
 
   render()
   {  
-    this.props.articles.sort((a, b) => new Date(a.dateSubmitted) - new Date(b.dateSubmitted));
+    this.props.articles.sort((a, b) => new Date(a.datePublished) - new Date(b.datePublished));
     var state = this.state;
 
     return (
