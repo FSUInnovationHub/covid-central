@@ -20,7 +20,6 @@ class Launch extends React.Component {
       source: '',
     };
   }
-  
 
   handleEmotion = emotion => {
     this.setState({ emotion });
@@ -36,12 +35,12 @@ class Launch extends React.Component {
       <div className="noScroll"> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
         <div className="launchCont" style={{position:'relative'}}>
           <h1>Covid Central</h1>
+          <hr className="solid"></hr>
 
           <h2 className="showMeThe">show me the</h2>
           <div className="dropdown">
-
             <Select
-              style={{width:'auto',display:'block'}}
+              style={{width:'auto',display:'block', verticalAlign: 'center'}}
               autoWidth={true}
               renderValue={(selected => { return !selected ? "Pick category" : selected})}
               displayEmpty={true}

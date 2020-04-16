@@ -27,7 +27,5 @@ function padValue(value) {
     return (value < 10) ? "0" + value : value;
 }
 
-export function SortCardByDate(item1, item2) {
 
-}
 
