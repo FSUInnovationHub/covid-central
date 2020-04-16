@@ -8,6 +8,11 @@ import * as Util from './Shared/Util.js'
 import NavigationComponent from './MinorComponents/NavigationComponent'
 import { Container } from 'react-bootstrap';
 
+import CardsArray from './CardsArray'
+import { CardResourceTypes } from './Shared/Enums'
+
+import Typography from '@material-ui/core/Typography';
+
 /*empty array of form values*/
 var listOfCountries = [];
 var listOfStates = [];
@@ -262,10 +267,15 @@ class Stats extends React.Component {
 
     return (
 
-      <div className="statsPage"> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
+    <div className="statsPage"> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
       <NavigationComponent title="Stats" />
+      <div style={{padding: '25px 10px 25px 10px'}}>
+        <Typography variant="caption" color="inherit">
+          Last Updated: {(new Date()).toLocaleTimeString()}
+        </Typography>
+      </div>
 
-<Container fluid>
+    <Container fluid>
       {/*COUNTRY TRACKER WIDGET*/}
        <div className="statsCont">
         <Select className="selectCountry"
@@ -286,8 +296,9 @@ class Stats extends React.Component {
             <br></br>
           </div>
         </div>
-</Container>
-<Container fluid>
+    </Container>
+
+    <Container fluid>
       {/*STATE TRACKER WIDGET*/}
         <div className="statsCont">
           <Select className="selectCountry"
@@ -307,8 +318,9 @@ class Stats extends React.Component {
             <a className=".dataSource" style={link} href="https://covidtracking.com/" target="_blank"><div className="dataSource"> Source </div></a>
           </div>
         </div>
-</Container>
-<Container fluid>
+    </Container>
+
+    <Container fluid>
       {/*TOP TEN COUNTRIES WIDGET*/}
         <div className="statsCont">
           <h1 className="topTenHeader">Top Ten Countries <br></br></h1>
@@ -324,14 +336,14 @@ class Stats extends React.Component {
           </div>
             <a className=".dataSource" style={link} href="https://covid19api.com/" target="_blank"><div className="dataSource"> Source </div></a>
         </div>
-</Container>
+    </Container>
 
+      
+    <Container fluid>
       {/*TOP TEN STATES WIDGET*/}
-<Container fluid>
         <div className="statsCont">
-
           <h1 className="topTenHeader">Top Ten States <br></br></h1>
-        <Select className="selectCountry"
+          <Select className="selectCountry"
             placeholder={"By Known Cases"}
             value={this.state.byKnownStates}
             onChange={this.handleByKnownStates}
@@ -343,8 +355,11 @@ class Stats extends React.Component {
           </div>
             <a className=".dataSource" style={link} href="https://covidtracking.com/" target="_blank"><div className="dataSource"> Source </div></a>
         </div>
+    </Container>
 
-</Container>
+    
+        <CardsArray resourceType={CardResourceTypes.STATS} />
+      
 
 </div>
       )
