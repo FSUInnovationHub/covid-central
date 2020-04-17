@@ -6,6 +6,7 @@ import Select from 'react-select'
 
 import * as Util from './Shared/Util.js'
 import NavigationComponent from './MinorComponents/NavigationComponent'
+import UsaGraph from './MinorComponents/UsaGraph'
 import { Container } from 'react-bootstrap';
 
 import CardsArray from './CardsArray'
@@ -265,15 +266,31 @@ class Stats extends React.Component {
       </li>
     );
 
-    return (
+    const types = ["linear", "logarithmic"];
+    const charts = types.map((type, i) =>
+    
+    <div>
+      <br></br>
+      <UsaGraph key={i} type={type}></UsaGraph> </div>
+    );
+    //<div><UsaGraph key={"logarithmic"} type="logarithmic"></UsaGraph> </div>
 
-    <div className="statsPage"> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
-      <NavigationComponent title="Stats" />
+    return (
+      
+    <div> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
+
+<div className="statsPage">
+<NavigationComponent title="Stats" />
       <div style={{padding: '25px 10px 25px 10px'}}>
         <Typography variant="caption" color="inherit">
           Last Updated: {(new Date()).toLocaleTimeString()}
         </Typography>
-      </div>
+      </div></div>
+
+      {charts}
+
+<div className="statsPage">
+      
 
     <Container fluid>
       {/*COUNTRY TRACKER WIDGET*/}
@@ -337,8 +354,9 @@ class Stats extends React.Component {
             <a className=".dataSource" style={link} href="https://covid19api.com/" target="_blank"><div className="dataSource"> Source </div></a>
         </div>
     </Container>
-
+    
       
+    
     <Container fluid>
       {/*TOP TEN STATES WIDGET*/}
         <div className="statsCont">
@@ -360,7 +378,7 @@ class Stats extends React.Component {
     
         <CardsArray resourceType={CardResourceTypes.STATS} />
       
-
+</div>
 </div>
       )
   }
