@@ -2,23 +2,26 @@ import React from 'react';
 import '../App.css';
 import 'react-spinning-wheel/dist/style.css';
 import ReactHighcharts from "react-highcharts";
+
 import { createLineChart, createBarChart } from "@pxblue/highcharts";
 import * as PXBColors from "@pxblue/colors";
 
 
 //test dd
 
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 var graphStyles = {
   domProps: {
     style: {
       height: "100%"
-      
     }
   }
 };
 
-var yData = []
-var xData = {categories: []}
+
 
 
 
@@ -30,13 +33,16 @@ class UsaGraph extends React.Component {
     super(props);
     this.state = {
       usaArray: [], 
+      yDataPos: [],
+      yDataDea: [],
+      xData: {categories: []}
     };
   }
 
   // {DATE: NUMBER OF CASES}
   //
   //
-  componentDidMount() {
+  componentWillMount() {
     Promise.all([
       fetch("https://covidtracking.com/api/us/daily"),
     ])
@@ -62,33 +68,78 @@ class UsaGraph extends React.Component {
               hospitalized: data1[i]['hospitalized'],
               hospitalizedIncrease: data1[i]['hospitalizedIncrease']
             }
-            yData.push({name: dict['day'], y: dict['positive']})
-            xData['categories'].push(dict['day'])
+            this.state.yDataPos.push({name: dict['day'], y: dict['positive'],})
+            this.state.yDataDea.push({name: dict['day'], y: dict['death']})
+            this.state.xData['categories'].push(dict['day'])
             dataArray.push(dict)
           }
 
+          
           this.setState({
+            
             usaArray: dataArray,
-            mainConfig: {
+            mainConfig: 
+            {
+              
+              
+              tooltip: {
+                formatter() {
+                  if(this.points.length === 1)
+                  {
+                    switch(this.points[0].series.name) {
+                      case "Positive":
+                        var s = '<b style="color:black">' + this.x + '</b' + '<br></br>' + '<b style="color:black">' + this.points[0].series.name + ": " + '</b><b style="color:orange">' + numberWithCommas(this.y)  + '</b';
+                        return s;
+                      case "Dead":
+                        var s = '<b>' + this.x + '</b' + '<br></br>' + '<b>' + this.points[0].series.name + ": " + '</b><b style="color:red">' + numberWithCommas(this.y)  + '</b';
+                        return s;
+                    }
+                  }
+                 
+                  else
+                  {
+                    var s = '<b style="color:black">' + this.x + '</b' + '<br></br>' + '<b style="color:black">' + this.points[0].series.name + ": " + '</b><b style="color:orange">' + numberWithCommas(this.points[0].y)  + '</b' + '<br></br>' + '<b style="color:black">' + this.points[1].series.name + ": " + '</b><b style="color:red">' + numberWithCommas(this.points[1].y)  + '</b' + '<br></br>';
+                    return s;
+                  }
+                    
+                },
+                shared: true,
+             
+            },
+            
+              title: {text: 'COVID-19'},
+              subtitle: {text: 'United States of America' + '<br></br>[' + this.props.type + ']'},
+              navigator: {enabled: true},
+              
               series: [
                 {
-                  name: "Covid",
-                  data: yData
-                }
+                  stacking: undefined,
+                  allowDecimals: false,
+                  name: "Positive",
+                  data: this.state.yDataPos,
+                  color: 'orange',
+                  yAxis: 0,
+                },
+                {
+                  stacking: undefined,
+                  allowDecimals: false,
+                  visible: false,
+                  name: "Dead",
+                  data: this.state.yDataDea,
+                  color: 'red',
+                  yAxis: 0,
+                },
               ],
-              xAxis: {
-                categories: xData['categories']
+              xAxis: {categories: this.state.xData['categories']},
+              yAxis: 
+              {
+                title: {text: ""},
+                type: this.props.type,
+                allowDecimals: false,
+                showEmpty: false, 
               },
-              yAxis: {
-                min: 0,
-                max: dataArray[data1.length - 2]['positive']
-              },
-            
-            }
-             
-          })
-          
-
+            },
+            })
         });
   }
 
@@ -96,9 +147,6 @@ class UsaGraph extends React.Component {
   {     
 
     return (<div>
-      <h1></h1>
-      
-
       <div style={{ height: "400px" }}>
         <ReactHighcharts config={createBarChart(this.state.mainConfig)} {...graphStyles} />
       </div>
