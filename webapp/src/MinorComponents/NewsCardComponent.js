@@ -60,7 +60,7 @@ class NewsCardComponent extends React.Component {
 
       return filtered;
     }).map((article, i) => (
-      <div className="newsCont" key={i}>
+      <div className="cont" key={i}>
         <div className="newsCardHeader">
           <Typography variant="h5" color="secondary">
             {article.headline}
