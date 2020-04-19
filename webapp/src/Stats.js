@@ -36,6 +36,7 @@ const orange = {color: 'orange'};
 const red = {color: 'red'};
 const gray = {color: 'gray'};
 const link = {color: '#7da4ff'};
+const hub = {color: '#eac45f'};
 
 //this function converts the time to the local user's time zone and then seperates the day and time
 //0 is day, 1 is time
@@ -381,6 +382,9 @@ class Stats extends React.Component {
 
     <Container fluid>
         <CardsArray resourceType={CardResourceTypes.STATS} />
+        <h1 className="tag">Service provided by the FSU Innovation Hub <br></br>
+         <a style={hub} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>
+        
     </Container>
       
 </div>
