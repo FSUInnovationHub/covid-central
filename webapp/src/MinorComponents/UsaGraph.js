@@ -6,9 +6,7 @@ import ReactHighcharts from "react-highcharts";
 import { createLineChart, createBarChart } from "@pxblue/highcharts";
 import * as PXBColors from "@pxblue/colors";
 
-
-//test dd
-
+//fnc to comma seperate numbers
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
@@ -21,13 +19,8 @@ var graphStyles = {
   }
 };
 
-
-
-
-
 //This page will display the current statistics from the COVID-19 Outbreak Specific to the USA
-class UsaGraph extends React.Component { 
-   
+class UsaGraph extends React.Component {   
 
   constructor(props) {
     super(props);
@@ -39,9 +32,6 @@ class UsaGraph extends React.Component {
     };
   }
 
-  // {DATE: NUMBER OF CASES}
-  //
-  //
   componentWillMount() {
     Promise.all([
       fetch("https://covidtracking.com/api/us/daily"),
@@ -50,7 +40,7 @@ class UsaGraph extends React.Component {
       .then(([data1]) => 
         { 
           var dataArray = []
-          //iterate through response
+          //iterate through response, creating a date 
           for(var i = (data1.length-1); i >= 0; i--)
           {
             var dateString = data1[i]['date'].toString()
@@ -68,24 +58,27 @@ class UsaGraph extends React.Component {
               hospitalized: data1[i]['hospitalized'],
               hospitalizedIncrease: data1[i]['hospitalizedIncrease']
             }
+            //push to data arrays that will be used to plot data 
             this.state.yDataPos.push({name: dict['day'], y: dict['positive'],})
             this.state.yDataDea.push({name: dict['day'], y: dict['death']})
             this.state.xData['categories'].push(dict['day'])
             dataArray.push(dict)
           }
 
-          
+          //set chart config 
           this.setState({
-            
             usaArray: dataArray,
             mainConfig: 
             {
-              
-              
+              chart: {
+                width: 350
+            },
+              //formats onclick action for data points
               tooltip: {
                 formatter() {
                   if(this.points.length === 1)
                   {
+                    //when only one series is being looked at 
                     switch(this.points[0].series.name) {
                       case "Positive":
                         var s = '<b style="color:black">' + this.x + '</b' + '<br></br>' + '<b style="color:black">' + this.points[0].series.name + ": " + '</b><b style="color:orange">' + numberWithCommas(this.y)  + '</b';
@@ -95,22 +88,22 @@ class UsaGraph extends React.Component {
                         return s;
                     }
                   }
-                 
                   else
                   {
+                    //when both series are being looked at together 
                     var s = '<b style="color:black">' + this.x + '</b' + '<br></br>' + '<b style="color:black">' + this.points[0].series.name + ": " + '</b><b style="color:orange">' + numberWithCommas(this.points[0].y)  + '</b' + '<br></br>' + '<b style="color:black">' + this.points[1].series.name + ": " + '</b><b style="color:red">' + numberWithCommas(this.points[1].y)  + '</b' + '<br></br>';
                     return s;
                   }
                     
                 },
-                shared: true,
+                shared: true, //when together they share a y-axes, allowing data to resize accordingly
              
             },
-            
+              //titles and such
               title: {text: 'COVID-19'},
-              subtitle: {text: 'United States of America' + '<br></br>[' + this.props.type + ']'},
+              subtitle: {text: 'United States of America' + '<br></br>[' + this.props.type + ']' + '<br></br><a className="dataSource" style="color: #7da4ff" href="https://covid19api.com/" rel="noopener" target="_blank"><div className="dataSource"> Source </div></a>'},
               navigator: {enabled: true},
-              
+              //series settings
               series: [
                 {
                   stacking: undefined,
@@ -145,7 +138,6 @@ class UsaGraph extends React.Component {
 
   render()
   {     
-
     return (<div>
       <div style={{ height: "400px" }}>
         <ReactHighcharts config={createBarChart(this.state.mainConfig)} {...graphStyles} />

@@ -22,6 +22,7 @@ class NewsCardComponent extends React.Component {
     super(props);
     this.state = {
         articles: this.props.articles,
+        filterNeeded: this.props.filter,
         filters: {
           "anxiety": true,
           "innovation": true,
@@ -45,7 +46,7 @@ class NewsCardComponent extends React.Component {
 
     return (
 <div>
-  <FlairFilterComponent flairs={this.state.filters} filterFunc={this.filterNews} />
+  {this.state.filterNeeded === true && <div> <FlairFilterComponent flairs={this.state.filters} filterFunc={this.filterNews} /> </div>}
 {
     this.props.articles.filter(function (article) {
       var filtered = false;

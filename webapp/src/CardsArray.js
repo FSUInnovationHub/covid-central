@@ -159,10 +159,10 @@ class CardsArray extends React.Component {
   (() => {
         switch (this.props.resourceType) {
           case CardResourceTypes.NEWS:
-            return <NewsCardComponent articles={this.state.newsArr} />
+            return <NewsCardComponent articles={this.state.newsArr} filter={true}/>
             break;
           case CardResourceTypes.STATS:
-            return <NewsCardComponent articles={this.state.statsArr} />
+            return <NewsCardComponent articles={this.state.statsArr} filter={false} />
             break;
           default:
             return null;
