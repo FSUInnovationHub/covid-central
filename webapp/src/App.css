@@ -27,10 +27,6 @@ a {
   font-size: 2.5vw;
 }
 
-.updatedAt {
-  font-size: 2.5vw;
-}
-
 /*used for sources*/
 .dataSource {
   font-size: 2.5vw;
@@ -205,12 +201,31 @@ h2 {
   align-content: center;
 }
 
+/*container for Temp class*/
+.graphCont {
+  /*CHANGE IN FUTURE*/
+
+  /*margin-bottom: 20vh;*/
+  margin-top: 3vh;
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #2b2d2f;
+  padding-top: 0vh;
+  padding-left: 0vw;
+  padding-right: 0vw;
+  padding-bottom: 3vh;
+  border-radius: 3vw;
+  align-content: center;
+}
+
 .newsCont {
   margin-top: 2vh;
   width: 90vw;
   height: auto;
   display: flex;
-  margin-left: 3vw;
+  /*margin-left: 3vw;*/
   flex-direction: column;
   background-color: #2b2d2f;
   padding-left: 3vw;
@@ -248,8 +263,28 @@ h2 {
   font-weight: bold;
 }
 
+/*
+.charts {
+  left: 10px !important;
+  right: 10px !important;
+  top: 40px !important;
+  bottom: 10px !important;
+}
+*/
+.highcharts-container {
+  width:100% !important;
+  height:100% !important;
+}
 /*special CSS rules for mobile devices*/
 @media only screen and (max-width: 600px) {
+ 
+
+  .highcharts-container {
+    width:100% !important;
+    height:100% !important;
+   
+}
+
   /*wraps clock*/
   .clockWrapper {
     visibility: visible;
@@ -443,7 +478,8 @@ h2 {
 
   .updatedAt {
     float: right;
-    font-size: 4.25vw;
+    /*font-size: 4.25vw;*/
+    font-size: 3.5vw;
   }
 
   .topTen {
@@ -493,6 +529,10 @@ h2 {
 
   .emotionChip {
     margin-left: 1vw;
+  }
+
+  .graph {
+    width: 20vw;
   }
 }
 

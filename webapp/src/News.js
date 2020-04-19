@@ -5,7 +5,7 @@ import 'react-spinning-wheel/dist/style.css';
 import CardsArray from './CardsArray'
 import NavigationComponent from './MinorComponents/NavigationComponent'
 import { CardResourceTypes } from './Shared/Enums'
-
+import { Container } from 'react-bootstrap';
 import Typography from '@material-ui/core/Typography';
 
 class NewsPage extends React.Component { 
@@ -30,11 +30,12 @@ class NewsPage extends React.Component {
 
     <div style={{padding: '25px 10px 25px 10px'}}>
 
-      <Typography variant="caption" color="inherit" style={{float: "right"}}>
+      <Typography variant="caption" color="inherit" style={{float: "left"}}>
         Last Updated: {(new Date()).toLocaleTimeString()}
       </Typography>
-
-      <CardsArray resourceType={CardResourceTypes.NEWS} />
+      <Container fluid>
+        <CardsArray resourceType={CardResourceTypes.NEWS} />
+      </Container>
 
     </div>
 </div>

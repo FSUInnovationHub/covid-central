@@ -269,7 +269,7 @@ class Stats extends React.Component {
     const types = ["linear", "logarithmic"];
     const charts = types.map((type, i) =>
     
-    <div>
+    <div className="graphCont">
       <br></br>
       <UsaGraph key={i} type={type}></UsaGraph> </div>
     );
@@ -279,18 +279,16 @@ class Stats extends React.Component {
       
     <div> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
 
+
+
+
 <div className="statsPage">
 <NavigationComponent title="Stats" />
-      <div style={{padding: '25px 10px 25px 10px'}}>
+      <div style={{padding: '25px 10px 0px 10px'}}>
         <Typography variant="caption" color="inherit">
           Last Updated: {(new Date()).toLocaleTimeString()}
         </Typography>
-      </div></div>
-
-      {charts}
-
-<div className="statsPage">
-      
+      </div>
 
     <Container fluid>
       {/*COUNTRY TRACKER WIDGET*/}
@@ -338,6 +336,12 @@ class Stats extends React.Component {
     </Container>
 
     <Container fluid>
+      <div id="container" className="charts" >
+      {charts}
+      </div>
+    </Container>
+
+    <Container fluid>
       {/*TOP TEN COUNTRIES WIDGET*/}
         <div className="statsCont">
           <h1 className="topTenHeader">Top Ten Countries <br></br></h1>
@@ -375,8 +379,9 @@ class Stats extends React.Component {
         </div>
     </Container>
 
-    
+    <Container fluid>
         <CardsArray resourceType={CardResourceTypes.STATS} />
+    </Container>
       
 </div>
 </div>
