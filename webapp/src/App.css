@@ -1,3 +1,6 @@
+html, body {
+  overflow: visible;
+}
 body {
   margin: 0;
   background-color: #7276e8ff;
@@ -533,6 +536,13 @@ h2 {
 
   .graph {
     width: 20vw;
+  }
+
+  .tag {
+    padding-top: 3vh;
+    padding-bottom: 2vh;
+    font-size: 4vw;
+    margin-bottom: 3.5vh;
   }
 }
 
