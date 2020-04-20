@@ -55,10 +55,10 @@ class CardsArray extends React.Component {
   loadSheetsData() {
     Promise.all([
       fetch(SheetsUrl),
-      /*fetch("http://newsapi.org/v2/everything?q=coronavirus&from=2020-04-19&sortBy=popularity&page=1&apiKey=e377370ade7c4b1eb951323b8740372f"),*/
+      fetch("http://newsapi.org/v2/everything?q=coronavirus&from=2020-04-19&sortBy=popularity&page=1&apiKey=e377370ade7c4b1eb951323b8740372f"),
     ])
-      .then(([res1/*, res2*/]) => Promise.all([res1.json()/*, res2.json()*/]))
-      .then(([data1/*, data2*/]) => 
+      .then(([res1,res2]) => Promise.all([res1.json(), res2.json()]))
+      .then(([data1, data2]) => 
         {  
           //temporary array of dicts. states will be set to this
           var tmpFacts = []
@@ -164,7 +164,7 @@ class CardsArray extends React.Component {
           }
           //live data
           //OUT UNTIL FINAL 
-          /*
+          
           for(var i = 0; i < data2['articles'].length; i++)
           {
             
@@ -174,12 +174,12 @@ class CardsArray extends React.Component {
               url: data2['articles'][i]['url'],
               headline: data2['articles'][i]['title'],
               description: data2['articles'][i]['description'],
-              datePublished: /*()(dateArray(data2['articles'][i]['publishedAt'])[0]).replace(/-/g, '/'),
+              datePublished: (dateArray(data2['articles'][i]['publishedAt'])[0]).replace(/-/g, '/'),
               source: data2['articles'][i]['source']['name'],
             }
             tmpNews.push(dictData)
           }
-          */
+          
   
 
           //set temp arrays equal to states. states are arrays of dicts
