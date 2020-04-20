@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 
 const hub = {color: '#eac45f'};
 
-class NewsPage extends React.Component { 
+class Resources extends React.Component { 
 
   constructor() {
     super();
@@ -48,4 +48,4 @@ class NewsPage extends React.Component {
       )
   }
 }
-export default NewsPage;
+export default Resources;
