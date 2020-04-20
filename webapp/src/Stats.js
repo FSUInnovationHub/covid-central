@@ -7,7 +7,7 @@ import Select from 'react-select'
 import * as Util from './Shared/Util.js'
 import NavigationComponent from './MinorComponents/NavigationComponent'
 import UsaGraph from './MinorComponents/UsaGraph'
-import { Container } from 'react-bootstrap';
+import { Container, Table } from 'react-bootstrap';
 
 import CardsArray from './CardsArray'
 import { CardResourceTypes } from './Shared/Enums'
@@ -217,55 +217,67 @@ class Stats extends React.Component {
 
   handleByKnownStates = byKnownStates => {
     //sets states for the individual state being queried
+    
     this.setState({
       byKnownStates,
       topTenStates: this.sortTop(listOfStates, byKnownStates['value']),
     })
+    
   }
 
   render()
   {
     //maps out the top ten countries. the conditional rendering is used to pick the color of the figures being shown.
     //ex) recoveries renders green
-    const topTenCountryNames = this.state.topTenCountries.map((item) =>
-      <li key={item}>{item[0]}
-      (
+ 
+
+    const topTenCountryNames = this.state.topTenCountries.map((item, index) =>
+      <tbody>
+        <tr>
+        <td>{index + 1}</td>
+      <td key={item}>{item[0]}</td>
       {this.state.byKnownWorld['value'] === "deaths" ? (
-        <NumberFormat style={red} value={item[1]} displayType={'text'} thousandSeparator={true}/>
+        <td><NumberFormat style={red} value={item[1]} displayType={'text'} thousandSeparator={true}/></td>
       )
       :
       (
         this.state.byKnownWorld['value'] === "recovered" ? (
-          <NumberFormat style={green} value={item[1]} displayType={'text'} thousandSeparator={true}/>
+          <td><NumberFormat style={green} value={item[1]} displayType={'text'} thousandSeparator={true}/></td>
         )
         :
         (
-          <NumberFormat style={orange} value={item[1]} displayType={'text'} thousandSeparator={true}/>
+          <td><NumberFormat style={orange} value={item[1]} displayType={'text'} thousandSeparator={true}/></td>
         )
-      )})
-      </li>
+      )}
+      </tr>
+      </tbody>
     );
 
     //maps out the top ten states. the conditional rendering is used to pick the color of the figures being shown.
     //ex) recoveries renders green
-    const topTenStates = this.state.topTenStates.map((item) =>
-      <li key={item}>{item[0]}
-      (
+    const topTenStates = this.state.topTenStates.map((item, index) =>
+    <tbody>
+    <tr>
+    <td>{index + 1}</td>
+      <td key={item}>{item[0]}</td>
+    
       {this.state.byKnownStates['value'] === "deaths" ? (
-        <NumberFormat style={red} value={item[1]} displayType={'text'} thousandSeparator={true}/>
+        <td><NumberFormat style={red} value={item[1]} displayType={'text'} thousandSeparator={true}/></td>
       )
       :
       (
         this.state.byKnownStates['value'] === "recovered" ? (
-          <NumberFormat style={green} value={item[1]} displayType={'text'} thousandSeparator={true}/>
+          <td><NumberFormat style={green} value={item[1]} displayType={'text'} thousandSeparator={true}/></td>
         )
         :
         (
-          <NumberFormat style={orange} value={item[1]} displayType={'text'} thousandSeparator={true}/>
+          <td><NumberFormat style={orange} value={item[1]} displayType={'text'} thousandSeparator={true}/></td>
         )
-      )})
-      </li>
+      )}
+      </tr>
+    </tbody>
     );
+
 
     const types = ["linear", "logarithmic"];
     const charts = types.map((type, i) =>
@@ -284,6 +296,7 @@ class Stats extends React.Component {
 
 
 <div className="statsPage">
+
 <NavigationComponent title="Stats" />
       <div style={{padding: '25px 10px 0px 10px'}}>
         <Typography variant="caption" color="inherit">
@@ -353,7 +366,16 @@ class Stats extends React.Component {
             options={topTenOptions}
           />
           <div>
-            <ol className="topTen">{topTenCountryNames}</ol>
+            
+            <Table striped bordered   className="topTen">
+              <thead>
+              <th>Rank</th>
+              <th>Country</th>
+              <th>Number</th>
+              </thead>
+              
+              {topTenCountryNames}
+              </Table>
             <br></br>
           </div>
             <a className=".dataSource" style={link} href="https://covid19api.com/" target="_blank"><div className="dataSource"> Source </div></a>
@@ -373,7 +395,15 @@ class Stats extends React.Component {
             options={topTenOptionsState}
           />
           <div>
-            <ol className="topTen">{topTenStates}</ol>
+          <Table striped bordered  className="topTen">
+              <thead>
+              <th>Rank</th>
+              <th>State</th>
+              <th>Number</th>
+              </thead>
+              
+              {topTenStates}
+              </Table>
             <br></br>
           </div>
             <a className=".dataSource" style={link} href="https://covidtracking.com/" target="_blank"><div className="dataSource"> Source </div></a>
