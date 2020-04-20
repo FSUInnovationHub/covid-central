@@ -176,9 +176,13 @@ class CardsArray extends React.Component {
               description: data2['articles'][i]['description'],
               datePublished: (dateArray(data2['articles'][i]['publishedAt'])[0]).replace(/-/g, '/'),
               source: data2['articles'][i]['source']['name'],
-            }
-            tmpNews.push(dictData)
+            
+            
           }
+          tmpNews.push(dictData)
+        }
+          
+          
           
   
 
