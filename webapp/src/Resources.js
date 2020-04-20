@@ -8,8 +8,6 @@ import { CardResourceTypes } from './Shared/Enums'
 import { Container } from 'react-bootstrap';
 import Typography from '@material-ui/core/Typography';
 
-
-
 const hub = {color: '#eac45f'};
 
 class NewsPage extends React.Component { 
@@ -17,7 +15,7 @@ class NewsPage extends React.Component {
   constructor() {
     super();
     this.state = {
-      
+
     };
   }
   
@@ -30,7 +28,7 @@ class NewsPage extends React.Component {
     return (   
 
 <div className="statsPage"> 
-    <NavigationComponent title="News" />
+    <NavigationComponent title="Resources" />
 
     <div style={{padding: '25px 10px 25px 10px'}}>
 
@@ -38,9 +36,7 @@ class NewsPage extends React.Component {
         Last Updated: {(new Date()).toLocaleTimeString()}
       </Typography>
       <Container fluid>
-      
-        
-        <CardsArray resourceType={CardResourceTypes.NEWS} />
+        <CardsArray resourceType={CardResourceTypes.RESOURCES} />
         <h1 className="tag">Service provided by the FSU Innovation Hub <br></br>
          <a style={hub} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>
       </Container>
