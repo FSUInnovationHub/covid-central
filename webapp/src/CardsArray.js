@@ -55,10 +55,10 @@ class CardsArray extends React.Component {
   loadSheetsData() {
     Promise.all([
       fetch(SheetsUrl),
-      fetch("http://newsapi.org/v2/everything?q=coronavirus&from=2020-04-19&sortBy=popularity&page=1&apiKey=e377370ade7c4b1eb951323b8740372f"),
+      //fetch("http://newsapi.org/v2/everything?q=coronavirus&from=2020-04-19&sortBy=popularity&page=1&apiKey=e377370ade7c4b1eb951323b8740372f"),
     ])
-      .then(([res1,res2]) => Promise.all([res1.json(), res2.json()]))
-      .then(([data1, data2]) => 
+      .then(([res1/*,res2*/]) => Promise.all([res1.json()/*, res2.json()*/]))
+      .then(([data1/*, data2*/]) => 
         {  
           //temporary array of dicts. states will be set to this
           var tmpFacts = []
@@ -164,7 +164,7 @@ class CardsArray extends React.Component {
           }
           //live data
           //OUT UNTIL FINAL 
-          
+         /* 
           for(var i = 0; i < data2['articles'].length; i++)
           {
             
@@ -180,7 +180,7 @@ class CardsArray extends React.Component {
             
           }
           tmpNews.push(dictData)
-        }
+        }*/
           
           
           
