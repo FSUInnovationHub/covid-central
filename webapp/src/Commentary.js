@@ -74,12 +74,12 @@ class Commentary extends React.Component {
       {this.state.change === false && <TwitterTimelineEmbed
   sourceType="profile"
   screenName={this.state.username}
-  options={{height: "58vh"}}
+  options={{height: "61vh"}}
     />}
     {this.state.change === true && <TwitterTimelineEmbed
   sourceType="profile"
   screenName={this.state.username}
-  options={{height: "58vh"}}
+  options={{height: "61vh"}}
     />}
         
         <h1 className="tagCommentary">Service provided by the FSU Innovation Hub <br></br>
