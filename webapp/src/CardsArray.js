@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import 'react-spinning-wheel/dist/style.css';
-
+import * as Util from './Shared/Util.js'
 import { CardResourceTypes, Emotions } from './Shared/Enums'
 import { SheetsUrl } from './Shared/Constants'
 import NewsCardComponent from './MinorComponents/NewsCardComponent'
@@ -15,6 +15,28 @@ const curiousity = "Sparking curiosity [bored or curious]"
 const factual = "Providing Information [purely factual]"
 const inspiring = "Motivating activism/self-care [things we can do to help/pick me ups]"
 
+var dateArray = function(apiDate) {
+  var timestamp = Util.IsoToLocalFormatted(apiDate);
+  var day = [];
+  var time = [];
+  var returnArr = [];
+  for(var d = 0; d < timestamp.length; d++)
+  {
+    if(timestamp[d] === " ")
+    {
+      for(var t = d; t < timestamp.length; t++)
+      {
+        time.push(timestamp[t])
+      }
+      break
+    }
+      day.push(timestamp[d])
+  }
+  returnArr.push(day.join(""))
+  returnArr.push(time.join(""))
+  return returnArr;
+}
+
 //This page will display the current statistics from the COVID-19 Outbreak Specific to the USA
 class CardsArray extends React.Component { 
 
@@ -26,15 +48,17 @@ class CardsArray extends React.Component {
       newsArr: [],
       resourcesArr: [],
       statsArr: [],
+      apiAriclesArr: [],
     };
   }
 
   loadSheetsData() {
     Promise.all([
       fetch(SheetsUrl),
+      fetch("http://newsapi.org/v2/everything?q=coronavirus&from=2020-04-19&sortBy=popularity&page=1&apiKey=e377370ade7c4b1eb951323b8740372f"),
     ])
-      .then(([res1]) => Promise.all([res1.json()]))
-      .then(([data1]) => 
+      .then(([res1, res2]) => Promise.all([res1.json(), res2.json()]))
+      .then(([data1, data2]) => 
         {  
           //temporary array of dicts. states will be set to this
           var tmpFacts = []
@@ -73,10 +97,10 @@ class CardsArray extends React.Component {
                         emotionStrArr[k] = Emotions.ANXIETY
                         break;
                       case innovation:
-                        emotionStrArr[k] = Emotions.INNOVATION
+                        emotionStrArr[k] = Emotions.INNOVATION 
                         break;
                       case curiousity:
-                        emotionStrArr[k] = Emotions.CURIOSITY
+                        emotionStrArr[k] = Emotions.CURIOSITY 
                         break;
                       case factual:
                         emotionStrArr[k] = Emotions.FACTUAL
@@ -87,6 +111,7 @@ class CardsArray extends React.Component {
                       default:
                     }
                   }
+                  emotionStrArr.push("all")
                   dictData.push(emotionStrArr)
                   continue;
                 }
@@ -101,8 +126,8 @@ class CardsArray extends React.Component {
                 url: dictData[2],
                 headline: dictData[3],
                 description: dictData[4],
-                datePublished: dictData[5],
-                dateSubmitted: dictData[6],
+                source: dictData[5],
+                datePublished: dictData[6],
                 timestamp: dictData[7]
               }
 
@@ -125,7 +150,7 @@ class CardsArray extends React.Component {
                     url: dictData[2],
                     headline: dictData[3],
                     description: dictData[4],
-                    datePublished: dictData[5],
+                    source: dictData[5],
                     resourceType: dictData[6],
                     timestamp: dictData[7]
                   }
@@ -137,6 +162,26 @@ class CardsArray extends React.Component {
               i += numberOfCategories;
             }
           }
+          //live data
+          //OUT UNTIL FINAL 
+          /*
+          for(var i = 0; i < data2['articles'].length; i++)
+          {
+            
+            var dictData = {
+              page: 'NEWS',
+              emotions: ['all'],
+              url: data2['articles'][i]['url'],
+              headline: data2['articles'][i]['title'],
+              description: data2['articles'][i]['description'],
+              datePublished: /*()(dateArray(data2['articles'][i]['publishedAt'])[0]).replace(/-/g, '/'),
+              source: data2['articles'][i]['source']['name'],
+            }
+            tmpNews.push(dictData)
+          }
+          */
+  
+
           //set temp arrays equal to states. states are arrays of dicts
           this.setState({
             factsArr: tmpFacts,
@@ -148,22 +193,27 @@ class CardsArray extends React.Component {
   }
   
   componentDidMount() {
-    this.loadSheetsData();
+    this.loadSheetsData();  
   }
 
   render()
   {     
+    console.log(this.state.apiAriclesArr)
+        
     return (   
+
 <div>
 {
   (() => {
         switch (this.props.resourceType) {
           case CardResourceTypes.NEWS:
-            return <NewsCardComponent articles={this.state.newsArr} filter={true}/>
+            return <div><NewsCardComponent articles={this.state.newsArr} filter={true}/></div>
             break;
           case CardResourceTypes.STATS:
             return <NewsCardComponent articles={this.state.statsArr} filter={false} />
             break;
+          case CardResourceTypes.RESOURCES:
+            return <NewsCardComponent articles={this.state.resourcesArr} filter={true} />
           default:
             return null;
         }

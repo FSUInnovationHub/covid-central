@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 
-const sources = [ 'Facts', 'Stats', 'News', 'Commentary' ];
+const sources = [ 'Facts', 'Stats', 'News', 'Resources' ];
   
 /*This page will display a form that will redirect the user to different views based on their input. 
 It functions with React states and react Redirects*/

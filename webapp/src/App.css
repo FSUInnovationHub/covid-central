@@ -531,8 +531,9 @@ h2 {
   }
 
   .emotionChip {
-    margin-left: 1vw;
+    margin-left: 0vw;
   }
+
 
   .graph {
     width: 20vw;
