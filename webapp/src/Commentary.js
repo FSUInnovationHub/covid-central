@@ -53,7 +53,7 @@ class Commentary extends React.Component {
   {  
     return (   
 
-<div className="noScroll"> 
+<div> 
     <NavigationComponent title="Commentary" />
 
     <div style={{padding: '25px 10px 25px 10px'}}>
@@ -74,12 +74,12 @@ class Commentary extends React.Component {
       {this.state.change === false && <TwitterTimelineEmbed
   sourceType="profile"
   screenName={this.state.username}
-  options={{height: "68vh"}}
+  options={{height: "65vh"}}
     />}
     {this.state.change === true && <TwitterTimelineEmbed
   sourceType="profile"
   screenName={this.state.username}
-  options={{height: "68vh"}}
+  options={{height: "65vh"}}
     />}
         
         <h1 className="tagCommentary">Service provided by the FSU Innovation Hub <br></br>
