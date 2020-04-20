@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 
-const sources = [ 'Facts', 'Stats', 'News', 'Resources' ];
+const sources = [ 'Facts', 'Stats', 'News', 'Resources' , 'Commentary'];
   
 /*This page will display a form that will redirect the user to different views based on their input. 
 It functions with React states and react Redirects*/
@@ -34,7 +34,7 @@ class Launch extends React.Component {
     return (   
       <div className="noScroll"> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
         <div className="launchCont" style={{position:'relative'}}>
-          <h1>Covid Central</h1>
+          <h1>Covid-Central</h1>
           <hr className="solid"></hr>
 
           <h2 className="showMeThe">show me the</h2>

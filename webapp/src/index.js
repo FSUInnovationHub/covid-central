@@ -10,6 +10,8 @@ import NewsPage from './News'
 import CardsArray from './CardsArray'
 import UsaGraph from './MinorComponents/UsaGraph'
 import Resources from './Resources'
+import Commentary from './Commentary';
+
 
 
 /*using react router we set a constant equal to whatever component
@@ -23,7 +25,7 @@ const routing = (
       <Route exact path="/news" component={NewsPage}/>
       <Route exact path="/resources" component={Resources}/>
       <Route exact path="/CardsArray" component={CardsArray} />
-      <Route exact path="/graph" component= {UsaGraph} />
+      <Route exact path="/commentary" component= {Commentary} />
       <Route exact path="/*" exact component={Temp} />
       
     </Switch>

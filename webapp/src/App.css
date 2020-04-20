@@ -115,6 +115,8 @@ h2 {
   text-align-last: center;
   margin-top: 5vh;
   bottom: 0vh;
+  position: fixed;
+      bottom: 0;
 
 }
 
@@ -242,6 +244,12 @@ h2 {
 /*limit size of dropdown on stats page*/
 .selectCountry{
   width: 15vw;
+  margin: 0 auto;
+}
+
+/*limit size of dropdown on stats page*/
+.selectUser{
+  width: 70vw;
   margin: 0 auto;
 }
 
@@ -546,6 +554,19 @@ h2 {
     font-size: 4vw;
     margin-bottom: 17vh;
   }
+
+  .tagCommentary {
+   
+    padding-bottom: 2vh;
+    font-size: 4vw;
+
+  }
+
+  
+
+ 
+
 }
+
 
 

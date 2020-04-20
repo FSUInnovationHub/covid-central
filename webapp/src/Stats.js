@@ -416,7 +416,8 @@ class Stats extends React.Component {
          <a style={hub} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>
         
     </Container>
-      
+
+    
 </div>
 </div>
       )
