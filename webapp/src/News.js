@@ -38,13 +38,12 @@ class NewsPage extends React.Component {
         Last Updated: {(new Date()).toLocaleTimeString()}
       </Typography>
       <Container fluid>
-      
-        
         <CardsArray resourceType={CardResourceTypes.NEWS} />
-        <h1 className="tag">Service provided by the FSU Innovation Hub <br></br>
-         <a style={hub} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>
       </Container>
-
+      <Container fluid>
+      <h1 className="tag">Service provided by the FSU Innovation Hub <br></br>
+         <a style={hub} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>
+         </Container>
     </div>
 
 </div>
