@@ -49,10 +49,20 @@ class Launch extends React.Component {
           <div className="newsCont">
 
             <MuiThemeProvider theme={textTheme}>
-              <Typography variant="body2" color="secondary">
-                COVID-Central is an effort by a group of interns from Florida State University&#39;s Innovation Hub. Our goal is to provide a centralized hub filled with reliable information, resources, and statistics regarding the outbreak of the COVID-19 virus. 
-              </Typography>
+              <div className="newsCardHeader">
+                <Typography variant="h5" color="secondary">
+                  What is Covid-Central
+                </Typography>
+              </div>
 
+              <hr className="cardDivider" />
+
+              <div className="newsCardBody">
+                <Typography variant="body2" color="secondary">
+                  COVID-Central is an effort by a group of interns from Florida State University&#39;s Innovation Hub. Our goal is to provide a centralized hub filled with reliable information, resources, and statistics regarding the outbreak of the COVID-19 virus. 
+                </Typography>
+              </div>
+        
               <Typography variant="h6" color="secondary" style={{marginTop:'2vh', alignSelf:'center'}}>
                 Scroll down to start!
               </Typography>
@@ -62,7 +72,7 @@ class Launch extends React.Component {
           <h2 className="showMeThe">show me the</h2>
           <div className="dropdown">
             <Select
-              style={{width:'auto',display:'block', verticalAlign: 'center'}}
+              style={{width:'auto',display:'block', verticalAlign:'center'}}
               autoWidth={true}
               renderValue={(selected => { return !selected ? "Pick category" : selected})}
               displayEmpty={true}
