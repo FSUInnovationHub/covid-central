@@ -162,12 +162,12 @@ class CardsArray extends React.Component {
               i += numberOfCategories;
             }
           }
+          
           //live data
-          //OUT UNTIL FINAL 
-          //FIX THIS FLOW
+          //NEW LIVE DATA --- RETURNS 20 CORONAVIRUS ARTICLES FROM THE CURRENT DATE
+          //FIX THIS FLOW SO THAT IT ISN'T BEING ACCESSED EVERY TIME
           for(var i = 0; i < data2['articles'].length; i++)
-          {
-            
+          { 
             var dictData = {
               page: 'NEWS',
               emotions: ['all'],
@@ -175,9 +175,7 @@ class CardsArray extends React.Component {
               headline: data2['articles'][i]['title'],
               description: data2['articles'][i]['description'],
               datePublished: (dateArray(data2['articles'][i]['publishedAt'])[0]).replace(/-/g, '/'),
-              source: data2['articles'][i]['source']['name'],
-            
-            
+              source: data2['articles'][i]['source']['name'], 
           }
           tmpNews.push(dictData)
         }
