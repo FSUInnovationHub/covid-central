@@ -46,37 +46,30 @@ class NewsCardComponent extends React.Component {
   componentDidUpdate() {
     
   }
-  //e377370ade7c4b1eb951323b8740372f
+
   render()
   {  
-    this.props.articles.sort((a, b) => new Date(b.datePublished) - new Date(a.datePublished)
-    );
+    this.props.articles.sort((a, b) => new Date(b.datePublished) - new Date(a.datePublished));
+
     var state = this.state;
 
-   
-    
     return (
 <div>
-{console.log("NEW")}
   {this.state.filterNeeded === true && <div> <FlairFilterComponent flairs={this.state.filters} filterFunc={this.filterNews} /> </div>}
 {
-  
-  
     this.props.articles.filter(function (article) {
       var changed = false;
       var filtered = false;
       var filters = state.filters;
       
-      
-
       article.emotions.forEach(function(emo) {
-       
         if (filters[emo] === true) {
-          console.log(emo)
           filtered = true;
         }
       })
-      if(changed = true)
+
+      // bugged
+      if (changed = true)
       {
         return filtered
       }
@@ -91,7 +84,7 @@ class NewsCardComponent extends React.Component {
           </Typography>
           { 
             article.emotions.sort().map((emo, j) => (
-              <div>
+              <div key={"chip"+j}>
                 {/*added "all" invisible chip to every resource*/}
                 
                 {emo === "anxiety" && <Chip size="small" style={{backgroundColor:'#809CFF', fontWeight: 'bold'}} className="emotionChip" label={emo} key={i + j} />}
