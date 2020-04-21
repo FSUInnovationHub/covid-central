@@ -85,7 +85,7 @@ class Launch extends React.Component {
             </Select>
            </div>
 
-           <div style={{position:'absolute', bottom:'0', paddingBottom: '12vh'}}>
+           <div style={{position:'absolute', bottom:'0', paddingBottom: '14vh'}}>
               <hr className="solid"></hr>
               <Button 
                   className="submitTxt"
