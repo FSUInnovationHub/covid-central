@@ -28,7 +28,6 @@ class FlairFilterComponent extends React.Component {
     };
 
     this.toggleFilter = this.toggleFilter.bind(this);
-    this.handleDelete = this.handleDelete.bind(this);
   }
 
   toggleFilter(flair) {
