@@ -1,5 +1,6 @@
 html, body {
-  overflow: visible;
+  overflow: hidden;
+  width:100%;
 }
 body {
   margin: 0;
@@ -552,7 +553,8 @@ h2 {
     padding-top: 3vh;
     padding-bottom: 2vh;
     font-size: 4vw;
-    margin-bottom: 17vh;
+    margin-bottom: 4vh;
+    overflow: hidden;
   }
 
   .tagCommentary {
