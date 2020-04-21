@@ -181,10 +181,6 @@ class CardsArray extends React.Component {
           }
           tmpNews.push(dictData)
         }*/
-          
-          
-          
-  
 
           //set temp arrays equal to states. states are arrays of dicts
           this.setState({

@@ -9,10 +9,32 @@ import { Container } from 'react-bootstrap';
 import Typography from '@material-ui/core/Typography';
 import Select from 'react-select'
 
+const options = [{
+  label: "Public Health",
+  options: [
+    { value: 'WHO', label: 'World Health Organization'},
+    { value: 'CDCgov', label: 'Center For Disease Control'},
+    { value: 'US_FDA', label: 'Food and Drug Administration'},
+    { value: 'Surgeon_General', label: 'US Surgeon General'},
+  ]
+},
+{
+  label: "News Sources",
+  options: [
+    { value: 'Reuters', label: 'Reuters'},
+    { value: 'NewYorker', label: 'The New Yorker'},
+    { value: 'CBSNews', label: 'CBS'},
+    { value: 'CNN', label: 'CNN'},
+    { value: 'BBCWorld', label: 'BBCWorld'},
+    { value: 'CNNbrk', label: 'CNN Breaking News'},
+    { value: 'MSNBC', label: 'MSNBC'},
+  ]
+},
+];
+
 const topTenOptionsState = [
-  { value: 'WHO', label: 'World Health Organization'},
-  { value: 'CNN', label: 'CNN'},
-  { value: 'MSNBC', label: 'MSNBC'}
+  
+  
 ]
 const hub = {color: '#eac45f'};
 
@@ -51,6 +73,7 @@ class Commentary extends React.Component {
 
   render()
   {  
+   
     return (   
 
 <div> 
@@ -67,19 +90,20 @@ class Commentary extends React.Component {
             placeholder={"World Health Organization"}
             value={this.state.twitterHandle}
             onChange={this.handleTwitterHandle}
-            options={topTenOptionsState}
+            options={options}
+            style={{fontSize: "40vw"}}
           />
        <div style={{marginTop: "2vh"}}></div> 
        
       {this.state.change === false && <TwitterTimelineEmbed
   sourceType="profile"
   screenName={this.state.username}
-  options={{height: "75vh"}}
+  options={{height: "66vh"}}
     />}
     {this.state.change === true && <TwitterTimelineEmbed
   sourceType="profile"
   screenName={this.state.username}
-  options={{height: "75vh"}}
+  options={{height: "66vh"}}
     />}
         
         <h1 className="tagCommentary">Service provided by the FSU Innovation Hub <br></br>
