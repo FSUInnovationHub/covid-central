@@ -143,7 +143,7 @@ class FlairFilterComponent extends React.Component {
       //refactor to map from the emotions enum
     <div  style={{ marginLeft: "0vw"}}>
       <br></br>
-      <Container fluid>
+      <Container maxWidth="lg">
         <Chip size="small" style={{backgroundColor: this.state.general, padding: '3vw', marginBottom: '2vw', fontWeight: 'bold', fontSize: '4vw'}}className="emotionChip" label="general" onClick={() => this.toggleFilter("all")}/>
         &nbsp;
         <Chip size="small" style={{backgroundColor: this.state.anxiety, padding: '3vw', marginBottom: '2vw', fontWeight: 'bold', fontSize: '4vw'}} className="emotionChip" label="anxiety" onClick={() => this.toggleFilter("anxiety")} />
