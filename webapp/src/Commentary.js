@@ -9,6 +9,7 @@ import { Container } from 'react-bootstrap';
 import Typography from '@material-ui/core/Typography';
 import Select from 'react-select'
 
+//options of reliable twitter users to render
 const options = [{
   label: "Public Health",
   options: [
@@ -32,10 +33,6 @@ const options = [{
 },
 ];
 
-const topTenOptionsState = [
-  
-  
-]
 const hub = {color: '#eac45f'};
 
 class Commentary extends React.Component { 
@@ -50,16 +47,15 @@ class Commentary extends React.Component {
     };
   }
   
-  componentDidMount() {
-    
-    
-  }
   handleTwitterHandle = twitterHandle => {
-    //sets states for the individual state being queried
+    //sets state for the twitter user being queried 
+    //the change boolean MUST be here to ensure a pseudo rerender without losing the option being selected
     if(this.state.change === true)
     {
-      this.setState({twitterHandle,
-        username: twitterHandle['value'], change: false})
+      this.setState({
+        twitterHandle,
+        username: twitterHandle['value'],
+        change: false})
     }
     else{
       this.setState({
@@ -68,46 +64,47 @@ class Commentary extends React.Component {
         change: true,
       })
     }
-    
   }
 
   render()
   {  
    
     return (   
+    <div> 
+      <NavigationComponent title="Commentary" />
+        <div style={{padding: '25px 10px 25px 10px'}}>
+        <Typography variant="caption" color="inherit" style={{float: "left"}}>
+          Last Updated: {(new Date()).toLocaleTimeString()}
+        </Typography>
 
-<div> 
-    <NavigationComponent title="Commentary" />
-
-    <div style={{padding: '25px 10px 25px 10px'}}>
-      <Typography variant="caption" color="inherit" style={{float: "left"}}>
-        Last Updated: {(new Date()).toLocaleTimeString()}
-      </Typography>
       <Container fluid>
-      
-      <div style={{marginTop: "6vh"}}></div>
-      <Select className="selectUser"
+        <div style={{marginTop: "6vh"}}></div>
+          <Select className="selectUser"
             placeholder={"World Health Organization"}
             value={this.state.twitterHandle}
             onChange={this.handleTwitterHandle}
             options={options}
             style={{fontSize: "40vw"}}
           />
+       
        <div style={{marginTop: "2vh"}}></div> 
        
-      {this.state.change === false && <TwitterTimelineEmbed
-  sourceType="profile"
-  screenName={this.state.username}
-  options={{height: "64vh"}}
-    />}
-    {this.state.change === true && <TwitterTimelineEmbed
-  sourceType="profile"
-  screenName={this.state.username}
-  options={{height: "64vh"}}
-    />}
+        {/*triggers rerender. MUST be here. won't work with simply changing the screename*/}
+        {this.state.change === false && <TwitterTimelineEmbed
+          sourceType="profile"
+          screenName={this.state.username}
+          options={{height: "62vh"}}
+        />}
+
+        {this.state.change === true && <TwitterTimelineEmbed
+          sourceType="profile"
+          screenName={this.state.username}
+          options={{height: "62vh"}}
+        />}
         
         <h1 className="tagCommentary">Service provided by the FSU Innovation Hub <br></br>
-         <a style={hub} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>
+        <a style={hub} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>
+        
       </Container>
 
 

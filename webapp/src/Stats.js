@@ -366,14 +366,13 @@ class Stats extends React.Component {
             options={topTenOptions}
           />
           <div>
-            
+          {/*Bootsrap table*/}
             <Table striped bordered   className="topTen">
               <thead>
               <th>Rank</th>
               <th>Country</th>
               <th>Number</th>
               </thead>
-              
               {topTenCountryNames}
               </Table>
             <br></br>
@@ -381,9 +380,7 @@ class Stats extends React.Component {
             <a className=".dataSource" style={link} href="https://covid19api.com/" target="_blank"><div className="dataSource"> Source </div></a>
         </div>
     </Container>
-    
-      
-    
+  
     <Container fluid>
       {/*TOP TEN STATES WIDGET*/}
         <div className="statsCont">
@@ -395,6 +392,7 @@ class Stats extends React.Component {
             options={topTenOptionsState}
           />
           <div>
+          {/*Bootsrap table*/}
           <Table striped bordered  className="topTen">
               <thead>
               <th>Rank</th>
