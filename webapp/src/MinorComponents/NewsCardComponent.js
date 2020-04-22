@@ -118,7 +118,8 @@ class NewsCardComponent extends React.Component {
                 disableElevation>
               {article.source}
             </Button>
-            <Typography variant="body2" color="secondary" >
+            <Typography variant="body2" color="secondary" style={{float: "right"}} >
+              {article.time === true && <div> &nbsp; &nbsp; {article.timePublished}</div>}
              {article.datePublished}
             </Typography>
           </div>
