@@ -5,6 +5,7 @@ import * as Util from './Shared/Util.js'
 import { CardResourceTypes, Emotions } from './Shared/Enums'
 import { SheetsUrl, NewsApi } from './Shared/Constants'
 import NewsCardComponent from './MinorComponents/NewsCardComponent'
+import SwitchBase from '@material-ui/core/internal/SwitchBase';
 
 //number of categories asked for on any one path of the form
 const numberOfCategories = 7;
@@ -191,7 +192,23 @@ class CardsArray extends React.Component {
                 timePublished: time,
                 source: data2['articles'][i]['source']['name'], 
             }
-            tmpNews.push(dictData)
+
+            //modified the api request string to return 100 results and only use one request 
+            //The following reliable news sources will be the only ones used on the live news feed
+            //CBS, Wall Street Journal, CNN, ABC, FOX, Google News, NBC, Reuters, Tech Crunch, Tech Radar,
+            //USA Today, TIME, Next Big Future, AP, Bloomberg, Axios, Business Insider
+              
+            if((dictData['url'].includes("www.cbsnews.com")) || (dictData['url'].includes("www.wsj.com")) || (dictData['url'].includes("www.cnn.com"))
+            || (dictData['url'].includes("www.abcnews.go.com")) || (dictData['url'].includes("www.foxnews.com")) || (dictData['url'].includes("www.news.google.com")) 
+            || (dictData['url'].includes("www.nbcnews.com")) || (dictData['url'].includes("www.reuters.com")) || (dictData['url'].includes("www.techcrunch.com")) 
+            || (dictData['url'].includes("www.techradar.com")) || (dictData['url'].includes("www.usatoday.com")) || (dictData['url'].includes("www.time.com"))
+            || (dictData['url'].includes("www.washingtontimes.com")) || (dictData['url'].includes("www.wired.com")) || (dictData['url'].includes("www.news.vice.com")) 
+            || (dictData['url'].includes("www.nextbigfuture.com")) || (dictData['url'].includes("www.apnews.com")) || (dictData['url'].includes("www.bloomberg.com")) 
+            || (dictData['url'].includes("www.axios.com")) || (dictData['url'].includes("www.businessinsider.com")))
+            {
+              tmpNews.push(dictData)
+            }
+            
           }
         }
 
