@@ -135,7 +135,8 @@ class CardsArray extends React.Component {
                 description: dictData[4],
                 source: dictData[5],
                 datePublished: dictData[6],
-                timestamp: dictData[7]
+                timestamp: dictData[7],
+                time: false,
               }
 
               switch(category) 
@@ -159,7 +160,8 @@ class CardsArray extends React.Component {
                     description: dictData[4],
                     source: dictData[5],
                     resourceType: dictData[6],
-                    timestamp: dictData[7]
+                    timestamp: dictData[7],
+                    time: false,
                   }
                   tmpResources.push(altDict)
                   continue;
@@ -175,13 +177,18 @@ class CardsArray extends React.Component {
           if (data2 !== undefined) {
             for(var i = 0; i < data2['articles'].length; i++)
             { 
+              var date = (dateArray(data2['articles'][i]['publishedAt'])[0]).replace(/-/g, '/')
+              var time = (dateArray(data2['articles'][i]['publishedAt'])[1])
               var dictData = {
+                
                 page: 'NEWS',
                 emotions: ['all'],
                 url: data2['articles'][i]['url'],
                 headline: data2['articles'][i]['title'],
                 description: data2['articles'][i]['description'],
-                datePublished: (dateArray(data2['articles'][i]['publishedAt'])[0]).replace(/-/g, '/'),
+                datePublished: date,
+                time: true,
+                timePublished: time,
                 source: data2['articles'][i]['source']['name'], 
             }
             tmpNews.push(dictData)
