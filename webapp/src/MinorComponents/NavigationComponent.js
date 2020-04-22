@@ -36,10 +36,6 @@ class NavigationComponent extends React.Component {
               <IconButton href={"/launch"} color="inherit">
                 <NavigateBeforeIcon />
               </IconButton>
-
-              <IconButton color="inherit">
-                <RefreshIcon />
-              </IconButton>
           </section>
         </Toolbar>
     </AppBar>

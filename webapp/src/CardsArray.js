@@ -3,7 +3,7 @@ import './App.css';
 import 'react-spinning-wheel/dist/style.css';
 import * as Util from './Shared/Util.js'
 import { CardResourceTypes, Emotions } from './Shared/Enums'
-import { SheetsUrl } from './Shared/Constants'
+import { SheetsUrl, NewsApi } from './Shared/Constants'
 import NewsCardComponent from './MinorComponents/NewsCardComponent'
 
 //number of categories asked for on any one path of the form
@@ -40,7 +40,6 @@ var dateArray = function(apiDate) {
 //This page will display the current statistics from the COVID-19 Outbreak Specific to the USA
 class CardsArray extends React.Component { 
 
-
   constructor(props) {
     super(props);
     this.state = {
@@ -53,13 +52,21 @@ class CardsArray extends React.Component {
   }
 
   loadSheetsData() {
-    Promise.all([
-      fetch(SheetsUrl),
-      fetch("https://newsapi.org/v2/everything?q=coronavirus&from=2020-04-19&sortBy=popularity&page=1&apiKey=e377370ade7c4b1eb951323b8740372f"),
-    ])
-      .then(([res1, res2]) => Promise.all([res1.json(), res2.json()]))
-      .then(([data1, data2]) => 
+
+    var fetchUrls = [];
+    fetchUrls.push(fetch(SheetsUrl).then(res => res.json()));
+
+    // only fetch from news api if visiting news page
+    if (this.props.resourceType === CardResourceTypes.NEWS) {
+      fetchUrls.push(fetch(NewsApi).then(res => res.json()));
+    }
+
+    Promise.all(fetchUrls)
+      .then(responses => 
         {  
+          var data1 = responses[0];
+          var data2 = responses[1];
+
           //temporary array of dicts. states will be set to this
           var tmpFacts = []
           var tmpNews = []
@@ -165,19 +172,20 @@ class CardsArray extends React.Component {
           
           //live data
           //NEW LIVE DATA --- RETURNS 20 CORONAVIRUS ARTICLES FROM THE CURRENT DATE
-          //FIX THIS FLOW SO THAT IT ISN'T BEING ACCESSED EVERY TIME
-          for(var i = 0; i < data2['articles'].length; i++)
-          { 
-            var dictData = {
-              page: 'NEWS',
-              emotions: ['all'],
-              url: data2['articles'][i]['url'],
-              headline: data2['articles'][i]['title'],
-              description: data2['articles'][i]['description'],
-              datePublished: (dateArray(data2['articles'][i]['publishedAt'])[0]).replace(/-/g, '/'),
-              source: data2['articles'][i]['source']['name'], 
+          if (data2 !== undefined) {
+            for(var i = 0; i < data2['articles'].length; i++)
+            { 
+              var dictData = {
+                page: 'NEWS',
+                emotions: ['all'],
+                url: data2['articles'][i]['url'],
+                headline: data2['articles'][i]['title'],
+                description: data2['articles'][i]['description'],
+                datePublished: (dateArray(data2['articles'][i]['publishedAt'])[0]).replace(/-/g, '/'),
+                source: data2['articles'][i]['source']['name'], 
+            }
+            tmpNews.push(dictData)
           }
-          tmpNews.push(dictData)
         }
 
           //set temp arrays equal to states. states are arrays of dicts
