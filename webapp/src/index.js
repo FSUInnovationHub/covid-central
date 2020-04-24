@@ -11,6 +11,7 @@ import CardsArray from './CardsArray'
 import UsaGraph from './MinorComponents/UsaGraph'
 import Resources from './Resources'
 import Commentary from './Commentary';
+import Facts from './Facts';
 
 
 
@@ -20,11 +21,10 @@ const routing = (
   <Router>
     <Switch>
       <Route exact path="/" component={Launch}/>
-      <Route exact path="/launch" component={Launch}/>
+      <Route exact path="/facts" component={Facts}/>
       <Route exact path="/stats" component={Stats}/>
       <Route exact path="/news" component={NewsPage}/>
       <Route exact path="/resources" component={Resources}/>
-      <Route exact path="/CardsArray" component={CardsArray} />
       <Route exact path="/commentary" component= {Commentary} />
       <Route exact path="/*" exact component={Temp} />
       

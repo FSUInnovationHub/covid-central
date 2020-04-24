@@ -54,18 +54,23 @@ class Launch extends React.Component {
                   What is Covid-Central
                 </Typography>
               </div>
-
+              
               <hr className="cardDivider" />
 
               <div className="newsCardBody">
                 <Typography variant="body2" color="secondary">
-                  COVID-Central is an effort by a group of interns from Florida State University&#39;s Innovation Hub. Our goal is to provide a centralized hub filled with reliable information, resources, and statistics regarding the outbreak of the COVID-19 virus. 
+                  COVID-Central is an effort by a group of interns from Florida State University&#39;s Innovation Hub and outside collaborators. Our goal is to provide a centralized hub filled with reliable information, resources, and statistics regarding the outbreak of the COVID-19 virus. 
+                  <br></br>
+                  <br></br>
+                This is an open source project. 
+                <br></br>
+                <a href="https://github.com/FSUInnovationHub/covid-central" target="_blank" style={{color: '#7da4ff'}}>Github</a>
                 </Typography>
               </div>
         
-              <Typography variant="h6" color="secondary" style={{marginTop:'2vh', alignSelf:'center'}}>
+              {/*<Typography variant="h6" color="secondary" style={{marginTop:'2vh', alignSelf:'center'}}>
                 Scroll down to start!
-              </Typography>
+    </Typography>*/}
             </MuiThemeProvider>
           </div>
 
