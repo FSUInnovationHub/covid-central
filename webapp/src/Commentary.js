@@ -22,13 +22,23 @@ const options = [{
 {
   label: "News Sources",
   options: [
-    { value: 'Reuters', label: 'Reuters'},
-    { value: 'NewYorker', label: 'The New Yorker'},
+    { value: 'ABC', label: 'ABC'},
+    { value: 'AP', label: 'AP'},
+    { value: 'axios', label: 'Axios'},
+    { value: 'business', label: 'Bloomberg'},
+    { value: 'businessinsider', label: 'Business Insider'},
     { value: 'CBSNews', label: 'CBS'},
     { value: 'CNN', label: 'CNN'},
-    { value: 'BBCWorld', label: 'BBCWorld'},
-    { value: 'CNNbrk', label: 'CNN Breaking News'},
+    { value: 'FoxNews', label: 'FOX'},
+    { value: 'googlenews', label: 'Google News'},
     { value: 'MSNBC', label: 'MSNBC'},
+    { value: 'NBCNews', label: 'NBC'},
+    { value: 'Reuters', label: 'Reuters'},
+    { value: 'TechCrunch', label: 'Tech Crunch'},
+    { value: 'techradar', label: 'Tech Radar'},
+    { value: 'TIME', label: 'TIME'},
+    { value: 'USATODAY', label: 'USA Today'},
+    { value: 'WSJ', label: 'Wall Street Journal'},
   ]
 },
 ];
