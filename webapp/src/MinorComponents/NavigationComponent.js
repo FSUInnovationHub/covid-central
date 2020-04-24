@@ -33,7 +33,7 @@ class NavigationComponent extends React.Component {
           <Typography variant="h4" color="inherit">{this.title}</Typography>
 
           <section style={{marginLeft: 'auto'}}>
-              <IconButton href={"/launch"} color="inherit">
+              <IconButton href={"/"} color="inherit">
                 <NavigateBeforeIcon />
               </IconButton>
           </section>
