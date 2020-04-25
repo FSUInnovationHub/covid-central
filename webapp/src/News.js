@@ -29,7 +29,7 @@ class NewsPage extends React.Component {
   {  
     return (   
 
-<div className="statsPage"> 
+<div className="newsstatsPage"> 
     <NavigationComponent title="News" />
 
     <div style={{padding: '25px 10px 25px 10px'}}>

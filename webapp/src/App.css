@@ -1,5 +1,5 @@
 html, body {
-  overflow: hidden;
+  /*overflow: scroll;*/
   width:100%;
 }
 body {
@@ -102,6 +102,14 @@ h2 {
   background-color: #7da4ff;
 }
 
+.MuiButton-label {
+  margin-top: 5vh;
+  width: 100%;
+  display: inherit;
+  align-items: inherit;
+  justify-content: inherit;
+}
+
 /*rules for the text bar at the bottom of the page*/
 .submitTxt
 {
@@ -109,9 +117,9 @@ h2 {
   border: none;
   font-weight: bold;
   color: white;
-  font-size: 10vw;
+  font-size: 6vw !important;
   width: 100vw;
-  height: 10vh;
+  height: 2vh;
   text-align: center;
   text-align-last: center;
   margin-top: 5vh;
@@ -163,11 +171,28 @@ h2 {
 }
 
 .showMeThe {
-  margin-top: 8vh;
+  margin-top: 2vh;
 }
+
+/*.factsContainer {
+  background-color: coral;
+  width:50% !important;
+}*/
 
 /*stats page wrapper*/
 .statsPage {
+  margin-top: 40px;
+  width: 100vw;
+  height: auto;
+  display: flex;
+  align-items: stretch;
+  /*flex-direction: row-reverse;*/
+  align-items: flex-start;
+  overflow-x: scroll;
+  /*overflow-y: scroll;*/
+}
+
+.newsstatsPage{
   margin-top: 40px;
   width: 100vw;
   height: auto;
@@ -249,7 +274,7 @@ h2 {
 .newsCont {
   align-self: center;
   margin-top: 2vh;
-  width: 90vw;
+  width: 40vw;
   height: auto;
   display: flex;
   /*margin-left: 3vw;*/
@@ -332,15 +357,57 @@ h2 {
   width:100% !important;
   height:100% !important;
 }
-/*special CSS rules for mobile devices*/
-@media only screen and (max-width: 600px) {
- 
+.submitBar {
+  position:'absolute'; bottom:'0'; padding-bottom: '0vh';
+}
 
+.github {
+  font-size: 1.5vw !important;
+  color: #7da4ff;
+}
+
+/*special CSS rules for mobile devices*/
+@media only screen and (max-width: 375px) {
+
+  html, body {
+    overflow: scroll;
+    width:100%;
+  }
+
+  .newsstatsPage{
+    margin-top: 40px;
+    width: 100vw;
+    height: auto;
+    display: flex;
+    align-items: stretch;
+    /*flex-direction: row-reverse;*/
+    align-items: flex-start;
+    overflow-x: scroll;
+    /*overflow-y: scroll;*/
+  }
+
+  .github {
+    font-size: 4vw !important;
+    color: #7da4ff;
+  }
+
+  .MuiButton-label {
+    margin-top: 0vh;
+    width: 100%;
+    display: inherit;
+    align-items: inherit;
+    justify-content: inherit;
+  }
+  
+.submitBar {
+  position:'absolute'; bottom:'0'; padding-bottom: '14vh';
+}
   .highcharts-container {
     width:100% !important;
     height:100% !important;
    
 }
+
 
   /*wraps clock*/
   .clockWrapper {
@@ -405,7 +472,7 @@ h2 {
     border: none;
     font-weight: bold;
     color: white;
-    font-size: 14vw;
+    font-size: 10vw !important;
     width: 100vw;
     height: 10vh;
     text-align: center;
@@ -450,13 +517,6 @@ h2 {
   }
 
   /*stats page wrapper*/
-.statsPage {
-  width: 100vw;
-  height: 100vh;
-  flex-direction: row-reverse;
-  overflow-x: hidden;
-  /*overflow-y: auto;*/
-}
 
 
 /*container for Temp class*/
@@ -624,6 +684,22 @@ h2 {
 
   }
 
+  .newsCont {
+    align-self: center;
+    margin-top: 2vh;
+    width: 90vw;
+    height: auto;
+    display: flex;
+    /*margin-left: 3vw;*/
+    flex-direction: column;
+    background-color: #2b2d2f;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    border-radius: 3vw;
+    align-content: center;
+  }
   
 
  

@@ -79,7 +79,7 @@ class Commentary extends React.Component {
           Last Updated: {(new Date()).toLocaleTimeString()}
         </Typography>
 
-      <Container fluid>
+      <Container fluid className="factsContainer">
         <div style={{marginTop: "4vh"}}></div>
           <Select className="selectFacts"
             placeholder={"General"}

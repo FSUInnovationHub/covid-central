@@ -64,7 +64,7 @@ class Launch extends React.Component {
                   <br></br>
                 This is an open source project. 
                 <br></br>
-                <a href="https://github.com/FSUInnovationHub/covid-central" target="_blank" style={{color: '#7da4ff'}}>Github</a>
+                <a href="https://github.com/FSUInnovationHub/covid-central" target="_blank" className="github">Github</a>
                 </Typography>
               </div>
         
@@ -90,11 +90,11 @@ class Launch extends React.Component {
             </Select>
            </div>
 
-           <div style={{position:'absolute', bottom:'0', paddingBottom: '14vh'}}>
-              <hr className="solid"></hr>
+           <div className="submitBar">
+              <hr></hr>
               <Button 
                   className="submitTxt"
-                  style={{fontSize:'10vw'}} 
+                  
                   variant="text"
                   href={"/" + this.state.source}
                   disabled={this.state.source === ""}>
