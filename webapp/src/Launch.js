@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import 'react-spinning-wheel/dist/style.css';
 
+import DesktopUserNoticeComponent from './MinorComponents/DesktopUserNoticeComponent'
+
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -45,6 +47,8 @@ class Launch extends React.Component {
         <div className="launchCont" style={{position:'relative'}}>
           <h1>Covid-Central</h1>
           <hr className="solid"></hr>
+
+          <DesktopUserNoticeComponent />
 
           <div className="newsCont">
 
