@@ -30,7 +30,7 @@ class DesktopUserNoticeComponent extends React.Component {
 
     return (
       <div>
-      { isMobile ? 
+      { isMobile === false ? 
           <div className="newsCont" 
             style={{textAlign:'center',
                     display:'block', 

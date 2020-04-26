@@ -139,22 +139,6 @@ h2 {
   color: #03bb85;
 }
 
-/*rules for "reset" on form
-.resetTxt
-{
-  background-color: gray;;
-  border: none;
-  font-weight: bold;
-  color: white;
-  font-size: 7vw; /*change back to 8
-  width: 100%;
-  height: auto;
-  text-align: center;
-  bottom: 0;
-  position:fixed;
-}
-*/
-
 .resetTxt:hover
 {
   color:  #03bb85;
@@ -172,12 +156,9 @@ h2 {
 
 .showMeThe {
   margin-top: 2vh;
+  font-size: 3vw;
 }
 
-/*.factsContainer {
-  background-color: coral;
-  width:50% !important;
-}*/
 
 /*stats page wrapper*/
 .statsPage {
@@ -274,7 +255,7 @@ h2 {
 .newsCont {
   align-self: center;
   margin-top: 2vh;
-  width: 40vw;
+  width: 30vw;
   height: auto;
   display: flex;
   /*margin-left: 3vw;*/
@@ -345,14 +326,6 @@ h2 {
   
 }
 
-/*
-.charts {
-  left: 10px !important;
-  right: 10px !important;
-  top: 40px !important;
-  bottom: 10px !important;
-}
-*/
 .highcharts-container {
   width:100% !important;
   height:100% !important;
@@ -366,6 +339,32 @@ h2 {
   color: #7da4ff;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*orlando will parse through and clean this up before next friday*/
+
 /*special CSS rules for mobile devices*/
 @media only screen and (max-width: 375px) {
 
@@ -373,6 +372,71 @@ h2 {
     overflow: scroll;
     width:100%;
   }
+/*container for Temp class*/
+.cardCont {
+  /*CHANGE IN FUTURE*/
+
+  /*margin-bottom: 20vh;*/
+  
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #2b2d2f;
+  padding-top: 3vh;
+  padding-left: 0vw;
+  padding-right: 0vw;
+  padding-bottom: 3vh;
+  margin-bottom: 3vh;
+  border-radius: 3vw;
+  align-content: center;
+}
+  /*container for Temp class*/
+.statsCont {
+  /*CHANGE IN FUTURE*/
+
+  /*margin-bottom: 20vh;*/
+  margin-top: 3vh;
+  width: auto;
+  height: auto;
+  display: flex;
+  margin-left: 3vw;
+  flex-direction: column;
+  background-color: #2b2d2f;
+  padding-top: 3vh;
+  padding-left: 3vw;
+  padding-right: 3vw;
+  padding-bottom: 1vh;
+  border-radius: 3vw;
+  align-content: center;
+}
+
+/*container for Temp class*/
+.graphCont {
+  /*CHANGE IN FUTURE*/
+
+  /*margin-bottom: 20vh;*/
+  margin-top: 3vh;
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #2b2d2f;
+  padding-top: 0vh;
+  padding-left: 0vw;
+  padding-right: 0vw;
+  padding-bottom: 3vh;
+  border-radius: 3vw;
+  align-content: center;
+}
+
+  .container-fluid {
+    width: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
 
   .newsstatsPage{
     margin-top: 40px;
