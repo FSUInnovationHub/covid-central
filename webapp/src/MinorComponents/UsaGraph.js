@@ -48,7 +48,11 @@ class UsaGraph extends React.Component {
             var month = dateString.substring(4,6);
             var day  = dateString.substring(6,8);
             var date = new Date(year, month - 1, day);
-          
+            
+            if(date < new Date(2020, 2, 16))
+            {
+              continue;
+            }
             var dict = {
               day: month + "/" + day,
               positive: data1[i]['positive'],
