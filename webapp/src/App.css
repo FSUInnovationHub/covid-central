@@ -186,11 +186,11 @@ h2 {
 }
 
 .container-fluid {
-    width: auto;
+    width: 100vw;
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
-    margin-left: auto;
+    
 }
 
 /*container for Temp class*/
@@ -295,7 +295,8 @@ h2 {
 
 /*limit size of dropdown on stats page*/
 .selectUser{
-  width: 70vw;
+
+  width: 30vw;
   margin: 0 auto;
 }
 
@@ -338,6 +339,17 @@ h2 {
 .github {
   font-size: 1.5vw !important;
   color: #7da4ff;
+}
+
+.tagCommentary {
+  
+  padding-bottom: 2vh;
+  font-size: 1.5vw;
+
+}
+
+.hubLink {
+  font-size: 1.5vw;
 }
 
 
@@ -467,6 +479,11 @@ h2 {
   .github {
     font-size: 4vw !important;
     color: #7da4ff;
+  }
+
+  .selectUser{
+    width: 70vw;
+    margin: 0 auto;
   }
 
   .MuiButton-label {
