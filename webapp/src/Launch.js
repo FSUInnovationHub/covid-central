@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Typography from '@material-ui/core/Typography';
+import * as Util from './Shared/Util'
 
 const sources = [ 'Facts', 'Stats', 'News', 'Resources' , 'Commentary'];
 
@@ -42,6 +43,7 @@ class Launch extends React.Component {
 
   render()
   {  
+    const isMobile = Util.IsMobileUserAgent()
     return (   
       <div className="noScroll"> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
         <div className="launchCont" style={{position:'relative'}}>
@@ -80,6 +82,7 @@ class Launch extends React.Component {
 
           <h2 className="showMeThe">show me the</h2>
           <div className="dropdown">
+            
             <Select
               style={{width:'auto',display:'block', verticalAlign:'center'}}
               autoWidth={true}

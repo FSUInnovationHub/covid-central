@@ -78,7 +78,7 @@ h2 {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 .navBanner {
@@ -89,7 +89,7 @@ h2 {
 .dropdown {
   align-self: center;
   margin-top: 2vh;
-  width: 30vw;
+  width: 17vw;
   max-height: 4vh;
   background-color: #7da4ff;
 }
@@ -256,6 +256,7 @@ h2 {
   align-self: center;
   margin-top: 2vh;
   width: 30vw;
+  max-width: 50vw;
   height: auto;
   display: flex;
   /*margin-left: 3vw;*/
@@ -363,6 +364,7 @@ h2 {
 
 
 
+
 /*orlando will parse through and clean this up before next friday*/
 
 /*special CSS rules for mobile devices*/
@@ -372,6 +374,18 @@ h2 {
     overflow: scroll;
     width:100%;
   }
+
+  /*container for launch class*/
+.launchCont {
+  margin-top: 0vh;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+
 /*container for Temp class*/
 .cardCont {
   /*CHANGE IN FUTURE*/
@@ -502,6 +516,7 @@ h2 {
   }
 
   .showMeThe {
+    font-size: 10vw;
     margin-top: 8vh;
   }
 
@@ -752,6 +767,7 @@ h2 {
     align-self: center;
     margin-top: 2vh;
     width: 90vw;
+    max-width: 90vw;
     height: auto;
     display: flex;
     /*margin-left: 3vw;*/
