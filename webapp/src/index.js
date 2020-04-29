@@ -26,7 +26,7 @@ const routing = (
       <Route exact path="/news" component={NewsPage}/>
       <Route exact path="/resources" component={Resources}/>
       <Route exact path="/commentary" component= {Commentary} />
-      <Route exact path="/*" exact component={Temp} />
+      <Route exact path="/*" exact component={Launch} />
       
     </Switch>
   </Router>

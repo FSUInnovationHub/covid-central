@@ -2,11 +2,14 @@ import React from 'react';
 import './App.css';
 import 'react-spinning-wheel/dist/style.css';
 
+import DesktopUserNoticeComponent from './MinorComponents/DesktopUserNoticeComponent'
+
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Typography from '@material-ui/core/Typography';
+import * as Util from './Shared/Util'
 
 const sources = [ 'Facts', 'Stats', 'News', 'Resources' , 'Commentary'];
 
@@ -40,11 +43,14 @@ class Launch extends React.Component {
 
   render()
   {  
+    const isMobile = Util.IsMobileUserAgent()
     return (   
       <div className="noScroll"> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
         <div className="launchCont" style={{position:'relative'}}>
           <h1>Covid-Central</h1>
           <hr className="solid"></hr>
+
+          <DesktopUserNoticeComponent />
 
           <div className="newsCont">
 
@@ -64,7 +70,7 @@ class Launch extends React.Component {
                   <br></br>
                 This is an open source project. 
                 <br></br>
-                <a href="https://github.com/FSUInnovationHub/covid-central" target="_blank" style={{color: '#7da4ff'}}>Github</a>
+                <a href="https://github.com/FSUInnovationHub/covid-central" target="_blank" className="github">Github</a>
                 </Typography>
               </div>
         
@@ -76,6 +82,7 @@ class Launch extends React.Component {
 
           <h2 className="showMeThe">show me the</h2>
           <div className="dropdown">
+            
             <Select
               style={{width:'auto',display:'block', verticalAlign:'center'}}
               autoWidth={true}
@@ -90,11 +97,11 @@ class Launch extends React.Component {
             </Select>
            </div>
 
-           <div style={{position:'absolute', bottom:'0', paddingBottom: '14vh'}}>
-              <hr className="solid"></hr>
+           <div className="submitBar">
+              <hr></hr>
               <Button 
                   className="submitTxt"
-                  style={{fontSize:'10vw'}} 
+                  
                   variant="text"
                   href={"/" + this.state.source}
                   disabled={this.state.source === ""}>

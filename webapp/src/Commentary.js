@@ -8,6 +8,7 @@ import { CardResourceTypes } from './Shared/Enums'
 import { Container } from 'react-bootstrap';
 import Typography from '@material-ui/core/Typography';
 import Select from 'react-select'
+import * as Util from './Shared/Util'
 
 //options of reliable twitter users to render
 const options = [{
@@ -78,17 +79,18 @@ class Commentary extends React.Component {
 
   render()
   {  
-   
+    const isMobile = Util.IsMobileUserAgent()
     return (   
     <div> 
       <NavigationComponent title="Commentary" />
         <div style={{padding: '25px 10px 25px 10px'}}>
-        <Typography variant="caption" color="inherit" style={{float: "left"}}>
+        {/*<Typography variant="caption" color="inherit" style={{float: "left"}}>
           Last Updated: {(new Date()).toLocaleTimeString()}
-        </Typography>
+    </Typography>*/}
 
       <Container fluid>
-        <div style={{marginTop: "6vh"}}></div>
+        
+        {isMobile ? <div><div style={{marginTop: "6vh"}}></div>
           <Select className="selectUser"
             placeholder={"World Health Organization"}
             value={this.state.twitterHandle}
@@ -114,7 +116,44 @@ class Commentary extends React.Component {
         
         <h1 className="tagCommentary">Service provided by the FSU Innovation Hub <br></br>
         <a style={hub} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>
+        </div> 
         
+        : 
+        
+        
+
+
+
+
+
+        
+        (<div><div className="noScroll" style={{marginTop: "8vh"}}></div>
+        <Select className="selectUser"
+          placeholder={"World Health Organization"}
+          value={this.state.twitterHandle}
+          onChange={this.handleTwitterHandle}
+          options={options}
+          
+        />
+     
+     <div style={{marginTop: "2vh"}}></div> 
+     
+      {/*triggers rerender. MUST be here. won't work with simply changing the screename*/}
+      {this.state.change === false && <center><TwitterTimelineEmbed
+        sourceType="profile"
+        screenName={this.state.username}
+        options={{width: "40vw", height: "70vh"}}
+      /></center>}
+
+      {this.state.change === true && <center><TwitterTimelineEmbed
+        sourceType="profile"
+        screenName={this.state.username}
+        options={{width: "40vw", height: "70vh"}}
+      /></center>}
+      
+      <h1 className="tagCommentary">Service provided by the FSU Innovation Hub <br></br>
+      <a style={hub}  className="hubLink" href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>
+      </div> )}
       </Container>
 
 
@@ -122,7 +161,7 @@ class Commentary extends React.Component {
 
 </div>
 
-      )
+    )
   }
 }
 export default Commentary;

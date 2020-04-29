@@ -13,6 +13,7 @@ import dosAndDont from './Content/dosAndDont.jpg'
 import typesOfMasks from './Content/typesOfMasks.png'
 import socialDistancing from './Content/socialDistancing.jpg'
 import filler from './Content/filler.jpg'
+import * as Util from './Shared/Util'
 
 
 //options of reliable twitter users to render
@@ -70,8 +71,8 @@ class Commentary extends React.Component {
 
   render()
   {  
-   
-    return (   
+    const isMobile = Util.IsMobileUserAgent()
+    return isMobile ? (   
     <div className="statsPage"> 
       <NavigationComponent title="Facts" />
         <div style={{padding: '25px 10px 0px 10px'}}>
@@ -79,7 +80,7 @@ class Commentary extends React.Component {
           Last Updated: {(new Date()).toLocaleTimeString()}
         </Typography>
 
-      <Container fluid>
+      <Container fluid className="factsContainer">
         <div style={{marginTop: "4vh"}}></div>
           <Select className="selectFacts"
             placeholder={"General"}
@@ -183,12 +184,125 @@ class Commentary extends React.Component {
         <a style={hub} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>
         
       </Container>
-
-      
     </div>
-
 </div>
 
+      )
+      :
+
+
+
+
+      (
+        <div className="statsPage"> 
+      <NavigationComponent title="Facts" />
+        <div style={{padding: '25px 10px 0px 10px'}}>
+        <Typography variant="caption" color="inherit" style={{float: "left"}}>
+          Last Updated: {(new Date()).toLocaleTimeString()}
+        </Typography>
+
+
+        <div style={{marginTop: "4vh"}}></div>
+          <Select className="selectFacts"
+            placeholder={"General"}
+            value={this.state.category}
+            onChange={this.handleCategory}
+            options={options}
+            style={{fontSize: "40vw"}}
+          />
+       
+       <div style={{marginTop: "2vh"}}></div> 
+      <Container fluid className="container-fluidDesktop">
+        
+
+
+       {this.state.general && <div>
+         <div className="newsCont">
+
+        <MuiThemeProvider theme={textTheme}>
+              <div className="newsCardHeader">
+                <Typography variant="h5" color="secondary">
+                  What is Covid-Central
+                </Typography>
+              </div>
+
+              <div className="newsCardBody">
+                <Typography variant="body2" color="secondary">
+                Covid Central is a data centralization tool that helps cater sources based on your emotion.
+                
+                </Typography>
+              </div>
+            </MuiThemeProvider>
+
+            
+        </div>
+        <div className="newsCont">
+
+        <MuiThemeProvider theme={textTheme}>
+              <div className="newsCardHeader">
+                <Typography variant="h5" color="secondary">
+                  CDC
+                </Typography>
+              </div>
+
+
+              <div className="newsCardBody">
+                <Typography variant="body2" color="secondary">
+                “COVID-19 is caused by a new coronavirus. Coronaviruses are a large family of viruses that are common in people and many different species of animals, including camels, cattle, cats, and bats. Rarely, animal coronaviruses can infect people and then spread between people such as with MERS-Co-V-2. MERS-CoV, SARS-CoV, and now this new virus, names SARS-CoV-2.”  
+ 
+                </Typography>
+              </div>
+            </MuiThemeProvider>
+
+            
+        </div>
+        <div className="newsCont">
+
+        <MuiThemeProvider theme={textTheme}>
+              <div className="newsCardHeader">
+                <Typography variant="h5" color="secondary">
+                  Pandemic Declaration 
+                </Typography>
+              </div>
+
+
+              <div className="newsCardBody">
+                <Typography variant="body2" color="secondary">
+                On March 11, the COVID-19 outbreak was characterized as a Pandemic by the World Health Organization. “A pandemic is a global outbreak of disease. Pandemics happen when a new virus emerges to infect people and can spread between people sustainably. Because there is little to no pre-existing immunity against the new virus, it spreads worldwide.”
+ 
+                </Typography>
+              </div>
+            </MuiThemeProvider>
+            
+
+            
+        </div>
+        
+        </div>}
+       {this.state.masks && <div >
+        <div className="cardCont" style={{width: "auto", maxWidth: "35vw"}}><center><img src={typesOfMasks} style={{width: "auto", maxWidth: "30vw", height: "auto"}} alt="Logo" /></center></div>
+        <div className="cardCont" style={{width: "auto", maxWidth: "45vw"}}><center><iframe  style={{width: "40vw", height: "50vh"}} src="https://www.youtube.com/embed/Mgp7DSGN33k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/></center></div>
+        <div className="cardCont" style={{width: "auto", maxWidth: "45vw"}}><center><iframe style={{width: "40vw", height: "50vh"}} src="https://www.youtube.com/embed/DFt9OuSKsOs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/></center></div>
+        
+        <div className="cardCont" style={{width: "auto", maxWidth: "35vw"}}><center><img src={dosAndDont} style={{width: "auto", maxWidth: "30vw", height: "auto"}} alt="Logo" /></center></div>
+        
+        </div>}
+       {this.state.socialDistancing && <div>
+        <div className="cardCont" style={{width: "auto", maxWidth: "35vw"}}><center><img src={socialDistancing} style={{width: "auto", maxWidth: "30vw", height: "auto"}} alt="Logo" /></center></div>
+        <div className="cardCont" style={{width: "auto", maxWidth: "45vw"}}><center><iframe style={{width: "40vw", height: "50vh"}} src="https://www.youtube.com/embed/UMqi0AfLnro" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/></center></div>
+        </div>}
+       {this.state.hotlines && <div>
+        <div className="cardCont">
+        <div className="cardCont" style={{width: "auto", maxWidth: "35vw"}}><center><img src={filler} style={{width: "auto", maxWidth: "20vw", height: "auto"}} alt="Logo" /></center></div>
+      
+       </div>
+      </div>}
+        
+      </Container>
+      <h1 className="tagCommentary">Service provided by the FSU Innovation Hub <br></br>
+      <a style={hub}  className="hubLink" href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>
+    </div>
+</div>
       )
   }
 }
