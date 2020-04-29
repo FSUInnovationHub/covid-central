@@ -399,8 +399,8 @@ h2 {
 
 /*orlando will parse through and clean this up before next friday*/
 
-/*special CSS rules for mobile devices*/
-@media only screen and (max-width: 375px) {
+/*special CSS rules for mobile devices UP TO IPAD PRO WIDTH*/
+@media only screen and (max-width: 1025px) {
 
   html, body {
     overflow: scroll;
