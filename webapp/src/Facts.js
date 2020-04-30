@@ -212,10 +212,10 @@ class Commentary extends React.Component {
           />
        
        <div style={{marginTop: "2vh"}}></div> 
+
+       
       <Container fluid className="container-fluidDesktop">
-        
-
-
+        <div className="contentWrapper">
        {this.state.general && <div>
          <div className="newsCont">
 
@@ -279,6 +279,7 @@ class Commentary extends React.Component {
         </div>
         
         </div>}
+        
        {this.state.masks && <div >
         <div className="cardCont" style={{width: "auto", maxWidth: "35vw"}}><center><img src={typesOfMasks} style={{width: "auto", maxWidth: "30vw", height: "auto"}} alt="Logo" /></center></div>
         <div className="cardCont" style={{width: "auto", maxWidth: "45vw"}}><center><iframe  style={{width: "40vw", height: "50vh"}} src="https://www.youtube.com/embed/Mgp7DSGN33k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/></center></div>
@@ -297,6 +298,7 @@ class Commentary extends React.Component {
       
        </div>
       </div>}
+      </div>
         
       </Container>
       <h1 className="tagCommentary">Service provided by the FSU Innovation Hub <br></br>

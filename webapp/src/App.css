@@ -187,15 +187,18 @@ h2 {
 
 .container-fluidDesktop {
     width: 100vw;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: 0vh;
     display: flex;
     flex-flow: row wrap;
     align-content: flex-start;
-    justify-content: space-around;
+    justify-content: center;
   
     
+}
+
+.contentWrapper
+{
+  width: auto;
+  
 }
 
 /*container for Temp class*/
