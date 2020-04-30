@@ -56,6 +56,8 @@ class NewsCardComponent extends React.Component {
     return (
 <div>
   {this.state.filterNeeded === true && <div> <FlairFilterComponent flairs={this.state.filters} filterFunc={this.filterNews} /> </div>}
+
+<div className="cardContainer">
 {
     this.props.articles.filter(function (article) {
       var changed = false;
@@ -118,15 +120,16 @@ class NewsCardComponent extends React.Component {
                 disableElevation>
               {article.source}
             </Button>
-            <Typography variant="body2" color="secondary" style={{float: "right"}} >
-              {article.time === true && <div> &nbsp; &nbsp; {article.timePublished}</div>}
-             {article.datePublished}
+            <Typography component={'span'} variant="body2" color="secondary" style={{float: "right"}} >
+              {article.time === true && <div> &nbsp; &nbsp; {article.timePublished} </div>}
+              {article.datePublished}
             </Typography>
           </div>
         </MuiThemeProvider>
       </div>
     ))
 }
+</div>
 </div>
     )
   }

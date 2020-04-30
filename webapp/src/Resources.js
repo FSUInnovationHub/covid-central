@@ -27,10 +27,11 @@ class Resources extends React.Component {
   {  
     return (   
 
-<div className="statsPage"> 
+<div className="desktopCont">
+<div className="newsstatsPage"> 
     <NavigationComponent title="Resources" />
 
-    <div style={{padding: '25px 10px 25px 10px'}}>
+    <div class="innerContentCont">
 
       <Typography variant="caption" color="inherit" style={{float: "left"}}>
         Last Updated: {(new Date()).toLocaleTimeString()}
@@ -43,6 +44,7 @@ class Resources extends React.Component {
 
     </div>
 
+</div>
 </div>
 
       )
