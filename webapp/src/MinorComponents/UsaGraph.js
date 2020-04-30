@@ -5,6 +5,7 @@ import ReactHighcharts from "react-highcharts";
 
 import { createLineChart, createBarChart } from "@pxblue/highcharts";
 import * as PXBColors from "@pxblue/colors";
+import * as Util from '../Shared/Util'
 
 //fnc to comma seperate numbers
 function numberWithCommas(x) {
@@ -28,13 +29,19 @@ class UsaGraph extends React.Component {
       usaArray: [], 
       yDataPos: [],
       yDataDea: [],
-      xData: {categories: []}
+      xData: {categories: []},
+      
     };
   }
 
   componentWillMount() {
+    var widthSize = 450
+    if(Util.IsMobileUserAgent())
+    {
+      widthSize = 350
+    }
     Promise.all([
-      fetch("https://covidtracking.com/api/us/daily"),
+      fetch("https://covidtracking.com/api/us/daily.json"),
     ])
       .then(([res1]) => Promise.all([res1.json()]))
       .then(([data1]) => 
@@ -59,8 +66,6 @@ class UsaGraph extends React.Component {
               negative: data1[i]['negative'],
               recovered: data1[i]['recovered'],
               death: data1[i]['death'],
-              hospitalized: data1[i]['hospitalized'],
-              hospitalizedIncrease: data1[i]['hospitalizedIncrease']
             }
             //push to data arrays that will be used to plot data 
             this.state.yDataPos.push({name: dict['day'], y: dict['positive'],})
@@ -75,7 +80,7 @@ class UsaGraph extends React.Component {
             mainConfig: 
             {
               chart: {
-                width: 350
+                width: widthSize
             },
               //formats onclick action for data points
               tooltip: {
@@ -141,11 +146,12 @@ class UsaGraph extends React.Component {
   }
 
   render()
-  {     
+  {    
+    
     return (<div>
-      <div style={{ height: "400px" }}>
+      
         <ReactHighcharts config={createBarChart(this.state.mainConfig)} {...graphStyles} />
-      </div>
+      
     </div>)
   }
 }

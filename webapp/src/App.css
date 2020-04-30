@@ -37,6 +37,12 @@ a {
   float: left;
 }
 
+/*used for sources*/
+.dataSourceDesktop {
+  font-size: 1.5vw;
+  float: left;
+}
+
 /*used for launch form*/
 h2 {
   font-size: 6vw;
@@ -130,13 +136,11 @@ h2 {
 
 .submitTxt:hover
 {
+  height: 0vw;
   color: #03bb85;
 }
 
-.submitTxt:active
-{
-  color: #03bb85;
-}
+
 
 .resetTxt:hover
 {
@@ -168,12 +172,24 @@ h2 {
   align-items: stretch;
   /*flex-direction: row-reverse;*/
   align-items: flex-start;
-  overflow-x: scroll;
+  overflow-x: none;
   /*overflow-y: scroll;*/
 }
 
 .newsstatsPage{
   margin-top: 40px;
+}
+
+.newsstatsPageMobile{
+  margin-top: 40px;
+  width: 100vw;
+  height: auto;
+  display: flex;
+  align-items: stretch;
+  /*flex-direction: row-reverse;*/
+  align-items: flex-start;
+  overflow-x: scroll;
+  /*overflow-y: scroll;*/
 }
 
 .container-fluidDesktop {
@@ -213,6 +229,26 @@ h2 {
 }
 
 /*container for Temp class*/
+.statsContDesktop {
+  /*CHANGE IN FUTURE*/
+
+  /*margin-bottom: 20vh;*/
+  margin-top: 3vh;
+  width: auto;
+  max-width: 28vw;
+  height: auto;
+  display: flex;
+  margin-left: 3vw;
+  flex-direction: column;
+  background-color: #2b2d2f;
+  padding-top: 3vh;
+  padding-left: 3vw;
+  padding-right: 3vw;
+  padding-bottom: 1vh;
+  border-radius: 3vw;
+  align-content: center;
+}
+/*container for Temp class*/
 .graphCont {
   /*CHANGE IN FUTURE*/
 
@@ -227,6 +263,22 @@ h2 {
   padding-left: 0vw;
   padding-right: 0vw;
   padding-bottom: 3vh;
+  border-radius: 3vw;
+  align-content: center;
+}
+
+.graphContDesktop {
+  /*CHANGE IN FUTURE*/
+
+  /*margin-bottom: 20vh;*/
+  margin-top: 3vh;
+  width: 35vw;
+  height: auto;
+  background-color: #2b2d2f;
+  padding-top: .5vw;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  padding-bottom: 2vw;
   border-radius: 3vw;
   align-content: center;
 }
@@ -295,6 +347,12 @@ h2 {
 }
 
 /*limit size of dropdown on stats page*/
+.selectCountryDesktop{
+  width: 15vw;
+  margin: 0 auto;
+}
+
+/*limit size of dropdown on stats page*/
 .selectUser{
 
   width: 30vw;
@@ -310,8 +368,19 @@ h2 {
 /*stats text*/
 .numbers
 {
-
   font-size: 4vw;
+}
+
+/*stats text*/
+.numbersDesktop
+{
+  font-size: 2vw;
+}
+
+.topTenTextDesktop {
+  /*stats text*/
+  font-size: 1.5vw;
+
 }
 
 .topTenHeader {
@@ -326,7 +395,6 @@ h2 {
   margin-bottom: 0vh;
   margin-top: 2vh;
   font-weight: bold;
-  
 }
 
 .highcharts-container {
@@ -391,9 +459,19 @@ h2 {
 
   .cardContainer {
     display: flex;
-    justify-content: center;
+    /*used to be center*/
+    justify-content: space-evenly;
     flex-wrap: wrap;
-    align-items: flex-start;
+    align-items: center;
+  }
+
+  .altCardContainer {
+    display: flex;
+    /*used to be center*/
+    justify-content: space-evenly;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
   }
 
 
@@ -411,6 +489,19 @@ h2 {
     overflow: hidden;
   }
 
+  .updatedAt {
+    float: right;
+    /*font-size: 4.25vw;*/
+    font-size: 2.5vw;
+    padding-bottom: 1vh;
+  }
+
+  .updatedAtDesktop {
+    float: right;
+    /*font-size: 4.25vw;*/
+    font-size: 1.5vw;
+    padding-bottom: 1vh;
+  }
 
 
 
@@ -443,7 +534,7 @@ h2 {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 

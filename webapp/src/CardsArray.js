@@ -6,6 +6,7 @@ import { CardResourceTypes, Emotions } from './Shared/Enums'
 import { SheetsUrl, NewsApi } from './Shared/Constants'
 import NewsCardComponent from './MinorComponents/NewsCardComponent'
 import SwitchBase from '@material-ui/core/internal/SwitchBase';
+import { Alert } from 'react-bootstrap';
 
 //number of categories asked for on any one path of the form
 const numberOfCategories = 7;
@@ -206,6 +207,10 @@ class CardsArray extends React.Component {
             || (dictData['url'].includes("www.nextbigfuture.com")) || (dictData['url'].includes("www.apnews.com")) || (dictData['url'].includes("www.bloomberg.com")) 
             || (dictData['url'].includes("www.axios.com")) || (dictData['url'].includes("www.businessinsider.com")))
             {
+              if(dictData['url'].includes("www.wsj.com"))
+              {
+                dictData['source'] = "WSJ"
+              }
               tmpNews.push(dictData)
             }
             

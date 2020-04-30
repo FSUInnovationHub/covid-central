@@ -141,9 +141,27 @@ class FlairFilterComponent extends React.Component {
   {  
     const isMobile = Util.IsMobileUserAgent()
 
-    return (
-//{ isMobile ? <><br/></> : <>&nbsp</>}
-      //refactor to map from the emotions enum
+    return isMobile ? 
+    (
+      <div  style={{ marginLeft: "0vw"}}>
+      <br></br>
+      <Container maxWidth="lg">
+        <Chip size="small" style={{backgroundColor: this.state.general, padding: '3vw', marginBottom: '2vw', fontWeight: 'bold', fontSize: '4vw'}}className="emotionChip" label="general" onClick={() => this.toggleFilter("all")}/>
+        &nbsp;
+        <Chip size="small" style={{backgroundColor: this.state.anxiety, padding: '3vw', marginBottom: '2vw', fontWeight: 'bold', fontSize: '4vw'}} className="emotionChip" label="anxiety" onClick={() => this.toggleFilter("anxiety")} />
+        &nbsp;
+        <Chip size="small" style={{backgroundColor: this.state.innovation, padding: '3vw', marginBottom: '2vw', fontWeight: 'bold', fontSize: '4vw'}} className="emotionChip" label="innovation" onClick={() => this.toggleFilter("innovation")} />
+        <br></br>
+        <Chip size="small" style={{backgroundColor: this.state.curiousity, padding: '3vw', marginBottom: '2vw', fontWeight: 'bold', fontSize: '4vw'}} className="emotionChip" label="curiousity" onClick={() => this.toggleFilter("curiousity")} />
+        &nbsp;
+        <Chip size="small" style={{backgroundColor: this.state.factual, padding: '3vw', marginBottom: '2vw', fontWeight: 'bold', fontSize: '4vw'}} className="emotionChip" label="factual" onClick={() => this.toggleFilter("factual")} />
+        &nbsp;
+        <Chip size="small" style={{backgroundColor: this.state.inspiring, padding: '3vw', marginBottom: '2vw', fontWeight: 'bold', fontSize: '4vw'}} className="emotionChip" label="inspiring" onClick={() => this.toggleFilter("inspiring")} />
+      </Container>
+    </div>
+    )
+    :
+    (
     <div  style={{ margin: "0 auto"}}>
       <br></br>
       <div maxWidth="lg" className="flairComp">

@@ -39,7 +39,8 @@ class DesktopUserNoticeComponent extends React.Component {
                     verticalAlign:'center', 
                     width: "40vw",
                     marginLeft:'auto',
-                    marginRight:'auto'}}>
+                    marginRight:'auto',
+                    marginTop: "0vh"}}>
             <MuiThemeProvider theme={textTheme}>
               <div className="newsCardBody">
                 <Typography variant="body2" color="secondary">
