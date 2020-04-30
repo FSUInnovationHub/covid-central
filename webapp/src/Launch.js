@@ -52,7 +52,7 @@ class Launch extends React.Component {
 
           <DesktopUserNoticeComponent />
 
-          <div className="newsCont">
+          <div className="newsCont" style={{marginRight: "auto",marginLeft:"auto", width: "40vw"}}>
 
             <MuiThemeProvider theme={textTheme}>
               <div className="newsCardHeader">

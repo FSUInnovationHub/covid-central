@@ -56,6 +56,8 @@ class NewsCardComponent extends React.Component {
     return (
 <div>
   {this.state.filterNeeded === true && <div> <FlairFilterComponent flairs={this.state.filters} filterFunc={this.filterNews} /> </div>}
+
+<div className="cardContainer">
 {
     this.props.articles.filter(function (article) {
       var changed = false;
@@ -127,6 +129,7 @@ class NewsCardComponent extends React.Component {
       </div>
     ))
 }
+</div>
 </div>
     )
   }
