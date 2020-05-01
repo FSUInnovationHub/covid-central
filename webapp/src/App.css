@@ -274,15 +274,15 @@ h2 {
 
   /*margin-bottom: 20vh;*/
   margin-top: 3vh;
-  width: 510px;
+  width: 460px;
  
   /*max-width: 35vw;*/
   height: auto;
   flex-shrink: 0;
   background-color: #2b2d2f;
   padding-top: .5vw;
-  padding-left: 2vw;
-  padding-right: 2vw;
+  padding-left: .5vw;
+  padding-right: .5vw;
   resize: none;
   padding-bottom: 2vw;
   border-radius: 3vw;
@@ -632,7 +632,7 @@ h2 {
     align-items: stretch;
     /*flex-direction: row-reverse;*/
     align-items: flex-start;
-    overflow-x: scroll;
+    overflow-x: none;
     /*overflow-y: scroll;*/
   }
 
@@ -740,13 +740,10 @@ h2 {
 
   .submitTxt:hover
   {
+    height: 0vw;
     color: #03bb85;
   }
 
-  .submitTxt:active
-  {
-    color: #03bb85;
-  }
 
 
 
@@ -780,7 +777,8 @@ h2 {
   width: 100vw;
   height: 100vh;
   flex-direction: column;
-  /*overflow: scroll;*/
+
+  overflow-x: none;
 }
 
   /*limit size of dropdown on stats page*/

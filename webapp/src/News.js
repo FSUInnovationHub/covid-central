@@ -45,7 +45,7 @@ class NewsPage extends React.Component {
 <div className={divClass2}>
 <div className={divClass}> 
 <NavigationComponent title="News" />
-        <div style={{padding: '25px 10px 0px 10px'}}>
+        <div class="innerContentCont">
        {isMobile && <Typography variant="caption" color="inherit" style={{float: "left"}}>
           Last Updated: {(new Date()).toLocaleTimeString()}
         </Typography>}
