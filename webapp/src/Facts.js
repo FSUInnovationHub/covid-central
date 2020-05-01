@@ -74,15 +74,13 @@ class Commentary extends React.Component {
   {  
     const isMobile = Util.IsMobileUserAgent()
     return isMobile ? (   
-    <div className="statsPage"> 
+      <div className="statsPage" style={{overflowX: "hidden"}}> 
       <NavigationComponent title="Facts" />
-        <div style={{padding: '25px 0px 0px 0px'}}>
+        <div style={{padding: '15px 10px 0px 5px'}}>
         <Typography variant="caption" color="inherit" style={{float: "left"}}>
-          &nbsp; Last Updated: {(new Date()).toLocaleTimeString()}
+    {/*Last Updated: {(new Date()).toLocaleTimeString()}*/}
         </Typography>
-
-      <Container fluid className="factsContainer">
-        <div style={{marginTop: "4vh"}}></div>
+        <div style={{marginTop: "2vh"}}></div>
           <Select className="selectFacts"
             placeholder={"General"}
             value={this.state.category}
@@ -90,6 +88,9 @@ class Commentary extends React.Component {
             options={options}
             style={{fontSize: "40vw"}}
           />
+
+      <Container fluid >
+        
        
        <div style={{marginTop: "2vh"}}></div> 
 
@@ -162,20 +163,20 @@ class Commentary extends React.Component {
         <div style={{marginTop: "3vh"}}></div> 
         </div>}
        {this.state.masks && <div >
-        <div className="cardCont"><img src={typesOfMasks} style={{width: "90vw", height: "auto"}} alt="Logo" /></div>
-        <div className="cardCont"><iframe style={{width:"90vw", height:"30vh"}} src="https://www.youtube.com/embed/Mgp7DSGN33k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/></div>
-        <div className="cardCont"><iframe style={{width:"90vw", height:"30vh"}} src="https://www.youtube.com/embed/DFt9OuSKsOs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/></div>
+        <div className="cardCont"><img src={typesOfMasks} style={{width: "91vw", height: "auto"}} alt="Logo" /></div>
+        <div className="cardCont"><iframe style={{width:"91vw", height:"30vh"}} src="https://www.youtube.com/embed/Mgp7DSGN33k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/></div>
+        <div className="cardCont"><iframe style={{width:"91vw", height:"30vh"}} src="https://www.youtube.com/embed/DFt9OuSKsOs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/></div>
         
-        <div className="cardCont"><img src={dosAndDont} style={{width: "90vw", height: "auto"}} alt="Logo" /></div>
+        <div className="cardCont"><img src={dosAndDont} style={{width: "91vw", height: "auto"}} alt="Logo" /></div>
         
         </div>}
        {this.state.socialDistancing && <div>
-        <div className="cardCont"><img src={socialDistancing} style={{width: "90vw", height: "auto"}} alt="Logo" /></div>
-        <div className="cardCont"><iframe style={{width:"90vw", height:"30vh"}} src="https://www.youtube.com/embed/UMqi0AfLnro" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/></div>
+        <div className="cardCont"><img src={socialDistancing} style={{width: "91vw", height: "auto"}} alt="Logo" /></div>
+        <div className="cardCont"><iframe style={{width:"91vw", height:"30vh"}} src="https://www.youtube.com/embed/UMqi0AfLnro" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/></div>
         </div>}
        {this.state.hotlines && <div>
         <div className="cardCont">
-        <img src={hotlines} style={{width: "90vw", height: "auto"}} alt="Logo" />
+        <img src={hotlines} style={{width: "91vw", height: "auto"}} alt="Logo" />
       
        </div>
       </div>}
@@ -185,8 +186,13 @@ class Commentary extends React.Component {
         <a style={hub} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>
         
       </Container>
+
+      
     </div>
+
 </div>
+
+
 
       )
       :
