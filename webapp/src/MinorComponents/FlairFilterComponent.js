@@ -72,7 +72,9 @@ class FlairFilterComponent extends React.Component {
         {
           this.setState({general: 'orange'})
         }
-        else{this.setState({general: ''})}
+        else
+        {
+          this.setState({general: ''})}
         break;
 
       case 'anxiety':
@@ -147,7 +149,7 @@ class FlairFilterComponent extends React.Component {
         {/*ensures flair is centered*/}
       <div  style={{ marginLeft: "0vw", marginTop: "2vh"}}>
       
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" >
         <Chip size="small" style={{backgroundColor: this.state.general, padding: '3vw', marginBottom: '2vw', fontWeight: 'bold', fontSize: '4vw'}}className="emotionChip" label="general" onClick={() => this.toggleFilter("all")}/>
         &nbsp;
         <Chip size="small" style={{backgroundColor: this.state.anxiety, padding: '3vw', marginBottom: '2vw', fontWeight: 'bold', fontSize: '4vw'}} className="emotionChip" label="anxiety" onClick={() => this.toggleFilter("anxiety")} />
