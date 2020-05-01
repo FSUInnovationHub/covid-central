@@ -46,7 +46,7 @@ class Launch extends React.Component {
     const isMobile = Util.IsMobileUserAgent()
     var cardSize = undefined
     var covidTitle = undefined
-    var submitMargin = '6vh'
+    var submitMargin = '9vh'
     if(isMobile === false)
     {
       cardSize = "40vw"
