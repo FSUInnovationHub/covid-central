@@ -143,8 +143,9 @@ class FlairFilterComponent extends React.Component {
 
     return isMobile ? 
     (
-      <div  style={{ marginLeft: "0vw"}}>
-      <br></br>
+      <center>
+      <div  style={{ marginLeft: "0vw", marginTop: "2vh"}}>
+      
       <Container maxWidth="lg">
         <Chip size="small" style={{backgroundColor: this.state.general, padding: '3vw', marginBottom: '2vw', fontWeight: 'bold', fontSize: '4vw'}}className="emotionChip" label="general" onClick={() => this.toggleFilter("all")}/>
         &nbsp;
@@ -159,6 +160,7 @@ class FlairFilterComponent extends React.Component {
         <Chip size="small" style={{backgroundColor: this.state.inspiring, padding: '3vw', marginBottom: '2vw', fontWeight: 'bold', fontSize: '4vw'}} className="emotionChip" label="inspiring" onClick={() => this.toggleFilter("inspiring")} />
       </Container>
     </div>
+    </center>
     )
     :
     (

@@ -329,7 +329,7 @@ class Stats extends React.Component {
 <NavigationComponent title="Stats" />
       <div style={{padding: '25px 10px 0px 10px'}}>
         <Typography variant="caption" color="inherit">
-          Last Updated: {(new Date()).toLocaleTimeString()}
+    {/*Last Updated: {(new Date()).toLocaleTimeString()}*/}
         </Typography>
       </div>
 
