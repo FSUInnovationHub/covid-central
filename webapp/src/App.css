@@ -492,6 +492,7 @@ h2 {
   }
 
 
+  
   .cardDivider {
     margin: auto;
     width: 100%;
@@ -749,7 +750,7 @@ h2 {
 
   .submitTxt:hover
   {
-    height: 0vw;
+    height: inherit;
     color: #03bb85;
   }
 

@@ -55,7 +55,7 @@ class Launch extends React.Component {
     return (   
       <div className="noScroll"> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
         <div className="launchCont" style={{position:'relative'}}>
-          <h1 style={{fontSize: covidTitle}}>Covid Hub</h1>
+          <h1 style={{fontSize: covidTitle}}>Covid Central</h1>
           <hr className="solid"></hr>
 
           <DesktopUserNoticeComponent />
@@ -105,7 +105,7 @@ class Launch extends React.Component {
             </Select>
            </div>
 
-           <div className="submitBar" style={{marginTop: '10vh'}}>
+           <div className="submitBar" style={{marginTop: '8vh'}}>
               <Button 
                   className="submitTxt"
                   variant="text"
