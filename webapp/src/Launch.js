@@ -107,7 +107,7 @@ class Launch extends React.Component {
             </Select>
            </div>
 
-           <div className="submitBar" style={{marginTop: '8vh'}}>
+           <div className="submitBar" style={{marginTop: submitMargin}}>
               <Button 
                   className="submitTxt"
                   variant="text"
