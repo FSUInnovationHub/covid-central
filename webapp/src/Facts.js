@@ -85,7 +85,7 @@ class Commentary extends React.Component {
             options={options}
             style={{fontSize: "40vw"}}
           />
-        <div style={{padding: '0px 10px 0px 12.5px'}}>
+        <div style={{padding: '0px 10px 0px 15px'}}>
         <Typography variant="caption" color="inherit" style={{float: "left"}}>
     {/*Last Updated: {(new Date()).toLocaleTimeString()}*/}
         </Typography>
