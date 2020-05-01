@@ -44,15 +44,23 @@ class Launch extends React.Component {
   render()
   {  
     const isMobile = Util.IsMobileUserAgent()
+    var cardSize = undefined
+    var covidTitle = undefined
+    if(isMobile === false)
+    {
+      cardSize = "40vw"
+      covidTitle = "5vw"
+
+    }
     return (   
       <div className="noScroll"> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
         <div className="launchCont" style={{position:'relative'}}>
-          <h1>Covid-Central</h1>
+          <h1 style={{fontSize: covidTitle}}>Covid Hub</h1>
           <hr className="solid"></hr>
 
           <DesktopUserNoticeComponent />
 
-          <div className="newsCont">
+          <div className="newsCont" style={{marginRight: "auto",marginLeft:"auto", width: cardSize}}>
 
             <MuiThemeProvider theme={textTheme}>
               <div className="newsCardHeader">
@@ -97,11 +105,9 @@ class Launch extends React.Component {
             </Select>
            </div>
 
-           <div className="submitBar">
-              <hr></hr>
+           <div className="submitBar" style={{marginTop: '10vh'}}>
               <Button 
                   className="submitTxt"
-                  
                   variant="text"
                   href={"/" + this.state.source}
                   disabled={this.state.source === ""}>

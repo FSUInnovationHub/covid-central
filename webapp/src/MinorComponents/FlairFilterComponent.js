@@ -3,6 +3,7 @@ import '../App.css';
 import 'react-spinning-wheel/dist/style.css';
 
 import { Emotions } from '../Shared/Enums'
+import * as Util from '../Shared/Util'
 
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import Button from '@material-ui/core/Button';
@@ -138,10 +139,11 @@ class FlairFilterComponent extends React.Component {
 
   render()
   {  
-    return (
+    const isMobile = Util.IsMobileUserAgent()
 
-      //refactor to map from the emotions enum
-    <div  style={{ marginLeft: "0vw"}}>
+    return isMobile ? 
+    (
+      <div  style={{ marginLeft: "0vw"}}>
       <br></br>
       <Container maxWidth="lg">
         <Chip size="small" style={{backgroundColor: this.state.general, padding: '3vw', marginBottom: '2vw', fontWeight: 'bold', fontSize: '4vw'}}className="emotionChip" label="general" onClick={() => this.toggleFilter("all")}/>
@@ -156,6 +158,25 @@ class FlairFilterComponent extends React.Component {
         &nbsp;
         <Chip size="small" style={{backgroundColor: this.state.inspiring, padding: '3vw', marginBottom: '2vw', fontWeight: 'bold', fontSize: '4vw'}} className="emotionChip" label="inspiring" onClick={() => this.toggleFilter("inspiring")} />
       </Container>
+    </div>
+    )
+    :
+    (
+    <div  style={{ margin: "0 auto"}}>
+      <br></br>
+      <div maxWidth="lg" className="flairComp">
+        <Chip size="small" style={{backgroundColor: this.state.general, margin: '3px',fontWeight: 'bold'}} className="emotionChip" label="general" onClick={() => this.toggleFilter("all")}/>
+        &nbsp;
+        <Chip size="small" style={{backgroundColor: this.state.anxiety, margin: '3px',fontWeight: 'bold'}} className="emotionChip" label="anxiety" onClick={() => this.toggleFilter("anxiety")} />
+        &nbsp;
+        <Chip size="small" style={{backgroundColor: this.state.innovation, margin: '3px',fontWeight: 'bold'}} className="emotionChip" label="innovation" onClick={() => this.toggleFilter("innovation")} />
+        &nbsp;
+        <Chip size="small" style={{backgroundColor: this.state.curiousity, margin: '3px',fontWeight: 'bold'}} className="emotionChip" label="curiousity" onClick={() => this.toggleFilter("curiousity")} />
+        &nbsp;
+        <Chip size="small" style={{backgroundColor: this.state.factual, margin: '3px',fontWeight: 'bold'}} className="emotionChip" label="factual" onClick={() => this.toggleFilter("factual")} />
+        &nbsp;
+        <Chip size="small" style={{backgroundColor: this.state.inspiring, margin: '3px',fontWeight: 'bold'}} className="emotionChip" label="inspiring" onClick={() => this.toggleFilter("inspiring")} />
+      </div>
     </div>
     )
   }

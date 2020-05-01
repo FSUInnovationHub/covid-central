@@ -105,14 +105,17 @@ class Stats extends React.Component {
     */
 
     Promise.all([
+      //fetch('https://covidtracking.com/api/v1/states/current.json'),
       fetch('https://api.covid19api.com/summary'),
-      fetch('https://covidtracking.com/api/states'),
+      fetch('https://covidtracking.com/api/v1/states/current.json'),
     ])
       .then(([res1, res2]) => Promise.all([res1.json(), res2.json()]))
       .then(([data1, data2]) =>
         {
           //this.setState({lastUpdated: new Date(data1['Date'])})
           //this for loop iterates through the entire APi response and pushed each cluster of data to the listOfCountries array.
+        
+
           for(var i = 0; i < data1['Countries'].length; i++)
           {
             if(data1['Countries'][i].Country === 'US')
@@ -128,6 +131,7 @@ class Stats extends React.Component {
             sumWorldRec += data1['Countries'][i].TotalRecovered
             sumWorldDea += data1['Countries'][i].TotalDeaths
           }
+        
 
           //creates a world option since the API doesn't provide one
           listOfCountries.push({ value: "World", label: "World", positives: sumWorldPos, recovered: sumWorldRec, deaths: sumWorldDea})
@@ -227,26 +231,53 @@ class Stats extends React.Component {
 
   render()
   {
+    const isMobile = Util.IsMobileUserAgent()
+    var wrapper = "newsstatsPage"
+    var cardContainer = "statsCardContainer"
+    var cardClass = "statsContDesktop"
+    var numbers = "numbersDesktop"
+    var updatedAt = "updatedAtDesktop"
+    var dataSource = "dataSourceDesktop"
+    var selectCountry = "selectCountryDesktop"
+    var graphCont = "graphContDesktop"
+    var topTenText = "topTenTextDesktop"
+    var tag = "tagCommentary"
+    var desktopUrl = "hubLink"
+    if(isMobile)
+    {
+      wrapper="statsPage"
+      cardClass="statsCont"
+      numbers="numbers"
+      updatedAt="updatedAt"
+      dataSource="dataSource"
+      selectCountry="selectCountry"
+      graphCont="graphCont"
+      topTenText=undefined
+      tag="tagStats"
+      desktopUrl="hubLink"
+      cardContainer=undefined
+    }
+    
     //maps out the top ten countries. the conditional rendering is used to pick the color of the figures being shown.
     //ex) recoveries renders green
- 
+  
 
     const topTenCountryNames = this.state.topTenCountries.map((item, index) =>
       <tbody>
         <tr>
-        <td>{index + 1}</td>
-      <td key={item}>{item[0]}</td>
+        <td className={topTenText}>{index + 1}</td>
+      <td className={topTenText} key={item}>{item[0]}</td>
       {this.state.byKnownWorld['value'] === "deaths" ? (
-        <td><NumberFormat style={red} value={item[1]} displayType={'text'} thousandSeparator={true}/></td>
+        <td className={topTenText}><NumberFormat style={red} value={item[1]} displayType={'text'} thousandSeparator={true}/></td>
       )
       :
       (
         this.state.byKnownWorld['value'] === "recovered" ? (
-          <td><NumberFormat style={green} value={item[1]} displayType={'text'} thousandSeparator={true}/></td>
+          <td className={topTenText}><NumberFormat style={green} value={item[1]} displayType={'text'} thousandSeparator={true}/></td>
         )
         :
         (
-          <td><NumberFormat style={orange} value={item[1]} displayType={'text'} thousandSeparator={true}/></td>
+          <td className={topTenText}><NumberFormat style={orange} value={item[1]} displayType={'text'} thousandSeparator={true}/></td>
         )
       )}
       </tr>
@@ -258,20 +289,20 @@ class Stats extends React.Component {
     const topTenStates = this.state.topTenStates.map((item, index) =>
     <tbody>
     <tr>
-    <td>{index + 1}</td>
-      <td key={item}>{item[0]}</td>
+    <td className={topTenText}>{index + 1}</td>
+      <td className={topTenText} key={item}>{item[0]}</td>
     
       {this.state.byKnownStates['value'] === "deaths" ? (
-        <td><NumberFormat style={red} value={item[1]} displayType={'text'} thousandSeparator={true}/></td>
+        <td className={topTenText}><NumberFormat style={red} value={item[1]} displayType={'text'} thousandSeparator={true}/></td>
       )
       :
       (
         this.state.byKnownStates['value'] === "recovered" ? (
-          <td><NumberFormat style={green} value={item[1]} displayType={'text'} thousandSeparator={true}/></td>
+          <td className={topTenText}><NumberFormat style={green} value={item[1]} displayType={'text'} thousandSeparator={true}/></td>
         )
         :
         (
-          <td><NumberFormat style={orange} value={item[1]} displayType={'text'} thousandSeparator={true}/></td>
+          <td className={topTenText}><NumberFormat style={orange} value={item[1]} displayType={'text'} thousandSeparator={true}/></td>
         )
       )}
       </tr>
@@ -282,20 +313,17 @@ class Stats extends React.Component {
     const types = ["linear", "logarithmic"];
     const charts = types.map((type, i) =>
     
-    <div className="graphCont">
+    <div className={graphCont}>
       <br></br>
       <UsaGraph key={i} type={type}></UsaGraph> </div>
     );
     //<div><UsaGraph key={"logarithmic"} type="logarithmic"></UsaGraph> </div>
-
-    return (
+    
+   
+    return isMobile ? (
       
     <div> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
-
-
-
-
-<div className="statsPage">
+<div className={wrapper}>
 
 <NavigationComponent title="Stats" />
       <div style={{padding: '25px 10px 0px 10px'}}>
@@ -306,22 +334,22 @@ class Stats extends React.Component {
 
     <Container fluid>
       {/*COUNTRY TRACKER WIDGET*/}
-       <div className="statsCont">
-        <Select className="selectCountry"
+       <div className={cardClass} style={{width: "auto", maxWidth: ""}}>
+        <Select className={selectCountry}
           placeholder={"World"}
           value={this.state.country}
           onChange={this.handleCountry}
           options={listOfCountries}
         />
           <div>
-            <h1 className="numbers">Total Cases: <br></br><NumberFormat style={orange} value={this.state.positives} displayType={'text'} thousandSeparator={true}/></h1>
-            <h1 className="numbers">Recoveries: <br></br><NumberFormat style={green} value={this.state.recovered} displayType={'text'} thousandSeparator={true}/></h1>
-            <h1 className="numbers">Deaths: <br></br><NumberFormat style={red} value={this.state.deaths} displayType={'text'} thousandSeparator={true}/></h1>
+            <h1 className={numbers}>Total Cases: <br></br><NumberFormat style={orange} value={this.state.positives} displayType={'text'} thousandSeparator={true}/></h1>
+            <h1 className={numbers}>Recoveries: <br></br><NumberFormat style={green} value={this.state.recovered} displayType={'text'} thousandSeparator={true}/></h1>
+            <h1 className={numbers}>Deaths: <br></br><NumberFormat style={red} value={this.state.deaths} displayType={'text'} thousandSeparator={true}/></h1>
             <br></br>
-            <a className="updatedAt" style={gray}>{this.state.worldUpdatedTime} </a>
+            <a className={updatedAt} style={gray}>{this.state.worldUpdatedTime} </a>
             <br></br>
-            <a className="updatedAt" style={gray}>{this.state.worldUpdatedDay} </a>
-            <a className=".dataSource" style={link} href="https://covid19api.com/" target="_blank"><div className="dataSource"> Source </div></a>
+            <a className={updatedAt} style={gray}>{this.state.worldUpdatedDay} </a>
+            <a className={dataSource} style={link} href="https://covid19api.com/" target="_blank"><div className={dataSource}> Source </div></a>
             <br></br>
           </div>
         </div>
@@ -329,37 +357,37 @@ class Stats extends React.Component {
 
     <Container fluid>
       {/*STATE TRACKER WIDGET*/}
-        <div className="statsCont">
-          <Select className="selectCountry"
+      <div className={cardClass}>
+          <Select className={selectCountry}
             placeholder={"FL"}
             value={this.state.state}
             onChange={this.handleState}
             options={listOfStates}
           />
           <div>
-            <h1 className="numbers">Positives: <br></br><NumberFormat style={orange} value={this.state.statePositives} displayType={'text'} thousandSeparator={true}/></h1>
-            <h1 className="numbers">Negatives: <br></br><NumberFormat style={green} value={this.state.stateNegatives} displayType={'text'} thousandSeparator={true}/></h1>
-            <h1 className="numbers">Deaths: <br></br><NumberFormat style={red} value={this.state.stateDead} displayType={'text'} thousandSeparator={true}/></h1>
+            <h1 className={numbers}>Positives: <br></br><NumberFormat style={orange} value={this.state.statePositives} displayType={'text'} thousandSeparator={true}/></h1>
+            <h1 className={numbers}>Negatives: <br></br><NumberFormat style={green} value={this.state.stateNegatives} displayType={'text'} thousandSeparator={true}/></h1>
+            <h1 className={numbers}>Deaths: <br></br><NumberFormat style={red} value={this.state.stateDead} displayType={'text'} thousandSeparator={true}/></h1>
             <br></br>
-            <a style={gray} className="updatedAt"> {this.state.stateUpdatedTime}</a>
+            <a style={gray} className={updatedAt}> {this.state.stateUpdatedTime}</a>
             <br></br>
-            <a style={gray} className="updatedAt"> {this.state.stateUpdatedDay}</a>
-            <a className=".dataSource" style={link} href="https://covidtracking.com/" target="_blank"><div className="dataSource"> Source </div></a>
+            <a style={gray} className={updatedAt}> {this.state.stateUpdatedDay}</a>
+            <a className={dataSource} style={link} href="https://covidtracking.com/" target="_blank"><div className={dataSource}> Source </div></a>
           </div>
         </div>
     </Container>
 
     <Container fluid>
-      <div id="container" className="charts" >
+      <div id="container" >
       {charts}
       </div>
     </Container>
 
     <Container fluid>
       {/*TOP TEN COUNTRIES WIDGET*/}
-        <div className="statsCont">
-          <h1 className="topTenHeader">Top Ten Countries <br></br></h1>
-          <Select className="selectCountry"
+      <div className={cardClass}>
+          <h1 className={numbers}>Top Ten Countries <br></br> <br></br></h1>
+          <Select className={selectCountry}
             placeholder={"By Known Cases"}
             value={this.state.byKnownWorld}
             onChange={this.handleByKnownWorld}
@@ -369,23 +397,23 @@ class Stats extends React.Component {
           {/*Bootsrap table*/}
             <Table striped bordered   className="topTen">
               <thead>
-              <th>Rank</th>
-              <th>Country</th>
-              <th>Number</th>
+              <th className={topTenText}>Rank</th>
+              <th className={topTenText}>Country</th>
+              <th className={topTenText}>Number</th>
               </thead>
               {topTenCountryNames}
               </Table>
             <br></br>
           </div>
-            <a className=".dataSource" style={link} href="https://covid19api.com/" target="_blank"><div className="dataSource"> Source </div></a>
+            <a className={dataSource} style={link} href="https://covid19api.com/" target="_blank"><div className={dataSource}> Source </div></a>
         </div>
     </Container>
   
     <Container fluid>
       {/*TOP TEN STATES WIDGET*/}
-        <div className="statsCont">
-          <h1 className="topTenHeader">Top Ten States <br></br></h1>
-          <Select className="selectCountry"
+      <div className={cardClass}>
+          <h1 className={numbers}>Top Ten States <br></br> <br></br></h1>
+          <Select className={selectCountry}
             placeholder={"By Known Cases"}
             value={this.state.byKnownStates}
             onChange={this.handleByKnownStates}
@@ -395,29 +423,158 @@ class Stats extends React.Component {
           {/*Bootsrap table*/}
           <Table striped bordered  className="topTen">
               <thead>
-              <th>Rank</th>
-              <th>State</th>
-              <th>Number</th>
+              <th className={topTenText}>Rank</th>
+              <th className={topTenText}>State</th>
+              <th className={topTenText}>Number</th>
               </thead>
               
               {topTenStates}
               </Table>
             <br></br>
           </div>
-            <a className=".dataSource" style={link} href="https://covidtracking.com/" target="_blank"><div className="dataSource"> Source </div></a>
+            <a className={dataSource} style={link} href="https://covidtracking.com/" target="_blank"><div className={dataSource}> Source </div></a>
         </div>
     </Container>
 
     <Container fluid>
         <CardsArray resourceType={CardResourceTypes.STATS} />
-        <h1 className="tagStats">Service provided by the FSU Innovation Hub <br></br>
-         <a style={hub} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>
+        <h1 className={tag}>Service provided by the FSU Innovation Hub <br></br>
+         <a className={desktopUrl} style={hub} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>
         
     </Container>
 
     
 </div>
 </div>
+      )
+      :
+      (
+        <div>
+
+<NavigationComponent title="Stats" />
+<br>
+</br>
+
+
+      <div className={cardContainer}>
+      
+      {/*COUNTRY TRACKER WIDGET*/}
+       <div className={cardClass}>
+        <Select className={selectCountry}
+          placeholder={"World"}
+          value={this.state.country}
+          onChange={this.handleCountry}
+          options={listOfCountries}
+        />
+          <div>
+            <h1 className={numbers}>Total Cases: <br></br><NumberFormat style={orange} value={this.state.positives} displayType={'text'} thousandSeparator={true}/></h1>
+            <h1 className={numbers}>Recoveries: <br></br><NumberFormat style={green} value={this.state.recovered} displayType={'text'} thousandSeparator={true}/></h1>
+            <h1 className={numbers}>Deaths: <br></br><NumberFormat style={red} value={this.state.deaths} displayType={'text'} thousandSeparator={true}/></h1>
+            <br></br>
+            <a className={updatedAt} style={gray}>{this.state.worldUpdatedTime} </a>
+            <br></br>
+            <a className={updatedAt} style={gray}>{this.state.worldUpdatedDay} </a>
+            <a className={dataSource} style={link} href="https://covid19api.com/" target="_blank"><div className={dataSource}> Source </div></a>
+            <br></br>
+          </div>
+        </div>
+   
+      {/*STATE TRACKER WIDGET*/}
+      <div className={cardClass}>
+          <Select className={selectCountry}
+            placeholder={"FL"}
+            value={this.state.state}
+            onChange={this.handleState}
+            options={listOfStates}
+          />
+          <div>
+            <h1 className={numbers}>Positives: <br></br><NumberFormat style={orange} value={this.state.statePositives} displayType={'text'} thousandSeparator={true}/></h1>
+            <h1 className={numbers}>Negatives: <br></br><NumberFormat style={green} value={this.state.stateNegatives} displayType={'text'} thousandSeparator={true}/></h1>
+            <h1 className={numbers}>Deaths: <br></br><NumberFormat style={red} value={this.state.stateDead} displayType={'text'} thousandSeparator={true}/></h1>
+            <br></br>
+            <a style={gray} className={updatedAt}> {this.state.stateUpdatedTime}</a>
+            <br></br>
+            <a style={gray} className={updatedAt}> {this.state.stateUpdatedDay}</a>
+            <a className={dataSource} style={link} href="https://covidtracking.com/" target="_blank"><div className={dataSource}> Source </div></a>
+          </div>
+        </div>
+        
+       
+      <div id="container" >
+      {charts[0]}
+      </div>
+      
+      
+      
+      
+      
+      
+      {/*TOP TEN COUNTRIES WIDGET*/}
+      <div className={cardClass}>
+          <h1 className={numbers} style={{marginBottom: "1.5vh"}}>Top Ten Countries<br></br></h1>
+          <Select className={selectCountry}
+            placeholder={"By Known Cases"}
+            value={this.state.byKnownWorld}
+            onChange={this.handleByKnownWorld}
+            options={topTenOptions}
+          />
+          <div>
+          {/*Bootsrap table*/}
+            <Table striped bordered   className="topTen">
+              <thead>
+              <th className={topTenText}>Rank</th>
+              <th className={topTenText}>Country</th>
+              <th className={topTenText}>Number</th>
+              </thead>
+              {topTenCountryNames}
+              </Table>
+            <br></br>
+          </div>
+            <a className={dataSource} style={link} href="https://covid19api.com/" target="_blank"><div className={dataSource}> Source </div></a>
+        </div>
+        
+        
+    
+      {/*TOP TEN STATES WIDGET*/}
+      <div className={cardClass}>
+          <h1 className={numbers} style={{marginBottom: "1.5vh"}}>Top Ten States <br></br></h1>
+          <Select className={selectCountry}
+            placeholder={"By Known Cases"}
+            value={this.state.byKnownStates}
+            onChange={this.handleByKnownStates}
+            options={topTenOptionsState}
+          />
+          <div>
+          {/*Bootsrap table*/}
+          <Table striped bordered  className="topTen">
+              <thead>
+              <th className={topTenText}>Rank</th>
+              <th className={topTenText}>State</th>
+              <th className={topTenText}>Number</th>
+              </thead>
+              
+              {topTenStates}
+              </Table>
+            <br></br>
+          </div>
+            <a className={dataSource} style={link} href="https://covidtracking.com/" target="_blank"><div className={dataSource}> Source </div></a>
+        
+    
+        </div>
+        <div id="container" >
+      {charts[1]}
+      
+      </div>
+        </div>
+        
+        <CardsArray resourceType={CardResourceTypes.STATS} />
+        
+        <h1 className={tag}>Service provided by the FSU Innovation Hub <br></br>
+         <a className={desktopUrl} style={hub} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>
+    
+</div>
+
+
       )
   }
 }

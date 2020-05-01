@@ -13,6 +13,7 @@ import dosAndDont from './Content/dosAndDont.jpg'
 import typesOfMasks from './Content/typesOfMasks.png'
 import socialDistancing from './Content/socialDistancing.jpg'
 import filler from './Content/filler.jpg'
+import hotlines from "./Content/hotlines.PNG"
 import * as Util from './Shared/Util'
 
 
@@ -75,9 +76,9 @@ class Commentary extends React.Component {
     return isMobile ? (   
     <div className="statsPage"> 
       <NavigationComponent title="Facts" />
-        <div style={{padding: '25px 10px 0px 10px'}}>
+        <div style={{padding: '25px 0px 0px 0px'}}>
         <Typography variant="caption" color="inherit" style={{float: "left"}}>
-          Last Updated: {(new Date()).toLocaleTimeString()}
+          &nbsp; Last Updated: {(new Date()).toLocaleTimeString()}
         </Typography>
 
       <Container fluid className="factsContainer">
@@ -174,7 +175,7 @@ class Commentary extends React.Component {
         </div>}
        {this.state.hotlines && <div>
         <div className="cardCont">
-        <img src={filler} style={{width: "90vw", height: "50vh"}} alt="Logo" />
+        <img src={hotlines} style={{width: "90vw", height: "auto"}} alt="Logo" />
       
        </div>
       </div>}
@@ -194,12 +195,13 @@ class Commentary extends React.Component {
 
 
       (
-        <div className="statsPage"> 
+     
+        <div className="newsstatsPage"> 
       <NavigationComponent title="Facts" />
         <div style={{padding: '25px 10px 0px 10px'}}>
-        <Typography variant="caption" color="inherit" style={{float: "left"}}>
+        {isMobile && <Typography variant="caption" color="inherit" style={{float: "left"}}>
           Last Updated: {(new Date()).toLocaleTimeString()}
-        </Typography>
+        </Typography>}
 
 
         <div style={{marginTop: "4vh"}}></div>
@@ -212,17 +214,18 @@ class Commentary extends React.Component {
           />
        
        <div style={{marginTop: "2vh"}}></div> 
-      <Container fluid className="container-fluidDesktop">
-        
 
-
+       
+      <Container fluid >
+        <div className="altCardContainer">
        {this.state.general && <div>
-         <div className="newsCont">
+         <div className="newsCont" style={{width: "40vw"}}>
+           
 
         <MuiThemeProvider theme={textTheme}>
               <div className="newsCardHeader">
                 <Typography variant="h5" color="secondary">
-                  What is Covid-Central
+                What is Covid-Central
                 </Typography>
               </div>
 
@@ -236,12 +239,12 @@ class Commentary extends React.Component {
 
             
         </div>
-        <div className="newsCont">
+        <div className="newsCont" style={{width: "40vw"}}>
 
         <MuiThemeProvider theme={textTheme}>
               <div className="newsCardHeader">
                 <Typography variant="h5" color="secondary">
-                  CDC
+                  <center>CDC</center>
                 </Typography>
               </div>
 
@@ -256,12 +259,12 @@ class Commentary extends React.Component {
 
             
         </div>
-        <div className="newsCont">
+        <div className="newsCont" style={{width: "40vw"}}>
 
         <MuiThemeProvider theme={textTheme}>
               <div className="newsCardHeader">
                 <Typography variant="h5" color="secondary">
-                  Pandemic Declaration 
+                  <center>Pandemic Declaration </center>
                 </Typography>
               </div>
 
@@ -279,30 +282,38 @@ class Commentary extends React.Component {
         </div>
         
         </div>}
-       {this.state.masks && <div >
-        <div className="cardCont" style={{width: "auto", maxWidth: "35vw"}}><center><img src={typesOfMasks} style={{width: "auto", maxWidth: "30vw", height: "auto"}} alt="Logo" /></center></div>
-        <div className="cardCont" style={{width: "auto", maxWidth: "45vw"}}><center><iframe  style={{width: "40vw", height: "50vh"}} src="https://www.youtube.com/embed/Mgp7DSGN33k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/></center></div>
-        <div className="cardCont" style={{width: "auto", maxWidth: "45vw"}}><center><iframe style={{width: "40vw", height: "50vh"}} src="https://www.youtube.com/embed/DFt9OuSKsOs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/></center></div>
         
-        <div className="cardCont" style={{width: "auto", maxWidth: "35vw"}}><center><img src={dosAndDont} style={{width: "auto", maxWidth: "30vw", height: "auto"}} alt="Logo" /></center></div>
+       {this.state.masks && <div>
+         <center>
+        <div className="newsCont" style={{width: "auto", maxWidth: "35vw", paddingTop: "0vh", paddingBottom: "0vh"}}><center><img src={typesOfMasks} style={{width: "auto", maxWidth: "30vw", height: "auto"}} alt="Logo" /></center></div>
+        <div className="newsCont" style={{width: "auto", maxWidth: "45vw", paddingTop: "0vh", paddingBottom: "0vh"}}><center><iframe align="center" style={{width: "40vw", height: "50vh"}} src="https://www.youtube.com/embed/Mgp7DSGN33k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/></center></div>
+        <div className="newsCont" style={{width: "auto", maxWidth: "45vw", paddingTop: "0vh", paddingBottom: "0vh"}}><center><iframe align="center" style={{width: "40vw", height: "50vh"}} src="https://www.youtube.com/embed/DFt9OuSKsOs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/></center></div>
         
+        <div className="newsCont" style={{width: "auto", maxWidth: "35vw", paddingTop: "0vh", paddingBottom: "0vh"}}><center><img src={dosAndDont} style={{width: "auto", maxWidth: "30vw", height: "auto"}} alt="Logo" /></center></div>
+        </center>
         </div>}
        {this.state.socialDistancing && <div>
-        <div className="cardCont" style={{width: "auto", maxWidth: "35vw"}}><center><img src={socialDistancing} style={{width: "auto", maxWidth: "30vw", height: "auto"}} alt="Logo" /></center></div>
-        <div className="cardCont" style={{width: "auto", maxWidth: "45vw"}}><center><iframe style={{width: "40vw", height: "50vh"}} src="https://www.youtube.com/embed/UMqi0AfLnro" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/></center></div>
+         <center>
+        <div className="newsCont" style={{width: "auto", maxWidth: "35vw", paddingTop: "0vh", paddingBottom: "0vh"}}><center><img src={socialDistancing} style={{width: "auto", maxWidth: "30vw", height: "auto"}} alt="Logo" /></center></div>
+        <div className="newsCont" style={{width: "auto", maxWidth: "45vw", paddingTop: "0vh", paddingBottom: "0vh"}}><center><iframe align="center" style={{width: "40vw", height: "50vh"}} src="https://www.youtube.com/embed/UMqi0AfLnro" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/></center></div>
+        </center>
         </div>}
        {this.state.hotlines && <div>
-        <div className="cardCont">
-        <div className="cardCont" style={{width: "auto", maxWidth: "35vw"}}><center><img src={filler} style={{width: "auto", maxWidth: "20vw", height: "auto"}} alt="Logo" /></center></div>
-      
-       </div>
+         <center>
+        
+        <div className="newsCont" style={{width: "auto", maxWidth: "70vw", paddingTop: "0vh", paddingBottom: "0vh"}}><center><img src={hotlines} style={{width: "auto", maxWidth: "50vw", height: "auto"}} alt="Logo" /></center></div>
+        
+       
+       </center>
       </div>}
+      </div>
         
       </Container>
       <h1 className="tagCommentary">Service provided by the FSU Innovation Hub <br></br>
       <a style={hub}  className="hubLink" href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>
     </div>
-</div>
+    </div>
+
       )
   }
 }
