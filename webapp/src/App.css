@@ -344,6 +344,7 @@ h2 {
 .innerContentCont {
   margin: auto;
   padding-top:3vh;
+  
 }
 
 /*limit size of dropdown on stats page*/
@@ -538,6 +539,14 @@ h2 {
     width:100%;
   }
 
+  .cardContainer {
+    display: flex;
+    min-width: 92vw;
+    /*used to be center*/
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
   /*limit size of dropdown on stats page*/
 .selectFacts{
   width: 43vw;
