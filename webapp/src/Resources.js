@@ -51,9 +51,12 @@ class Resources extends React.Component {
       </Typography>}
       <Container fluid>
         <CardsArray resourceType={CardResourceTypes.RESOURCES} />
+        
+      </Container>
+
+      <br></br>
         <h1 className={tag}>Service provided by the FSU Innovation Hub <br></br>
          <a style={hub} className={desktopUrl} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>
-      </Container>
 
     </div>
 

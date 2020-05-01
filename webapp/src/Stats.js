@@ -324,6 +324,7 @@ class Stats extends React.Component {
       
     <div> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
 <div className={wrapper}>
+  
 
 <NavigationComponent title="Stats" />
       <div style={{padding: '25px 10px 0px 10px'}}>
@@ -457,6 +458,7 @@ class Stats extends React.Component {
 
 
       <div className={cardContainer}>
+        
       
       {/*COUNTRY TRACKER WIDGET*/}
        <div className={cardClass}>
@@ -568,7 +570,7 @@ class Stats extends React.Component {
         </div>
         
         <CardsArray resourceType={CardResourceTypes.STATS} />
-        
+        <br></br>
         <h1 className={tag}>Service provided by the FSU Innovation Hub <br></br>
          <a className={desktopUrl} style={hub} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>
     

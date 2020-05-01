@@ -41,7 +41,7 @@ class UsaGraph extends React.Component {
       widthSize = 350
     }
     Promise.all([
-      fetch("https://covidtracking.com/api/us/daily.json"),
+      fetch("https://covidtracking.com/api/v1/us/daily.json"),
     ])
       .then(([res1]) => Promise.all([res1.json()]))
       .then(([data1]) => 
