@@ -199,9 +199,9 @@ class Commentary extends React.Component {
         <div className="newsstatsPage"> 
       <NavigationComponent title="Facts" />
         <div style={{padding: '25px 10px 0px 10px'}}>
-        <Typography variant="caption" color="inherit" style={{float: "left"}}>
+        {isMobile && <Typography variant="caption" color="inherit" style={{float: "left"}}>
           Last Updated: {(new Date()).toLocaleTimeString()}
-        </Typography>
+        </Typography>}
 
 
         <div style={{marginTop: "4vh"}}></div>

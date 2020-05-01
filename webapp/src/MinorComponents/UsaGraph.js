@@ -35,7 +35,7 @@ class UsaGraph extends React.Component {
   }
 
   componentWillMount() {
-    var widthSize = 450
+    var widthSize = "450"
     if(Util.IsMobileUserAgent())
     {
       widthSize = 350

@@ -46,9 +46,9 @@ class Resources extends React.Component {
 
     <div class="innerContentCont">
 
-      <Typography variant="caption" color="inherit" style={{float: "left"}}>
+      {isMobile && <Typography variant="caption" color="inherit" style={{float: "left"}}>
         Last Updated: {(new Date()).toLocaleTimeString()}
-      </Typography>
+      </Typography>}
       <Container fluid>
         <CardsArray resourceType={CardResourceTypes.RESOURCES} />
         <h1 className={tag}>Service provided by the FSU Innovation Hub <br></br>
