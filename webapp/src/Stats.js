@@ -453,7 +453,7 @@ class Stats extends React.Component {
       )
       :
       (
-        <div>
+        <div className="desktopCont">
 
 <NavigationComponent title="Stats" />
 <br>
@@ -476,11 +476,12 @@ class Stats extends React.Component {
             <h1 className={numbers}>Recoveries: <br></br><NumberFormat style={green} value={this.state.recovered} displayType={'text'} thousandSeparator={true}/></h1>
             <h1 className={numbers}>Deaths: <br></br><NumberFormat style={red} value={this.state.deaths} displayType={'text'} thousandSeparator={true}/></h1>
             <br></br>
-            <a className={updatedAt} style={gray}>{this.state.worldUpdatedTime} </a>
-            <br></br>
-            <a className={updatedAt} style={gray}>{this.state.worldUpdatedDay} </a>
+            <div><a className={updatedAt} style={gray}>{this.state.worldUpdatedTime} </a></div>
+          
+            <div><a className={updatedAt} style={gray}>{this.state.worldUpdatedDay} </a></div>
             <a className={dataSource} style={link} href="https://covid19api.com/" target="_blank"><div className={dataSource}> Source </div></a>
             <br></br>
+
           </div>
         </div>
    
@@ -497,9 +498,9 @@ class Stats extends React.Component {
             <h1 className={numbers}>Negatives: <br></br><NumberFormat style={green} value={this.state.stateNegatives} displayType={'text'} thousandSeparator={true}/></h1>
             <h1 className={numbers}>Deaths: <br></br><NumberFormat style={red} value={this.state.stateDead} displayType={'text'} thousandSeparator={true}/></h1>
             <br></br>
-            <a style={gray} className={updatedAt}> {this.state.stateUpdatedTime}</a>
-            <br></br>
-            <a style={gray} className={updatedAt}> {this.state.stateUpdatedDay}</a>
+            <div><a style={gray} className={updatedAt}> {this.state.stateUpdatedTime}</a></div>
+         
+            <div><a style={gray} className={updatedAt}> {this.state.stateUpdatedDay}</a></div>
             <a className={dataSource} style={link} href="https://covidtracking.com/" target="_blank"><div className={dataSource}> Source </div></a>
           </div>
         </div>
@@ -570,9 +571,11 @@ class Stats extends React.Component {
       {charts[1]}
       
       </div>
-        </div>
+      </div>
+        
         
         <CardsArray resourceType={CardResourceTypes.STATS} />
+        
         <br></br>
         <h1 className={tag}>Service provided by the FSU Innovation Hub <br></br>
          <a className={desktopUrl} style={hub} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>
