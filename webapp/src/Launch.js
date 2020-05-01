@@ -111,7 +111,7 @@ class Launch extends React.Component {
               <Button 
                   className="submitTxt"
                   variant="text"
-                  href={"/" + this.state.source}
+                  href={"/" + (this.state.source).toLowerCase()}
                   disabled={this.state.source === ""}>
                   Submit
               </Button>

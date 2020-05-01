@@ -378,10 +378,13 @@ class Stats extends React.Component {
         </div>
     </Container>
 
-    <Container fluid>
+    <Container fluid style={{paddingLeft: "12.5px"}}>
+      <center>
       <div id="container" >
       {charts}
+      
       </div>
+      </center>
     </Container>
 
     <Container fluid>
@@ -437,7 +440,7 @@ class Stats extends React.Component {
         </div>
     </Container>
 
-    <Container fluid>
+    <Container fluid  style={{paddingLeft: "10px"}}>
         <CardsArray resourceType={CardResourceTypes.STATS} />
         <h1 className={tag}>Service provided by the FSU Innovation Hub <br></br>
          <a className={desktopUrl} style={hub} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>

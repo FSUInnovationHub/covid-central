@@ -172,7 +172,7 @@ h2 {
   align-items: stretch;
   /*flex-direction: row-reverse;*/
   align-items: flex-start;
-  overflow-x: none;
+  overflow: none;
   /*overflow-y: scroll;*/
 }
 
@@ -413,7 +413,7 @@ h2 {
 }
 
 .github {
-  font-size: 1.5vw !important;
+  font-size: 1.2vw !important;
   color: #7da4ff;
 }
 
