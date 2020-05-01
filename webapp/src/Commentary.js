@@ -83,14 +83,15 @@ class Commentary extends React.Component {
     return (   
     <div> 
       <NavigationComponent title="Commentary" />
-        <div style={{padding: '25px 10px 25px 10px'}}>
+        <div className="noscroll" style={{padding: '25px 0px 0px 10px'}}>
         {/*<Typography variant="caption" color="inherit" style={{float: "left"}}>
           Last Updated: {(new Date()).toLocaleTimeString()}
     </Typography>*/}
 
       <Container fluid>
         
-        {isMobile ? <div><div style={{marginTop: "6vh"}}></div>
+        {isMobile ? <div>
+          <div style={{marginTop: "6vh"}}></div>
           <Select className="selectUser"
             placeholder={"World Health Organization"}
             value={this.state.twitterHandle}
@@ -127,7 +128,7 @@ class Commentary extends React.Component {
 
 
         
-        (<div><div className="noScroll" style={{marginTop: "8vh"}}></div>
+        (<div><div style={{marginTop: "8vh"}}></div>
         <Select className="selectUser"
           placeholder={"World Health Organization"}
           value={this.state.twitterHandle}
