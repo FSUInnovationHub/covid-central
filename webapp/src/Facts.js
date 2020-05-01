@@ -73,14 +73,11 @@ class Commentary extends React.Component {
   render()
   {  
     const isMobile = Util.IsMobileUserAgent()
-    return isMobile ? (   
+    return isMobile ? ( 
+      
       <div className="statsPage" style={{overflowX: "hidden"}}> 
       <NavigationComponent title="Facts" />
-        <div style={{padding: '15px 10px 0px 5px'}}>
-        <Typography variant="caption" color="inherit" style={{float: "left"}}>
-    {/*Last Updated: {(new Date()).toLocaleTimeString()}*/}
-        </Typography>
-        <div style={{marginTop: "2vh"}}></div>
+      <div style={{marginTop: "4vh"}}></div>
           <Select className="selectFacts"
             placeholder={"General"}
             value={this.state.category}
@@ -88,6 +85,11 @@ class Commentary extends React.Component {
             options={options}
             style={{fontSize: "40vw"}}
           />
+        <div style={{padding: '0px 10px 0px 12.5px'}}>
+        <Typography variant="caption" color="inherit" style={{float: "left"}}>
+    {/*Last Updated: {(new Date()).toLocaleTimeString()}*/}
+        </Typography>
+        
 
       <Container fluid >
         
