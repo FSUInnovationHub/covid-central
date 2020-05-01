@@ -144,6 +144,7 @@ class FlairFilterComponent extends React.Component {
     return isMobile ? 
     (
       <center>
+        {/*ensures flair is centered*/}
       <div  style={{ marginLeft: "0vw", marginTop: "2vh"}}>
       
       <Container maxWidth="lg">
