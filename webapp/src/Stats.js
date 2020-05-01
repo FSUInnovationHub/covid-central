@@ -254,7 +254,7 @@ class Stats extends React.Component {
       graphCont="graphCont"
       topTenText=undefined
       tag="tagStats"
-      desktopUrl=undefined
+      desktopUrl="hubLink"
       cardContainer=undefined
     }
     
@@ -455,7 +455,9 @@ class Stats extends React.Component {
 <br>
 </br>
 
+
       <div className={cardContainer}>
+      
       {/*COUNTRY TRACKER WIDGET*/}
        <div className={cardClass}>
         <Select className={selectCountry}
@@ -501,8 +503,8 @@ class Stats extends React.Component {
       <div id="container" >
       {charts[0]}
       </div>
-      </div>
-      <div className={cardContainer}>
+      
+      
       
       
       
