@@ -349,7 +349,7 @@ class Stats extends React.Component {
             <br></br>
             <a className={updatedAt} style={gray}>{this.state.worldUpdatedTime} </a>
             <br></br>
-            <a className={updatedAt} style={gray}>{this.state.worldUpdatedDay} </a>
+            <a className={updatedAt} style={gray} >{this.state.worldUpdatedDay} </a>
             <a className={dataSource} style={link} href="https://covid19api.com/" target="_blank"><div className={dataSource}> Source </div></a>
             <br></br>
           </div>

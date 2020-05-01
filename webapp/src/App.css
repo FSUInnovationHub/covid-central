@@ -424,7 +424,7 @@ h2 {
 }
 
 .hubLink {
-  font-size: 1.5vw;
+  font-size: 2.5vw;
 }
 
 .newsCardFooter {
@@ -554,7 +554,7 @@ h2 {
 }
 
 .hubLink {
-  font-size: 3.0vw;
+  font-size: 2vh;
 }
 
 
@@ -804,14 +804,15 @@ h2 {
 
   /*used for sources*/
   .dataSource {
-    font-size: 4.25vw;
+    font-size: 3.25vw;
     float: left;
   }
 
   .updatedAt {
     float: right;
     /*font-size: 4.25vw;*/
-    font-size: 3.5vw;
+    
+    font-size: 2.8vw;
   }
 
   .topTen {
