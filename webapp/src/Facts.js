@@ -89,8 +89,8 @@ class Commentary extends React.Component {
               <div style={{marginTop: "2vh"}}></div> 
               <div className="cardContainer">
               {this.state.general && 
-              <div> 
-                <div className="newsCont" style={{marginTop: "0vh"}}>
+              <div className="flexRow"> 
+                <div className="newsCont">
                   <MuiThemeProvider theme={textTheme}>
                     <div className="newsCardHeader">
                       <Typography variant="h5" color="secondary">
@@ -132,9 +132,6 @@ class Commentary extends React.Component {
                         “COVID-19 is caused by a new coronavirus. Coronaviruses are a large family of viruses that are common in people and many different species of animals, including camels, cattle, cats, and bats. Rarely, animal coronaviruses can infect people and then spread between people such as with MERS-Co-V-2. MERS-CoV, SARS-CoV, and now this new virus, names SARS-CoV-2. 
                         <br></br>
                         <br></br>
-                        The SARS-CoV-2 virus is a betacoronavirus, like MERS-CoV and SARS-CoV. All three of these viruses have their origins in bats. The sequences from U.S. patients are similar to the one that China initially posted, suggesting a likely single, recent emergence of this virus from an animal reservoir.
-                        <br></br>
-                        <br></br>
                         Early on, many of the patients at the epicenter of the outbreak in Wuhan, Hubei Province, China had some link to a large seafood and live animal market, suggesting animal-to-person spread. Later, a growing number of patients reportedly did not have exposure to animal markets, indicating person-to-person spread. 
                         Person-to-person spread was subsequently reported outside Hubei and in countries outside China, including in the United States. Most international destinations now have ongoing community spread with the virus that causes COVID-19, as does the United States. Community spread means some people have been infected and 
                         it is not known how or where they became exposed."
@@ -156,10 +153,13 @@ class Commentary extends React.Component {
                     <hr className="cardDivider" />
                     <div className="newsCardBody">
                       <Typography variant="body2" color="secondary">
-                        On March 11, the COVID-19 outbreak was characterized as a Pandemic by the World Health Organization. “A pandemic is a global outbreak of disease. Pandemics happen when a new virus emerges to infect people and can spread between people sustainably. Because there is little to no pre-existing immunity against the new virus, it spreads worldwide.”
+                        On March 11, the COVID-19 outbreak was characterized as a Pandemic by the World Health Organization. 
                         <br></br>
                         <br></br>
-                        <a href="https://www.who.int/csr/disease/swineflu/frequently_asked_questions/pandemic/en/" target="_blank"><Typography variant="body2" color="secondary" style={{color: "#7da4ff"}} >Learn More</Typography></a>
+                        A pandemic is a global outbreak of disease. Pandemics happen when a new virus emerges to infect people and can spread between people sustainably. Because there is little to no pre-existing immunity against the new virus, it spreads worldwide.
+                        <br></br>
+                        <br></br>
+                        <a href="https://www.who.int/dg/speeches/detail/who-director-general-s-opening-remarks-at-the-media-briefing-on-covid-19---11-march-2020" target="_blank"><Typography variant="body2" color="secondary" style={{color: "#7da4ff"}} >Learn More</Typography></a>
                       </Typography>
                     </div>
                   </MuiThemeProvider> 
@@ -170,20 +170,20 @@ class Commentary extends React.Component {
             
           
               {this.state.masks && 
-              <div>
+              <div className="flexRow">
                 <div className="cardCont"><img src={typesOfMasks} alt="Logo" /></div>
-                <div className="cardCont"><iframe src="https://www.youtube.com/embed/Mgp7DSGN33k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/></div>
-                <div className="cardCont"><iframe src="https://www.youtube.com/embed/DFt9OuSKsOs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/></div>
                 <div className="cardCont"><img src={dosAndDont}  alt="Logo" /></div>
+                <div className="cardCont"><iframe src="https://www.youtube.com/embed/Mgp7DSGN33k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/></div>
+              <div className="cardCont"><iframe src="https://www.youtube.com/embed/DFt9OuSKsOs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/></div>
               </div>}
 
               {this.state.socialDistancing && 
-              <div>
+              <div className="flexRow">
                 <div className="cardCont"><img src={socialDistancing} alt="Logo" /></div>
                 <div className="cardCont"><iframe src="https://www.youtube.com/embed/UMqi0AfLnro" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/></div>
                 <div className="cardCont"><img src={hotlines} alt="Logo" /></div>
               </div>}
-              </div>}
+              </div>
 
             
       

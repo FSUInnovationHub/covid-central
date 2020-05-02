@@ -434,10 +434,13 @@ h2 {
   }
 
   .cardContainer {
+    width: auto;
+    max-width: 1200px;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
     align-items: flex-start;
+    margin: 0 auto;
   }
 
   .altCardContainer {
@@ -527,7 +530,7 @@ h2 {
   .newsCont {
     margin-top: 2vh;
     width: auto;
-    max-width: 30vw;
+    max-width: 25vw;
     height: auto;
     margin-left: none;
     flex-direction: column;
@@ -538,12 +541,12 @@ h2 {
     padding-bottom: 1vh;
     border-radius: 14px;
     align-content: center;
+    align-self: flex-start;
   }
 
   /*loose card content*/
 .cardCont {
   width: auto;
-  max-width: 30vw;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -555,38 +558,54 @@ h2 {
   margin-bottom: 3vh;
   border-radius: 14px;
   align-content: center;
+  align-self: flex-start;
 }
 
 img {
+  
   width: auto;
-  max-width: 25vw;
+  max-width: 35vw;
   height: auto;
   margin: 0 auto;
 }
 
 iframe {
-  width: 90vw;
-  height: 30vh;
-  max-width: 25vw;
-  margin: 0 auto;
+  min-width: 35vw;
+  
+  width: auto;
+  height: 60vh;
 }
 
 .tagFacts {
   padding-top: 3vh;
   padding-bottom: 16vh;
-  font-size: 1vw;
+  font-size: 1.5vw;
   margin-bottom: 4vh;
   overflow: hidden;
 }
 
 a {
-  font-size: 1vw;
+  font-size: 1.5vw;
 }
  /*limit size of dropdown on stats page*/
  .selectFacts{
   width: 20vw;
   margin: 0 auto;
-}   
+  }  
+  
+  .flexRow
+  {
+    width: 1400px;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    padding-bottom: 3vh;
+  }
+
+
+
 
 
 
@@ -598,7 +617,7 @@ a {
 /*orlando will parse through and clean this up before next friday*/
 
 /*special CSS rules for mobile devices UP TO IPAD PRO WIDTH*/
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 725px) {
 
   html, body {
     overflow: scroll;
@@ -844,10 +863,6 @@ a {
     font-size: 4vw;
   }
 
-  iframe {
-    width: auto;
-    height: 100vh;
-  }
 
   .lastItem {
    margin-bottom: 30vh;
@@ -1041,6 +1056,13 @@ iframe {
   margin-bottom: 4vh;
   overflow: hidden;
 }
+
+.flexRow {
+  display: inline;
+  padding-bottom: 0vh;
+ 
+}
+
 
 }
 
