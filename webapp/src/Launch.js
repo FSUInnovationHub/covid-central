@@ -46,7 +46,7 @@ class Launch extends React.Component {
     const isMobile = Util.IsMobileUserAgent()
     var cardSize = undefined
     var covidTitle = undefined
-    var submitMargin = '6vh'
+    var submitMargin = '9vh'
     if(isMobile === false)
     {
       cardSize = "40vw"
@@ -55,7 +55,7 @@ class Launch extends React.Component {
 
     }
     return (   
-      <div className="noScroll"> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
+      <div> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
         <div className="launchCont" style={{position:'relative'}}>
           <h1 style={{fontSize: covidTitle}}>Covid Central</h1>
           <hr className="solid"></hr>
@@ -90,7 +90,7 @@ class Launch extends React.Component {
             </MuiThemeProvider>
           </div>
 
-          <h2 className="showMeThe">show me the</h2>
+          <h2 className="showMeThe" style={{marginTop: "2vh"}}>show me the</h2>
           <div className="dropdown">
             
             <Select
@@ -111,7 +111,7 @@ class Launch extends React.Component {
               <Button 
                   className="submitTxt"
                   variant="text"
-                  href={"/" + this.state.source}
+                  href={"/" + (this.state.source).toLowerCase()}
                   disabled={this.state.source === ""}>
                   Submit
               </Button>

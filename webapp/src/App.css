@@ -33,7 +33,7 @@ a {
 
 /*used for sources*/
 .dataSource {
-  font-size: 2.5vw;
+  font-size: 1.5vw;
   float: left;
 }
 
@@ -413,7 +413,7 @@ h2 {
 }
 
 .github {
-  font-size: 1.5vw !important;
+  font-size: 1.2vw !important;
   color: #7da4ff;
 }
 
@@ -509,9 +509,7 @@ h2 {
 
   .updatedAt {
     float: right;
-    /*font-size: 4.25vw;*/
-    font-size: 2.5vw;
-    padding-bottom: 1vh;
+    font-size: 1.5vw;
   }
 
   .updatedAtDesktop {
