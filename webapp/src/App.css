@@ -176,6 +176,7 @@ h2 {
   /*overflow-y: scroll;*/
 }
 
+
 .newsstatsPage{
   margin-top: 40px;
 }
@@ -198,9 +199,10 @@ h2 {
     flex-flow: row wrap;
     align-content: flex-start;
     justify-content: center;
-  
     
 }
+
+
 
 .contentWrapper
 {
@@ -289,40 +291,6 @@ h2 {
   align-content: center;
 }
 
-/*container for Temp class*/
-.cardCont {
-  /*CHANGE IN FUTURE*/
-
-  /*margin-bottom: 20vh;*/
-  width: 30vw;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  background-color: #2b2d2f;
-  padding-top: 2vh;
-  padding-left: 1vw;
-  padding-right: 1vw;
-  padding-bottom: 2vh;
-  margin-bottom: 3vh;
-  border-radius: 3vw;
-  align-content: center;
-}
-
-.newsCont {
-  margin-top: 2vh;
-  width: 20vw;
-  max-width: 30vw;
-  height: auto;
-  margin-left: 1vw;
-  flex-direction: column;
-  background-color: #2b2d2f;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 1vh;
-  padding-bottom: 1vh;
-  border-radius: 14px;
-  align-content: center;
-}
 
 .factsCont {
   align-self: center;
@@ -366,11 +334,6 @@ h2 {
   margin: 0 auto;
 }
 
-/*limit size of dropdown on stats page*/
-.selectFacts{
-  width: 20vw;
-  margin: 0 auto;
-}
 
 /*stats text*/
 .numbers
@@ -450,6 +413,12 @@ h2 {
   margin: 0 auto;
 }
 
+.factsMaxWrapper {
+  margin-top: 6vh;
+  width: 400px;
+  margin: 0 auto;
+}
+
 .emotionChip {
   margin-left: 0vw;
   padding:4px;
@@ -466,7 +435,6 @@ h2 {
 
   .cardContainer {
     display: flex;
-    /*used to be center*/
     justify-content: space-evenly;
     flex-wrap: wrap;
     align-items: flex-start;
@@ -520,6 +488,105 @@ h2 {
   }
 
 
+  /*OPTIMIZED CSS*/
+
+  /*facts page wrapper*/
+  .factsPage {
+    margin-top: 100px;
+    width: auto;
+    max-width: 1000px;
+    margin-left: 0 auto;
+    margin-right: 0 auto;
+    height: auto;
+    display: flex;
+    
+  }
+
+  .container-fluid {
+    width: auto;
+    align-items: center;
+    align-items: flex-start;
+    flex-wrap: row;
+    overflow: none;
+    padding: 0 auto;
+    margin: 0 auto;
+    
+  }
+
+  .factsContainer-fluid {
+    width: 100vw;
+    align-items: center;
+    align-items: flex-start;
+    flex-wrap: row;
+    overflow: none;
+    padding: 0 auto;
+    margin: 0 auto;
+    
+  }
+
+  .newsCont {
+    margin-top: 2vh;
+    width: auto;
+    max-width: 30vw;
+    height: auto;
+    margin-left: none;
+    flex-direction: column;
+    background-color: #2b2d2f;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    border-radius: 14px;
+    align-content: center;
+  }
+
+  /*loose card content*/
+.cardCont {
+  width: auto;
+  max-width: 30vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #2b2d2f;
+  padding-top: 0vh;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  padding-bottom: 0vh;
+  margin-bottom: 3vh;
+  border-radius: 14px;
+  align-content: center;
+}
+
+img {
+  width: auto;
+  max-width: 25vw;
+  height: auto;
+  margin: 0 auto;
+}
+
+iframe {
+  width: 90vw;
+  height: 30vh;
+  max-width: 25vw;
+  margin: 0 auto;
+}
+
+.tagFacts {
+  padding-top: 3vh;
+  padding-bottom: 16vh;
+  font-size: 1vw;
+  margin-bottom: 4vh;
+  overflow: hidden;
+}
+
+a {
+  font-size: 1vw;
+}
+ /*limit size of dropdown on stats page*/
+ .selectFacts{
+  width: 20vw;
+  margin: 0 auto;
+}   
 
 
 
@@ -531,7 +598,7 @@ h2 {
 /*orlando will parse through and clean this up before next friday*/
 
 /*special CSS rules for mobile devices UP TO IPAD PRO WIDTH*/
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 400px) {
 
   html, body {
     overflow: scroll;
@@ -566,25 +633,7 @@ h2 {
 }
 
 
-/*container for Temp class*/
-.cardCont {
-  /*CHANGE IN FUTURE*/
 
-  /*margin-bottom: 20vh;*/
-  
-  width: auto;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  background-color: #2b2d2f;
-  padding-top: 3vh;
-  padding-left: 0vw;
-  padding-right: 0vw;
-  padding-bottom: 3vh;
-  margin-bottom: 3vh;
-  border-radius: 3vw;
-  align-content: center;
-}
   /*container for Temp class*/
 .statsCont {
   /*CHANGE IN FUTURE*/
@@ -624,13 +673,7 @@ h2 {
   align-content: center;
 }
 
-  .container-fluid {
-    width: auto;
-    padding-right: 15px;
-    padding-left: 5px;
-    margin-right: auto;
-    margin-left: auto;
-}
+  
 
   .newsstatsPage{  
     margin-top: 40px;
@@ -789,6 +832,7 @@ h2 {
   overflow-x: none;
 }
 
+
   /*limit size of dropdown on stats page*/
   .selectCountry{
     width: 50vw;
@@ -911,6 +955,33 @@ h2 {
 
   }
 
+  
+  .flairComp {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+ 
+
+   /*OPTIMIZED CSS*/
+
+    /*GENERAL container*/
+   .container-fluid {
+    width: auto;
+    padding: 0 auto;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  /*facts page general div*/
+  .factsPage {
+    margin-top: 40px;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    overflow-x: none;
+  }
+
   .newsCont {
     align-self: center;
     margin-top: 2vh;
@@ -927,13 +998,49 @@ h2 {
     border-radius: 3vw;
     align-content: center;
   }
+
+  /*container for Temp class*/
+  .cardCont {
+  /*CHANGE IN FUTURE*/
+
+  /*margin-bottom: 20vh;*/
   
-  .flairComp {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
- 
+  width: 90vw;
+  max-width: none;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #2b2d2f;
+  padding-top: 3vh;
+  padding-left: 0vw;
+  padding-right: 0vw;
+  padding-bottom: 3vh;
+  margin-bottom: 3vh;
+  border-radius: 3vw;
+  align-content: center;
+}
+
+img {
+  width: auto;
+  max-width: 90vw;
+  height: auto;
+  margin: 0 auto;
+}
+
+iframe {
+  width: 90vw;
+  height: 30vh;
+  max-width: 90vw;
+  margin: 0 auto;
+}
+
+.tagFacts {
+  padding-top: 3vh;
+  padding-bottom: 16vh;
+  font-size: 4vw;
+  margin-bottom: 4vh;
+  overflow: hidden;
+}
 
 }
 
