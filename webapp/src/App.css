@@ -571,9 +571,10 @@ img {
 
 iframe {
   min-width: 35vw;
-  
   width: auto;
-  height: 60vh;
+  min-height: 40vh;
+  height: auto;
+  max-height: 60vh;
 }
 
 .tagFacts {
@@ -1044,7 +1045,7 @@ img {
 
 iframe {
   width: 90vw;
-  height: 30vh;
+  height: auto;
   max-width: 90vw;
   margin: 0 auto;
 }
