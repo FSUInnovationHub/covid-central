@@ -530,7 +530,7 @@ h2 {
   .newsCont {
     margin-top: 2vh;
     width: auto;
-    max-width: 25vw;
+    max-width: 380px;
     height: auto;
     margin-left: none;
     flex-direction: column;
