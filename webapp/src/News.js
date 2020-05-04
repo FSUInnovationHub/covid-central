@@ -42,10 +42,10 @@ class NewsPage extends React.Component {
     }
     return (   
 
-<div className="desktopCont">
-<div className="statsPage"> 
+<div className={divClass2}>
+<div className={divClass}> 
 <NavigationComponent title="News" />
-        <div class="cardContainer">
+        <div class="innerContentCont">
        
 
       <Container fluid>
@@ -62,7 +62,6 @@ class NewsPage extends React.Component {
     </div>
 
 </div>
-
 </div>
 
       )

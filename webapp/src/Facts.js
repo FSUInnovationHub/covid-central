@@ -74,24 +74,12 @@ class Commentary extends React.Component {
     return (   
         <div className="statsPage">  
           <NavigationComponent title="Facts" />
-
+          
           <div style={{marginTop: "4vh"}}></div>
-          <div>
-          <Container fluid className="factsContainer-fluid" >
-            
-              <Select className="selectFacts"
-                placeholder={"General"}
-                value={this.state.category}
-                onChange={this.handleCategory}
-                options={options}
-                style={{fontSize: "40vw"}}
-              />
-            
-              <div style={{marginTop: "2vh"}}></div> 
-              <div className="cardContainer">
-              {this.state.general && 
+          <Container fluid>
+              
               <div className="flexRow"> 
-                <div className="newsCont">
+                <div className="factsCont">
                   <MuiThemeProvider theme={textTheme}>
                     <div className="newsCardHeader">
                       <Typography variant="h5" color="secondary">
@@ -114,18 +102,16 @@ class Commentary extends React.Component {
                         "flair" have been carefully hand picked by our research team. We hope that you enjoy your experience and if you have any questions please email
                         <br></br>
                         <br></br>
-
                         
                       </Typography>
                       <Typography variant="header1" color="secondary">
                         info@innovation.fsu.edu
-
                       </Typography>
                     </div>
                   </MuiThemeProvider>  
                 </div>
 
-                <div className="newsCont">
+                <div className="factsCont">
                   <MuiThemeProvider theme={textTheme}>
                     <div className="newsCardHeader">
                       <Typography variant="h5" color="secondary">
@@ -149,7 +135,7 @@ class Commentary extends React.Component {
                   </MuiThemeProvider>
                 </div>
 
-                <div className="newsCont">
+                <div className="factsCont">
                   <MuiThemeProvider theme={textTheme}>
                     <div className="newsCardHeader">
                       <Typography variant="h5" color="secondary">
@@ -170,31 +156,23 @@ class Commentary extends React.Component {
                     </div>
                   </MuiThemeProvider> 
                 </div>
-                <div style={{marginTop: "3vh"}}></div> 
-              </div>}
-            
-            
-          
-              {this.state.masks && 
-              <div className="flexRow">
                 <div className="cardCont"><img src={typesOfMasks} alt="Logo" /></div>
                 <div className="cardCont"><img src={dosAndDont}  alt="Logo" /></div>
                 <div className="cardCont"><iframe src="https://www.youtube.com/embed/Mgp7DSGN33k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/></div>
               <div className="cardCont"><iframe src="https://www.youtube.com/embed/DFt9OuSKsOs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/></div>
-              </div>}
-
-              {this.state.socialDistancing && 
-              <div className="flexRow">
+                <div style={{marginTop: "3vh"}}></div> 
                 <div className="cardCont"><img src={socialDistancing} alt="Logo" /></div>
                 <div className="cardCont"><iframe src="https://www.youtube.com/embed/UMqi0AfLnro" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/></div>
                 <div className="cardCont"><img src={hotlines} alt="Logo" /></div>
-              </div>}
               </div>
+            
               <h1 className="tagFacts">Service provided by the FSU Innovation Hub <br></br>
               <a  className="tagFacts" style={hub} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>  
             
           </Container>
           </div>
+         
+        
 
 
 

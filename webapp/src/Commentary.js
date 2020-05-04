@@ -83,7 +83,7 @@ class Commentary extends React.Component {
     return (   
     <div> 
       <NavigationComponent title="Commentary" />
-      <div className="cardContainer">
+      <div className="factsCardContainer">
         <div className="noscroll" style={{padding: '25px 0px 0px 10px'}}>
 
       <Container fluid>
@@ -105,13 +105,13 @@ class Commentary extends React.Component {
         {this.state.change === false && <TwitterTimelineEmbed
           sourceType="profile"
           screenName={this.state.username}
-          options={{height: "80vh"}}
+          options={{height: "500px"}}
         />}
 
         {this.state.change === true && <TwitterTimelineEmbed
           sourceType="profile"
           screenName={this.state.username}
-          options={{height: "800px"}}
+          options={{height: "500px"}}
         />}
         </div>
         
