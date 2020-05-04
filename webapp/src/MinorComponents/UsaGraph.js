@@ -2,10 +2,9 @@ import React from 'react';
 import '../App.css';
 import 'react-spinning-wheel/dist/style.css';
 import ReactHighcharts from "react-highcharts";
-
-import { createLineChart, createBarChart } from "@pxblue/highcharts";
-import * as PXBColors from "@pxblue/colors";
+import { createBarChart } from "@pxblue/highcharts";
 import * as Util from '../Shared/Util'
+// eslint-disable-line prefer-template
 
 //fnc to comma seperate numbers
 function numberWithCommas(x) {
@@ -89,18 +88,18 @@ class UsaGraph extends React.Component {
                   {
                     //when only one series is being looked at 
                     switch(this.points[0].series.name) {
-                      case "Positive":
-                        var s = '<b style="color:black">' + this.x + '</b' + '<br></br>' + '<b style="color:black">' + this.points[0].series.name + ": " + '</b><b style="color:orange">' + numberWithCommas(this.y)  + '</b';
+                      default:
+                        var s = "".concat('<b style="color:black">', this.x, '</b', '<br></br>', '<b style="color:black">', this.points[0].series.name, ": ", '</b><b style="color:orange">', numberWithCommas(this.y), '</b');
                         return s;
                       case "Dead":
-                        var s = '<b>' + this.x + '</b' + '<br></br>' + '<b>' + this.points[0].series.name + ": " + '</b><b style="color:red">' + numberWithCommas(this.y)  + '</b';
+                        s = "".concat('<b>', this.x, '</b', '<br></br>', '<b>', this.points[0].series.name, ": ", '</b><b style="color:red">', numberWithCommas(this.y), '</b');
                         return s;
                     }
                   }
                   else
                   {
                     //when both series are being looked at together 
-                    var s = '<b style="color:black">' + this.x + '</b' + '<br></br>' + '<b style="color:black">' + this.points[0].series.name + ": " + '</b><b style="color:orange">' + numberWithCommas(this.points[0].y)  + '</b' + '<br></br>' + '<b style="color:black">' + this.points[1].series.name + ": " + '</b><b style="color:red">' + numberWithCommas(this.points[1].y)  + '</b' + '<br></br>';
+                    s = "".concat('<b style="color:black">', this.x, '</b', '<br></br>', '<b style="color:black">', this.points[0].series.name, ": ", '</b><b style="color:orange">', numberWithCommas(this.points[0].y), '</b', '<br></br>', '<b style="color:black">', this.points[1].series.name, ": ", '</b><b style="color:red">', numberWithCommas(this.points[1].y), '</b', '<br></br>');
                     return s;
                   }
                     
@@ -110,7 +109,7 @@ class UsaGraph extends React.Component {
             },
               //titles and such
               title: {text: 'COVID-19'},
-              subtitle: {text: 'United States of America' + '<br></br>[' + this.props.type + ']' + '<br></br><a className="dataSource" style="color: #7da4ff" href="https://covid19api.com/" rel="noopener" target="_blank"><div className="dataSource"> Source </div></a>'},
+              subtitle: {text: "".concat('United States of America', '<br></br>[', this.props.type, ']', '<br></br><a className="dataSource" style="color: #7da4ff" href="https://covid19api.com/" rel="noopener" target="_blank"><div className="dataSource"> Source </div></a>')},
               navigator: {enabled: true},
               //series settings
               series: [

@@ -1,14 +1,12 @@
 import React from 'react';
 import '../App.css';
 import 'react-spinning-wheel/dist/style.css';
-
 import FlairFilterComponent from './FlairFilterComponent'
-
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import Button from '@material-ui/core/Button';
 import Chip from '@material-ui/core/Chip';
 import Typography from '@material-ui/core/Typography';
-import CardsArray from '../CardsArray';
+
 
 
 const textTheme = createMuiTheme({
@@ -50,87 +48,73 @@ class NewsCardComponent extends React.Component {
   render()
   {  
     this.props.articles.sort((a, b) => new Date(b.datePublished) - new Date(a.datePublished));
-
     var state = this.state;
 
     return (
-<div>
-  {this.state.filterNeeded === true && <div> <FlairFilterComponent flairs={this.state.filters} filterFunc={this.filterNews} /> </div>}
-
-<div className="cardContainer">
-{
-    this.props.articles.filter(function (article) {
-      var changed = false;
-      var filtered = false;
-      var filters = state.filters;
-      
-      article.emotions.forEach(function(emo) {
-        if (filters[emo] === true) {
-          filtered = true;
-        }
-      })
-
-      // bugged
-      if (changed = true)
+    <div>
+      {this.state.filterNeeded === true && <div> <FlairFilterComponent flairs={this.state.filters} filterFunc={this.filterNews} /> </div>}
+      <div className="cardContainer">
       {
-        return filtered
-      }
-    
-    }).map((article, i) => (
-      
-      <div className="newsCont" key={i}>
-        
-        <div className="newsCardHeader">
-          <Typography variant="h5" color="secondary">
-            {article.headline}
-          </Typography>
-          { 
-            article.emotions.sort().map((emo, j) => (
-              <div key={"chip"+j}>
-                {/*added "all" invisible chip to every resource*/}
-                
-                {emo === "anxiety" && <Chip size="small" style={{backgroundColor:'#809CFF', fontWeight: 'bold'}} className="emotionChip" label={"anxious"} key={i + j} />}
-                {emo === "innovation" && <Chip size="small" style={{backgroundColor:'#A8EAA8', fontWeight: 'bold'}} className="emotionChip" label={emo} key={i + j} />}
-                {emo === "curiousity" && <Chip size="small" style={{backgroundColor:'#FFDF8C', fontWeight: 'bold'}} className="emotionChip" label={emo} key={i + j} />}
-                {emo === "factual" && <Chip size="small" style={{backgroundColor:'#B38710', fontWeight: 'bold'}} className="emotionChip" label={emo} key={i + j} />}
-                {emo === "inspiring" && <Chip size="small" style={{backgroundColor:'#A25EE6', fontWeight: 'bold'}} className="emotionChip" label={emo} key={i + j} />}
+        this.props.articles.filter(function (article) {
+          var filtered = false;
+          var filters = state.filters;
+          
+          article.emotions.forEach(function(emo) {
+            if (filters[emo] === true) {
+              filtered = true;
+            }
+          })
+          
+          return filtered
+          
+        }).map((article, i) => (
+          <div className="newsCont" key={i}>
+            <div className="newsCardHeader">
+              <Typography variant="h5" color="secondary">
+                {article.headline}
+              </Typography>
+              { 
+                article.emotions.sort().map((emo, j) => (
+                  <div key={"chip"+j}>
+                    {/*added "all" invisible chip to every resource*/}
+                    {emo === "anxiety" && <Chip size="small" style={{backgroundColor:'#809CFF', fontWeight: 'bold'}} className="emotionChip" label={"anxious"} key={i + j} />}
+                    {emo === "innovation" && <Chip size="small" style={{backgroundColor:'#A8EAA8', fontWeight: 'bold'}} className="emotionChip" label={emo} key={i + j} />}
+                    {emo === "curiousity" && <Chip size="small" style={{backgroundColor:'#FFDF8C', fontWeight: 'bold'}} className="emotionChip" label={emo} key={i + j} />}
+                    {emo === "factual" && <Chip size="small" style={{backgroundColor:'#B38710', fontWeight: 'bold'}} className="emotionChip" label={emo} key={i + j} />}
+                    {emo === "inspiring" && <Chip size="small" style={{backgroundColor:'#A25EE6', fontWeight: 'bold'}} className="emotionChip" label={emo} key={i + j} />}
+                  </div>
+                ))
+              }
+            </div>
+            <hr className="cardDivider" />
+            <div className="newsCardBody">
+              <Typography variant="body2" color="secondary">
+                {article.description}
+              </Typography>
+            </div>
+            <hr className="cardDivider" />
+            <MuiThemeProvider theme={textTheme}>
+              <div className="newsCardFooter">
+                <Button 
+                    size="small" 
+                    variant="contained" 
+                    color="primary" 
+                    target="_blank"
+                    href={article.url} 
+                    disableElevation>
+                  {article.source}
+                </Button>
+                <Typography component={'span'} variant="body2" color="secondary" style={{float: "right"}} >
+                  {article.time === true && <div> &nbsp; &nbsp; {article.timePublished} </div>}
+                  {article.datePublished}
+                </Typography>
               </div>
-            ))
-          }
-        </div>
-
-        <hr className="cardDivider" />
-
-        <div className="newsCardBody">
-          <Typography variant="body2" color="secondary">
-            {article.description}
-          </Typography>
-        </div>
-
-        <hr className="cardDivider" />
-
-        <MuiThemeProvider theme={textTheme}>
-          <div className="newsCardFooter">
-            <Button 
-                size="small" 
-                variant="contained" 
-                color="primary" 
-                target="_blank"
-                href={article.url} 
-                disableElevation>
-              {article.source}
-            </Button>
-            <Typography component={'span'} variant="body2" color="secondary" style={{float: "right"}} >
-              {article.time === true && <div> &nbsp; &nbsp; {article.timePublished} </div>}
-              {article.datePublished}
-            </Typography>
+            </MuiThemeProvider>
           </div>
-        </MuiThemeProvider>
+        ))
+      }
       </div>
-    ))
-}
-</div>
-</div>
+    </div>
     )
   }
 }

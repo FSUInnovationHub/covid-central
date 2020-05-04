@@ -10,7 +10,6 @@ import Typography from '@material-ui/core/Typography';
 
 // icons
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
-import RefreshIcon from '@material-ui/icons/Refresh';
 
 class NavigationComponent extends React.Component { 
 
@@ -26,21 +25,18 @@ class NavigationComponent extends React.Component {
   render()
   {  
     return (   
-
-<div className="navBanner"> 
-    <AppBar position="fixed">
-        <Toolbar>
-          <Typography variant="h4" color="inherit">{this.title}</Typography>
-
-          <section style={{marginLeft: 'auto'}}>
+      <div className="navBanner"> 
+        <AppBar position="fixed">
+          <Toolbar>
+            <Typography variant="h4" color="inherit">{this.title}</Typography>
+            <section style={{marginLeft: 'auto'}}>
               <IconButton href={"/"} color="inherit">
                 <NavigateBeforeIcon />
               </IconButton>
-          </section>
-        </Toolbar>
-    </AppBar>
-</div>
-
+            </section>
+          </Toolbar>
+        </AppBar>
+      </div>
       )
   }
 }

@@ -1,15 +1,8 @@
 import React from 'react';
 import '../App.css';
 import 'react-spinning-wheel/dist/style.css';
-
-import { Emotions } from '../Shared/Enums'
 import * as Util from '../Shared/Util'
-
-import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
-import Button from '@material-ui/core/Button';
 import Chip from '@material-ui/core/Chip';
-import CloseIcon from '@material-ui/core/Chip';
-import Typography from '@material-ui/core/Typography';
 import { Container } from '@material-ui/core';
 
 class FlairFilterComponent extends React.Component { 
@@ -17,15 +10,12 @@ class FlairFilterComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      
         general: 'orange',
         anxiety: '',
         innovation: '',
         curiousity: '',
         factual: '',
         inspiring: '',
-    
-
     };
 
     this.toggleFilter = this.toggleFilter.bind(this);
@@ -48,7 +38,7 @@ class FlairFilterComponent extends React.Component {
       this.props.flairs["curiousity"] = false
       this.props.flairs["factual"] = false
       this.props.flairs["inspiring"] = false
-      {this.setState({anxiety: '', innovation: '', curiousity: '', factual: '', inspiring: ''})}
+      this.setState({anxiety: '', innovation: '', curiousity: '', factual: '', inspiring: ''})
       
     }
     //shows all articles when general selected
@@ -61,13 +51,13 @@ class FlairFilterComponent extends React.Component {
       this.props.flairs["curiousity"] = false
       this.props.flairs["factual"] = false
       this.props.flairs["inspiring"] = false
-      {this.setState({anxiety: '', innovation: '', curiousity: '', factual: '', inspiring: ''})}
+      this.setState({anxiety: '', innovation: '', curiousity: '', factual: '', inspiring: ''})
       
     }
     
     //switch to set the colors of chips
     switch(flair) {
-      case 'all':
+      default:
         if(this.state.general === '')
         {
           this.setState({general: 'orange'})
@@ -147,22 +137,21 @@ class FlairFilterComponent extends React.Component {
     (
       <center>
         {/*ensures flair is centered*/}
-      <div  style={{ marginLeft: "0vw", marginTop: "2vh"}}>
-      
-      <Container minwidth="lg" >
-        <Chip size="small" style={{backgroundColor: this.state.general, padding: '3vw', marginBottom: '2vw', fontWeight: 'bold', fontSize: '4vw'}}className="emotionChip" label="general" onClick={() => this.toggleFilter("all")}/>
-        &nbsp;
-        <Chip size="small" style={{backgroundColor: this.state.anxiety, padding: '3vw', marginBottom: '2vw', fontWeight: 'bold', fontSize: '4vw'}} className="emotionChip" label="anxiety" onClick={() => this.toggleFilter("anxiety")} />
-        &nbsp;
-        <Chip size="small" style={{backgroundColor: this.state.innovation, padding: '3vw', marginBottom: '2vw', fontWeight: 'bold', fontSize: '4vw'}} className="emotionChip" label="innovation" onClick={() => this.toggleFilter("innovation")} />
-        <br></br>
-        <Chip size="small" style={{backgroundColor: this.state.curiousity, padding: '3vw', marginBottom: '2vw', fontWeight: 'bold', fontSize: '4vw'}} className="emotionChip" label="curiousity" onClick={() => this.toggleFilter("curiousity")} />
-        &nbsp;
-        <Chip size="small" style={{backgroundColor: this.state.factual, padding: '3vw', marginBottom: '2vw', fontWeight: 'bold', fontSize: '4vw'}} className="emotionChip" label="factual" onClick={() => this.toggleFilter("factual")} />
-        &nbsp;
-        <Chip size="small" style={{backgroundColor: this.state.inspiring, padding: '3vw', marginBottom: '2vw', fontWeight: 'bold', fontSize: '4vw'}} className="emotionChip" label="inspiring" onClick={() => this.toggleFilter("inspiring")} />
-      </Container>
-    </div>
+        <div  style={{ marginLeft: "0vw", marginTop: "2vh"}}>
+          <Container minwidth="lg" >
+            <Chip size="small" style={{backgroundColor: this.state.general, padding: '3vw', marginBottom: '2vw', fontWeight: 'bold', fontSize: '4vw'}}className="emotionChip" label="general" onClick={() => this.toggleFilter("all")}/>
+            &nbsp;
+            <Chip size="small" style={{backgroundColor: this.state.anxiety, padding: '3vw', marginBottom: '2vw', fontWeight: 'bold', fontSize: '4vw'}} className="emotionChip" label="anxiety" onClick={() => this.toggleFilter("anxiety")} />
+            &nbsp;
+            <Chip size="small" style={{backgroundColor: this.state.innovation, padding: '3vw', marginBottom: '2vw', fontWeight: 'bold', fontSize: '4vw'}} className="emotionChip" label="innovation" onClick={() => this.toggleFilter("innovation")} />
+            <br></br>
+            <Chip size="small" style={{backgroundColor: this.state.curiousity, padding: '3vw', marginBottom: '2vw', fontWeight: 'bold', fontSize: '4vw'}} className="emotionChip" label="curiousity" onClick={() => this.toggleFilter("curiousity")} />
+            &nbsp;
+            <Chip size="small" style={{backgroundColor: this.state.factual, padding: '3vw', marginBottom: '2vw', fontWeight: 'bold', fontSize: '4vw'}} className="emotionChip" label="factual" onClick={() => this.toggleFilter("factual")} />
+            &nbsp;
+            <Chip size="small" style={{backgroundColor: this.state.inspiring, padding: '3vw', marginBottom: '2vw', fontWeight: 'bold', fontSize: '4vw'}} className="emotionChip" label="inspiring" onClick={() => this.toggleFilter("inspiring")} />
+          </Container>
+        </div>
     </center>
     )
     :

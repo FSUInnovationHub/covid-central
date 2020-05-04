@@ -36,8 +36,6 @@ class DesktopUserNoticeComponent extends React.Component {
                     display:'block', 
                     paddingTop:'0.1vh',
                     paddingBottom:'0.1vh',
-                    verticalAlign:'center', 
-                    width: "40vw",
                     marginLeft:'auto',
                     marginRight:'auto',
                     marginTop: "0vh"}}>

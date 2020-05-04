@@ -35,7 +35,6 @@ const topTenOptionsState = [
 const green = {color: 'green'};
 const orange = {color: 'orange'};
 const red = {color: 'red'};
-const gray = {color: 'gray'};
 const link = {color: '#7da4ff'};
 const hub = {color: '#eac45f'};
 
@@ -349,7 +348,7 @@ class Stats extends React.Component {
                         </Typography>
                         <br></br>
                         <Typography >
-                        <a style={link} href="https://covidtracking.com/" target="_blank">
+                        <a style={link} href="https://covidtracking.com/" target="_blank" rel="noopener noreferrer">
                         Source
                         </a>
                         </Typography>
@@ -394,7 +393,7 @@ class Stats extends React.Component {
                           {this.state.stateUpdatedDay}
                         </Typography>
                         <br></br>
-                        <a style={link} href="https://covid19api.com/" target="_blank">
+                        <a style={link} href="https://covid19api.com/" target="_blank" rel="noopener noreferrer">
                         Source
                         </a>
                     </MuiThemeProvider>
@@ -431,7 +430,7 @@ class Stats extends React.Component {
                   </Table>
               </div>
               <Typography>
-              <a style={link} href="https://covid19api.com/" target="_blank">
+              <a style={link} href="https://covid19api.com/" target="_blank" rel="noopener noreferrer">
                 Source
               </a>
               </Typography>
@@ -459,7 +458,7 @@ class Stats extends React.Component {
                   </Table>
               </div>
               <Typography>
-                <a style={link} href="https://covidtracking.com/" target="_blank">
+                <a style={link} href="https://covidtracking.com/" target="_blank" rel="noopener noreferrer">
                   Source
                 </a>
               </Typography>
@@ -469,9 +468,8 @@ class Stats extends React.Component {
             <CardsArray resourceType={CardResourceTypes.STATS} />
 
 
-          
           <h1 className="tagFacts">Service provided by the FSU Innovation Hub <br></br>
-          <a className="tagFacts" style={hub} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>  
+          <a className="tagFacts" style={hub} href="https://innovation.fsu.edu/" target="_blank" rel="noopener noreferrer">innovation.fsu.edu</a></h1>  
           
         </Container>
         </div>
