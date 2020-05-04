@@ -57,7 +57,7 @@ class Launch extends React.Component {
     return (   
       <div> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
         <div className="launchCont" style={{position:'relative'}}>
-          <h1 style={{fontSize: covidTitle}}>Covid Central</h1>
+          <h1 style={{fontSize: covidTitle}}>Covid-Central</h1>
           <hr className="solid"></hr>
 
           <DesktopUserNoticeComponent />
@@ -75,7 +75,7 @@ class Launch extends React.Component {
 
               <div className="newsCardBody">
                 <Typography variant="body2" color="secondary">
-                  COVID-Central is an effort by a group of interns from Florida State University&#39;s Innovation Hub and outside collaborators. Our goal is to provide a centralized hub filled with reliable information, resources, and statistics regarding the outbreak of the COVID-19 virus. 
+                  Covid-Central is an effort by a group of interns from Florida State University&#39;s Innovation Hub and outside collaborators. Our goal is to provide a centralized hub filled with reliable information, resources, and statistics regarding the outbreak of the COVID-19 virus. 
                   <br></br>
                   <br></br>
                 This is an open source project. 

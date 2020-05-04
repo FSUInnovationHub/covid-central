@@ -89,7 +89,7 @@ class NewsCardComponent extends React.Component {
               <div key={"chip"+j}>
                 {/*added "all" invisible chip to every resource*/}
                 
-                {emo === "anxiety" && <Chip size="small" style={{backgroundColor:'#809CFF', fontWeight: 'bold'}} className="emotionChip" label={emo} key={i + j} />}
+                {emo === "anxiety" && <Chip size="small" style={{backgroundColor:'#809CFF', fontWeight: 'bold'}} className="emotionChip" label={"anxious"} key={i + j} />}
                 {emo === "innovation" && <Chip size="small" style={{backgroundColor:'#A8EAA8', fontWeight: 'bold'}} className="emotionChip" label={emo} key={i + j} />}
                 {emo === "curiousity" && <Chip size="small" style={{backgroundColor:'#FFDF8C', fontWeight: 'bold'}} className="emotionChip" label={emo} key={i + j} />}
                 {emo === "factual" && <Chip size="small" style={{backgroundColor:'#B38710', fontWeight: 'bold'}} className="emotionChip" label={emo} key={i + j} />}
