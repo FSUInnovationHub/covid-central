@@ -1,4 +1,4 @@
-# Covid Central 
+# Covid Central [www.covid19-central.com]
 
 > Covid-Central is an effort by a group of interns from Florida State University's Innovation Hub and outside collaborators. Our goal is to provide a centralized hub filled with reliable information, resources, and statistics regarding the outbreak of the COVID-19 virus. This is an open source project.
 
