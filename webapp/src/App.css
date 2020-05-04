@@ -19,7 +19,7 @@ code {
 
 /*used for "logo"*/
 h1 {
-  font-size: 7vw;
+  font-size: 80px;
   color: white;
   text-align: center;
   margin-bottom: 0vh;
@@ -80,10 +80,11 @@ h2 {
 /*container for launch class*/
 .launchCont {
   margin-top: 0vh;
-  width: 100vw;
+  width: 600px;
   height: 100vh;
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
   
 }
 
@@ -123,7 +124,7 @@ h2 {
   font-weight: bold;
   color: white;
   font-size: 6vw !important;
-  width: 100vw;
+  width: 600px;
   height: 2vh;
   text-align: center;
   text-align-last: center;
@@ -428,6 +429,9 @@ h2 {
 .desktopCont {
   width: 1200px;
   margin: 0 auto;
+}
+.launchWrapper {
+  width: 600px;
 }
 
 .factsMaxWrapper {
@@ -1220,6 +1224,10 @@ iframe {
   height: auto;
   align-self: flex-start;
   margin: 0 auto;
+}
+
+.launchWrapper {
+  width: 100vw;
 }
 
 
