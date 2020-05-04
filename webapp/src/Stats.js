@@ -307,7 +307,7 @@ class Stats extends React.Component {
       <div className="statsPage"> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
         <div className="cardContainer">
           <NavigationComponent title="Stats" />
-          <Container fluid >
+          <Container fluid>
           
             {/*COUNTRY TRACKER WIDGET*/}
             <div className="flexRowStats">

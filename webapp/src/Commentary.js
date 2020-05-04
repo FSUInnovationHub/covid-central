@@ -83,14 +83,12 @@ class Commentary extends React.Component {
     return (   
     <div> 
       <NavigationComponent title="Commentary" />
+      <div className="cardContainer">
         <div className="noscroll" style={{padding: '25px 0px 0px 10px'}}>
-        {/*<Typography variant="caption" color="inherit" style={{float: "left"}}>
-          Last Updated: {(new Date()).toLocaleTimeString()}
-    </Typography>*/}
 
       <Container fluid>
         
-        {isMobile ? <div>
+      <div>
           <div style={{marginTop: "6vh"}}></div>
           <Select className="selectUser"
             placeholder={"World Health Organization"}
@@ -102,62 +100,28 @@ class Commentary extends React.Component {
        
        <div style={{marginTop: "2vh"}}></div> 
        
+       <div className="commentaryCont">
         {/*triggers rerender. MUST be here. won't work with simply changing the screename*/}
         {this.state.change === false && <TwitterTimelineEmbed
           sourceType="profile"
           screenName={this.state.username}
-          options={{height: "62vh"}}
+          options={{height: "80vh"}}
         />}
 
         {this.state.change === true && <TwitterTimelineEmbed
           sourceType="profile"
           screenName={this.state.username}
-          options={{height: "62vh"}}
+          options={{height: "800px"}}
         />}
+        </div>
         
         <h1 className="tagCommentary">Service provided by the FSU Innovation Hub <br></br>
         <a style={hub} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>
         </div> 
         
-        : 
-        
-        
-
-
-
-
-
-        
-        (<div><div style={{marginTop: "8vh"}}></div>
-        <Select className="selectUser"
-          placeholder={"World Health Organization"}
-          value={this.state.twitterHandle}
-          onChange={this.handleTwitterHandle}
-          options={options}
-          
-        />
-     
-     <div style={{marginTop: "2vh"}}></div> 
-     
-      {/*triggers rerender. MUST be here. won't work with simply changing the screename*/}
-      {this.state.change === false && <center><TwitterTimelineEmbed
-        sourceType="profile"
-        screenName={this.state.username}
-        options={{width: "40vw", height: "70vh"}}
-      /></center>}
-
-      {this.state.change === true && <center><TwitterTimelineEmbed
-        sourceType="profile"
-        screenName={this.state.username}
-        options={{width: "40vw", height: "70vh"}}
-      /></center>}
-      
-      <h1 className="tagCommentary">Service provided by the FSU Innovation Hub <br></br>
-      <a style={hub}  className="hubLink" href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>
-      </div> )}
       </Container>
 
-
+      </div>
     </div>
 
 </div>

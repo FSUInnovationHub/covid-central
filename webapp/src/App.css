@@ -224,6 +224,21 @@ h2 {
   margin: 0 auto;
 }
 
+/*container for Temp class*/
+.commentaryCont {
+  /*CHANGE IN FUTURE*/
+
+  /*margin-bottom: 20vh;*/
+  margin-top: 3vh;
+  min-width: 250px;
+  width: auto;
+  max-width: 400px;
+  height: auto;
+  align-self: flex-start;
+  margin: 0 auto;
+}
+
+
 .topTenCont {
   /*CHANGE IN FUTURE*/
 
@@ -328,7 +343,7 @@ h2 {
 /*limit size of dropdown on stats page*/
 .selectUser{
 
-  width: 30vw;
+  width: 350px;
   margin: 0 auto;
 }
 
@@ -511,7 +526,6 @@ h2 {
 
   .statsPage {
     margin-top: 75px;
-    
   }
 
 
@@ -1122,6 +1136,20 @@ iframe {
     border-radius: 3vw;
     align-content: center;
   }
+
+  /*container for Temp class*/
+.commentaryCont {
+  /*CHANGE IN FUTURE*/
+
+  /*margin-bottom: 20vh;*/
+  margin-top: 3vh;
+  min-width: 250px;
+  width: auto;
+  max-width: 275px;
+  height: auto;
+  align-self: flex-start;
+  margin: 0 auto;
+}
 
 
 }
