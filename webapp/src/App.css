@@ -722,13 +722,14 @@ a {
 
   .cardContainer {
     display: flex;
-    width: auto;
-    max-width: 600px;
+    min-width: 92vw;
     /*used to be center*/
     justify-content: space-evenly;
     flex-wrap: wrap;
     align-items: flex-start;
   }
+
+    
   /*limit size of dropdown on stats page*/
 .selectFacts{
   width: 150px;
