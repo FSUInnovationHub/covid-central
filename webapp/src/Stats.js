@@ -375,7 +375,7 @@ class Stats extends React.Component {
                             <br></br>
                           </center>
                           <center>
-                            Recoveries:
+                            Negatives:
                             <br></br>
                             <NumberFormat style={{color: "green"}} value={this.state.stateNegatives} displayType={'text'} thousandSeparator={true}/>
                             <br></br>
