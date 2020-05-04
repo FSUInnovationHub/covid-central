@@ -55,10 +55,10 @@ class Launch extends React.Component {
 
     }
     return (   
-      <div> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
+      <div className="launchCont"> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
         <div className="launchCont" style={{position:'relative'}}>
-          <h1 style={{fontSize: covidTitle}}>Covid-Central</h1>
-          <hr className="solid"></hr>
+          <h1>Covid-Central</h1>
+          <br></br>
 
           <DesktopUserNoticeComponent />
 
