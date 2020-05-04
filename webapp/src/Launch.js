@@ -9,7 +9,6 @@ import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Typography from '@material-ui/core/Typography';
-import * as Util from './Shared/Util'
 
 const sources = [ 'Facts', 'Stats', 'News', 'Resources' , 'Commentary'];
 
@@ -43,17 +42,6 @@ class Launch extends React.Component {
 
   render()
   {  
-    const isMobile = Util.IsMobileUserAgent()
-    var cardSize = undefined
-    var covidTitle = undefined
-    var submitMargin = '9vh'
-    if(isMobile === false)
-    {
-      cardSize = "40vw"
-      covidTitle = "5vw"
-      submitMargin = "8vh"
-
-    }
     return (   
       <div className="launchCont"> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
         <div className="launchCont" style={{position:'relative'}}>
@@ -62,7 +50,7 @@ class Launch extends React.Component {
 
           <DesktopUserNoticeComponent />
 
-          <div className="newsCont" style={{marginRight: "auto",marginLeft:"auto", width: cardSize}}>
+          <div className="newsCont" style={{marginRight: "auto",marginLeft:"auto"}}>
 
             <MuiThemeProvider theme={textTheme}>
               <div className="newsCardHeader">
@@ -80,7 +68,7 @@ class Launch extends React.Component {
                   <br></br>
                 This is an open source project. 
                 <br></br>
-                <a href="https://github.com/FSUInnovationHub/covid-central" target="_blank" className="github">Github</a>
+                <a href="https://github.com/FSUInnovationHub/covid-central" target="_blank" rel="noopener noreferrer" className="github">Github</a>
                 </Typography>
               </div>
         
@@ -107,7 +95,7 @@ class Launch extends React.Component {
             </Select>
            </div>
 
-           <div className="submitBar" style={{marginTop: submitMargin}}>
+           <div className="submitBar">
               <Button 
                   className="submitTxt"
                   variant="text"

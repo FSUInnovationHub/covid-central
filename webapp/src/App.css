@@ -2,6 +2,7 @@ html, body {
   /*overflow: scroll;*/
   width:100%;
 }
+
 body {
   margin: 0;
   background-color: #7276e8ff;
@@ -37,44 +38,12 @@ a {
   float: left;
 }
 
-/*used for sources*/
-.dataSourceDesktop {
-  font-size: 1.5vw;
-  float: left;
-}
-
 /*used for launch form*/
 h2 {
-  font-size: 6vw;
   color: white;
   text-align: center;
   margin-bottom: 0vh;
   margin-top: 2vh;
-}
-
-/*link on temp page*/
-.see {
-  font-size: 4.5vw;
-  text-align: center;
-  color: black;
-}
-
-.see:active {
-  color: white;
-}
-
-/*container for Temp class*/
-.tempCont {
-  margin-top: 5vh;
-  width: 100vw;
-  height: 50vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/*container for the clock animation*/
-.clockWrapper {
-  visibility: visible;
 }
 
 /*container for launch class*/
@@ -96,7 +65,7 @@ h2 {
 .dropdown {
   align-self: center;
   margin-top: 2vh;
-  width: 17vw;
+  width: 244.8px;
   max-height: 4vh;
   background-color: #7da4ff;
 }
@@ -123,7 +92,7 @@ h2 {
   border: none;
   font-weight: bold;
   color: white;
-  font-size: 6vw !important;
+  font-size: 51.9px !important;
   width: 600px;
   height: 2vh;
   text-align: center;
@@ -132,7 +101,6 @@ h2 {
   bottom: 0vh;
   position: fixed;
       bottom: 0;
-
 }
 
 .submitTxt:hover
@@ -141,72 +109,18 @@ h2 {
   color: #03bb85;
 }
 
-
-
-.resetTxt:hover
-{
-  color:  #03bb85;
-}
-
-.resetTxt:active
-{
-  color:  #03bb85;
-}
-
-/*rules for launch page spacing*/
-.imFeeling {
-  margin-top: 5vh;
-}
-
 .showMeThe {
   margin-top: 2vh;
-  font-size: 3vw;
+  font-size: 43.2px;
 }
-
-
-
-
-
-
 
 .newsstatsPage{
   margin-top: 40px;
 }
 
-.newsstatsPageMobile{
-  margin-top: 40px;
-  width: 100vw;
-  height: auto;
-  display: flex;
-  align-items: stretch;
-  /*flex-direction: row-reverse;*/
-  align-items: flex-start;
-  overflow-x: scroll;
-  /*overflow-y: scroll;*/
-}
 
-.container-fluidDesktop {
-    width: 100vw;
-    display: flex;
-    flex-flow: row wrap;
-    align-content: flex-start;
-    justify-content: center;
-    
-}
-
-
-
-.contentWrapper
-{
-  width: auto;
-  
-}
-
-/*container for Temp class*/
+/*container for Stats class*/
 .statsCont {
-  /*CHANGE IN FUTURE*/
-
-  /*margin-bottom: 20vh;*/
   margin-top: 3vh;
   min-width: 250px;
   width: auto;
@@ -225,11 +139,40 @@ h2 {
   margin: 0 auto;
 }
 
-/*container for Temp class*/
-.commentaryCont {
-  /*CHANGE IN FUTURE*/
+.newsCont {
+  margin-top: 2vh;
+  width: 350px;
+  height: auto;
+  margin-left: none;
+  flex-direction: column;
+  background-color: #2b2d2f;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  border-radius: 14px;
+  align-content: center;
+  align-self: flex-start;
+}
 
-  /*margin-bottom: 20vh;*/
+.factsCont {
+  margin-top: 2vh;
+  width: 400px;
+  height: auto;
+  margin-left: none;
+  flex-direction: column;
+  background-color: #2b2d2f;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  border-radius: 14px;
+  align-content: center;
+  align-self: flex-start;
+}
+
+/*container for Commentary class*/
+.commentaryCont {
   margin-top: 3vh;
   min-width: 250px;
   width: auto;
@@ -239,17 +182,30 @@ h2 {
   margin: 0 auto;
 }
 
+/*loose card content*/
+.cardCont {
+  margin-top: 3vh;
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #2b2d2f;
+  padding-top: 0vh;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  padding-bottom: 0vh;
+  margin-bottom: 3vh;
+  border-radius: 14px;
+  align-content: center;
+  align-self: flex-start;
+  }
 
 .topTenCont {
-  /*CHANGE IN FUTURE*/
-
-  /*margin-bottom: 20vh;*/
   margin-top: 3vh;
   width: auto;
   max-width: 325px;
   height: auto;
-  display: flex;
-  
+  display: flex; 
   flex-direction: column;
   background-color: #2b2d2f;
   padding-top: 3vh;
@@ -262,83 +218,9 @@ h2 {
   margin: 0 auto;
 }
 
-/*container for Temp class*/
-.statsContDesktop {
-  /*CHANGE IN FUTURE*/
-
-  /*margin-bottom: 20vh;*/
-  margin-top: 3vh;
-  width: 350px;
-  /*width: 23vw;*/
-  resize: none;
-  flex-shrink: 0;
-  height: auto;
-  /*display: flex;*/
-  margin-left: 3vw;
-  /*flex-direction: column;*/
-  background-color: #2b2d2f;
-  padding-top: 3vh;
-  padding-left: 3vw;
-  padding-right: 3vw;
-  padding-bottom: 1vh;
-  border-radius: 3vw;
-  /*align-content: center;*/
-}
-
-.graphContDesktop {
-  /*CHANGE IN FUTURE*/
-
-  /*margin-bottom: 20vh;*/
-  margin-top: 3vh;
-  width: 460px;
- 
-  /*max-width: 35vw;*/
-  height: auto;
-  flex-shrink: 0;
-  background-color: #2b2d2f;
-  padding-top: .5vw;
-  padding-left: .5vw;
-  padding-right: .5vw;
-  resize: none;
-  padding-bottom: 2vw;
-  border-radius: 3vw;
-  align-content: center;
-}
-
-/*
-.factsCont {
-  align-self: center;
-  margin-top: 3vh;
-  width: 90vw;
-  height: auto;
-  display: flex;
-  /*margin-left: 3vw;
-  flex-direction: column;
-  background-color: #2b2d2f;
-  padding-left: 3vw;
-  padding-right: 3vw;
-  padding-top: 1vh;
-  padding-bottom: 1vh;
-  border-radius: 3vw;
-  align-content: center;
-}*/
-
 .innerContentCont {
   margin: 0 auto;
   padding-top:3vh;
-  
-}
-
-/*limit size of dropdown on stats page*/
-.selectCountry{
-  width: 15vw;
-  margin: 0 auto;
-}
-
-/*limit size of dropdown on stats page*/
-.selectCountryDesktop{
-  width: 15vw;
-  margin: 0 auto;
 }
 
 /*limit size of dropdown on stats page*/
@@ -348,65 +230,26 @@ h2 {
   margin: 0 auto;
 }
 
-
-/*stats text*/
-.numbers
-{
-  font-size: 4vw;
-}
-
-/*stats text*/
-.numbersDesktop
-{
-  font-size: 2vw;
-}
-
-.topTenText {
-  /*stats text*/
-  font-size: 6vw;
-
-}
-
-.topTenHeader {
-  /*stats text*/
-  font-size: 3vw;
-
-}
-
-.topTen {
-  font-size: 2.5vw;
-  color: white;
-  text-align: left;
-  margin-bottom: 0vh;
-  margin-top: 2vh;
-  font-weight: bold;
-}
-
 .highcharts-container {
   width:100% !important;
   height:100% !important;
 }
+
 .submitBar {
+  margin-top: 58px;
   position:'absolute'; bottom:'0'; padding-bottom: '0vh';
 }
 
 .github {
-  font-size: 1.2vw !important;
+  font-size: 17.28px !important;
   color: #7da4ff;
 }
 
 .tagCommentary {
-  
   padding-top: 0vh;
   font-size: 25px;
   padding-bottom: 3vh;
- 
   overflow: hidden;
-
-}
-
-.hubLink {
-  font-size: 1.5vw;
 }
 
 .newsCardFooter {
@@ -425,18 +268,8 @@ h2 {
   margin-bottom: 2vh;
 }
 
-
 .desktopCont {
   width: 1200px;
-  margin: 0 auto;
-}
-.launchWrapper {
-  width: 600px;
-}
-
-.factsMaxWrapper {
-  margin-top: 6vh;
-  width: 400px;
   margin: 0 auto;
 }
 
@@ -447,185 +280,89 @@ h2 {
   font-size: '4vw';
 }
 
+.flairComp {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
-  .flairComp {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .cardContainer {
-    width: auto;
-    max-width: 1200px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    margin: 0 auto;
-  }
-
-  .factsCardsContainer {
-    width: auto;
-    max-width: 1200px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    margin: 0 auto;
-  }
-
-  .altCardContainer {
-    display: flex;
-    /*used to be center*/
-    justify-content: space-evenly;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .statsCardContainer {
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-    display: flex;
-    /*used to be center*/
-    justify-content: space-evenly;
-    flex-flow: wrap;
-    align-items: flex-start;
-  }
-
-
-  
-  .cardDivider {
-    margin: auto;
-    width: 100%;
-    border: 1px solid gray;
-  }
-
-  .tag {
-    padding-top: 3vh;
-    padding-bottom: 12vh;
-    font-size: 2vw;
-    margin-bottom: 4vh;
-    overflow: hidden;
-  }
-
-  .updatedAt {
-    float: right;
-    font-size: 1.5vw;
-  }
-
-  .updatedAtDesktop {
-    float: right;
-    margin-left: 3vw;
-    font-size: 1.5vw;
-    padding-bottom: 1vh;
-  }
-
-
-  /*OPTIMIZED CSS*/
-
-  .selectTop{
-    width: 175px;
-    margin: 0 auto;
-  }
-
-  /*facts page wrapper*/
-  .factsPage {
-    margin-top: 100px;
-    width: auto;
-    max-width: 1000px;
-    margin-left: 0 auto;
-    margin-right: 0 auto;
-    height: auto;
-    display: flex;
-    
-  }
-
-  .statsPage {
-    margin-top: 75px;
-  }
-
-
-  .container-fluidBug {
-    width: 100vw;
-    align-items: center;
-    align-items: flex-start;
-    flex-wrap: row;
-    overflow: none;
-    padding: 0 auto;
-    margin: 0 auto;
-    
-  }
-  .container-fluid {
-    width: auto;
-    align-items: center;
-    align-items: flex-start;
-    flex-wrap: row;
-    overflow: none;
-    padding: 0 auto;
-    margin: 0 auto;
-    
-  }
-
-  .newsCont {
-    margin-top: 2vh;
-    width: 350px;
-    height: auto;
-    margin-left: none;
-    flex-direction: column;
-    background-color: #2b2d2f;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 1vh;
-    padding-bottom: 1vh;
-    border-radius: 14px;
-    align-content: center;
-    align-self: flex-start;
-  }
-
-  .factsCont {
-    margin-top: 2vh;
-    width: 400px;
-    height: auto;
-    margin-left: none;
-    flex-direction: column;
-    background-color: #2b2d2f;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 1vh;
-    padding-bottom: 1vh;
-    border-radius: 14px;
-    align-content: center;
-    align-self: flex-start;
-  }
-
-  /*loose card content*/
-.cardCont {
-  margin-top: 3vh;
+.cardContainer {
   width: auto;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin: 0 auto;
+}
+
+.factsCardsContainer {
+  width: auto;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin: 0 auto;
+}
+
+.statsCardContainer {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  display: flex;
+  /*used to be center*/
+  justify-content: space-evenly;
+  flex-flow: wrap;
+  align-items: flex-start;
+}
+  
+.cardDivider {
+  margin: auto;
+  width: 100%;
+  border: 1px solid gray;
+}
+
+/*OPTIMIZED CSS*/
+
+.selectTop{
+  width: 175px;
+  margin: 0 auto;
+}
+
+/*facts page wrapper*/
+.factsPage {
+  margin-top: 100px;
+  width: auto;
+  max-width: 1000px;
+  margin-left: 0 auto;
+  margin-right: 0 auto;
   height: auto;
   display: flex;
-  flex-direction: column;
-  background-color: #2b2d2f;
-  padding-top: 0vh;
-  padding-left: 1vw;
-  padding-right: 1vw;
-  padding-bottom: 0vh;
-  margin-bottom: 3vh;
-  border-radius: 14px;
-  align-content: center;
-  align-self: flex-start;
+}
+
+.statsPage {
+  margin-top: 75px;
+}
+
+.container-fluid {
+  width: auto;
+  align-items: center;
+  align-items: flex-start;
+  flex-wrap: row;
+  overflow: none;
+  padding: 0 auto;
+  margin: 0 auto;
+
+  
 }
 
 img {
-  
   width: 400px;
   height: auto;
   margin: 0 auto;
 }
 
-iframe {
-  
+iframe { 
   width: 400px;
   min-height: 400px;
   height: auto;
@@ -637,7 +374,6 @@ iframe {
   padding-top: 1vh;
   font-size: 25px;
   padding-bottom: 3vh;
- 
   overflow: hidden;
 }
 
@@ -645,117 +381,43 @@ iframe {
   padding-top: 1vh;
   font-size: 25px;
   padding-bottom: 3vh;
- 
   overflow: hidden;
 }
 
 a {
   font-size: 1.5vw;
 }
- /*limit size of dropdown on stats page*/
- .selectFacts{
-  width: 150px;
-  margin: 0 auto;
-  }  
-  
-  .flexRow
-  {
-    width: 1400px;
-    display: flex;
-    flex-flow: row wrap;
-    align-content: flex-start;
-    justify-content: space-around;
-    margin: 0 auto;
-    padding-bottom: 3vh;
-  }
 
-  .flexRowStats
-  {
-    width: auto;
-    max-width: 1200px;
-    display: flex;
-    flex-flow: row wrap;
-    align-content: flex-start;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin: 0 auto;
-    padding-bottom: 3vh;
-  }
-
-  .graphCont {
-    /*CHANGE IN FUTURE*/
-  
-    /*margin-bottom: 20vh;*/
-    margin-top: 3vh;
-    width: 355px;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    background-color: #2b2d2f;
-    padding-top: 0vh;
-    padding-left: 0vw;
-    padding-right: 0vw;
-    padding-bottom: 3vh;
-    border-radius: 14px;
-    align-content: center;
-    align-self: flex-start;
-    margin: 0 auto;
-  }
-
-  .finalTag {
-    font-size: 21px;
-  }
-
-
-
-
-
-
-
-
-
-/*orlando will parse through and clean this up before next friday*/
-
-/*special CSS rules for mobile devices UP TO IPAD PRO WIDTH*/
-@media only screen and (max-width: 725px) {
-
-  html, body {
-    overflow: scroll;
-    width:100%;
-  }
-
-  .cardContainer {
-    display: flex;
-    min-width: 92vw;
-    /*used to be center*/
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    align-items: flex-start;
-  }
-
-    
-  /*limit size of dropdown on stats page*/
+/*limit size of dropdown on stats page*/
 .selectFacts{
-  width: 150px;
-  margin: 0 auto;
-}
-  /*container for launch class*/
-.launchCont {
-  margin-top: 0vh;
-  width: 100vw;
-  height: auto;
+width: 150px;
+margin: 0 auto;
+}  
+
+.flexRow
+{
+  width: 1400px;
   display: flex;
-  flex-direction: column;
-  margin-bottom: 10vh;
+  flex-flow: row wrap;
+  align-content: flex-start;
+  justify-content: space-around;
+  margin: 0 auto;
+  padding-bottom: 3vh;
 }
 
-.hubLink {
-  font-size: 3.0vw;
+.flexRowStats
+{
+  width: auto;
+  max-width: 1200px;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding-bottom: 3vh;
 }
 
-
-
-/*container for Temp class*/
 .graphCont {
   /*CHANGE IN FUTURE*/
 
@@ -770,20 +432,78 @@ a {
   padding-left: 0vw;
   padding-right: 0vw;
   padding-bottom: 3vh;
-  border-radius: 3vw;
+  border-radius: 14px;
   align-content: center;
   align-self: flex-start;
+  margin: 0 auto;
 }
 
-  
+.finalTag {
+  font-size: 21px;
+}
 
-  .newsstatsPage{  
-    margin-top: 40px;
+/*orlando will parse through and clean this up before next friday*/
+
+/*special CSS rules for mobile devices UP TO IPAD PRO WIDTH*/
+@media only screen and (min-width: 370px) and (max-width: 500px) {
+
+  html, body {
+    overflow: scroll;
+    width:100%;
   }
 
-  .github {
-    font-size: 4vw !important;
-    color: #7da4ff;
+  .cardContainer {
+    display: flex;
+    min-width: 92vw;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+    /*limit size of dropdown on stats page*/
+  .selectFacts{
+    width: 150px;
+    margin: 0 auto;
+  }
+    /*container for launch class*/
+  .launchCont {
+    margin-top: 0vh;
+    width: auto;
+    max-width: 500px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10vh;
+  }
+
+  /*container for Temp class*/
+  .graphCont {
+    /*CHANGE IN FUTURE*/
+
+    /*margin-bottom: 20vh;*/
+    margin-top: 3vh;
+    width: 355px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #2b2d2f;
+    padding-top: 0vh;
+    padding-left: 0vw;
+    padding-right: 0vw;
+    padding-bottom: 3vh;
+    border-radius: 3vw;
+    align-content: center;
+    align-self: flex-start;
+  }
+
+  .newsstatsPage{
+    margin-top: 40px;
+    width: 100vw;
+    height: auto;
+    display: flex;
+    align-items: stretch;
+    align-items: flex-start;
+    overflow-x: scroll;
   }
 
   .selectUser{
@@ -799,20 +519,15 @@ a {
     align-items: inherit;
     justify-content: inherit;
   }
-  
-.submitBar {
-  position:'absolute'; bottom:'0'; padding-bottom: '14vh';
-}
+
+  .submitBar {
+    margin-top: 20px;
+    position:'absolute'; bottom:'0'; padding-bottom: '14vh';
+  }
+
   .highcharts-container {
     width:100% !important;
-    height:100% !important;
-   
-}
-
-
-  /*wraps clock*/
-  .clockWrapper {
-    visibility: visible;
+    height:100% !important; 
   }
 
   /*used for "logo"*/
@@ -830,7 +545,6 @@ a {
     color: white;
     text-align: center;
     margin-bottom: 0vh;
-
   }
 
   /*used for launch form spacing*/
@@ -841,22 +555,6 @@ a {
   .showMeThe {
     font-size: 10vw;
     margin-top: 8vh;
-  }
-
-  /*container for Temp class*/
-  .tempCont {
-    margin-top: 20vh;
-    width: 100vw;
-    height: 50vh;
-    display: flex;
-    flex-direction: column;
-  }
-
-  /*link on temp page*/
-  .see {
-    font-size: 5.5vw;
-    text-align: center;
-    color: black;
   }
 
   /*select option wrapper*/
@@ -890,32 +588,12 @@ a {
     color: #03bb85;
   }
 
-
-
-
-  .resetTxt:hover
-  {
-    color:  #03bb85;
-  }
-
-  .resetTxt:active
-  {
-    color:  #03bb85;
-  }
-
   /*prevents any scrolling*/
   .noScroll {
-    overflow: hidden;
+    overflow: scroll;
     position:fixed;
   }
 
-  /*stats text*/
-  .numbers
-  {
-    font-size: 6vw;
-  }
-
- 
   /*limit size of dropdown on stats page*/
   .selectCountry{
     width: 400px;
@@ -925,48 +603,6 @@ a {
   /*used for any links*/
   a {
     font-size: 4vw;
-  }
-
-
-  .lastItem {
-   margin-bottom: 30vh;
-
-  }
-
-  /*used for sources*/
-  .dataSource {
-    font-size: inherit;
-    float: left;
-  }
-
-  .updatedAt {
-    float: right;
-    /*font-size: 4.25vw;*/
-    
-    font-size: 2.8vw;
-  }
-
-  .topTen {
-    font-size: 4.25vw;
-    color: white;
-    text-align: left;
-    margin-bottom: 0vh;
-    margin-top: 2vh;
-    font-weight: bold;
-  }
-
-  .topTenHeader {
-    /*stats text*/
-    font-size: 5vw;
-    margin-bottom: 1vh;
-    margin-top: 0vh;
-  }
-
-  /* cards styling */
-  .cardTitle {
-    font-size: 3vw;
-    color: white;
-    font-weight: bold;
   }
 
   .newsCardFooter {
@@ -997,25 +633,11 @@ a {
     font-weight: 'bold';
     font-size: '4vw';
   }
-
-
-  .graph {
-    width: 20vw;
-  }
-
-  .tag {
-    padding-top: 1vh;
-    padding-bottom: 5vh;
-    font-size: 4vw;
-    
-    overflow: hidden;
-  }
   
   .tagFacts {
     padding-top: 1vh;
     padding-bottom: 5vh;
     font-size: 4vw;
-    
     overflow: hidden;
   }
 
@@ -1024,17 +646,11 @@ a {
     padding-bottom: 2vh;
   }
 
-  
   .flairComp {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
   }
- 
-
-   /*OPTIMIZED CSS*/
-
-   
 
   /*facts page general div*/
   .factsPage {
@@ -1048,13 +664,13 @@ a {
   /*facts page general div*/
   .statsPage {
     margin-top: 40px;
-    
   }
 
   .newsCont {
     align-self: center;
     margin-top: 2vh;
-    width: 350px;
+    width: auto;
+    max-width: 350px;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -1087,10 +703,6 @@ a {
 
   /*container for Temp class*/
   .cardCont {
-  /*CHANGE IN FUTURE*/
-
-  /*margin-bottom: 20vh;*/
-  
   width: 350px;
   max-width: none;
   height: auto;
@@ -1106,67 +718,7 @@ a {
   align-content: center;
   margin-left: auto;
   margin-right: auto;
-}
-
-img {
-  width: auto;
-  max-width: 350px;
-  height: auto;
-  margin: 0 auto;
-}
-
-iframe {
-  width: 350px;
-  height: auto;
-  max-width: 90vw;
-  margin: 0 auto;
-}
-
-
-.tagStats {
-  padding-top: 3vh;
-  padding-bottom: 16vh;
-  font-size: 4vw;
-  margin-bottom: 2vh;
-  overflow: hidden;
-}
-
-.flexRow {
-  display: inline;
-  padding-bottom: 0vh;
-  padding-left: 3px;
-  
- 
-}
-
-.flexRowStats {
-  display: inline;
-  padding-bottom: 0vh;
-  padding-left: 3px;
-  
- 
-}
-
-.container-fluid {
-  width: auto;
-  align-self: center;
-  align-items: center;
-  align-items: flex-start;
-  flex-wrap: row;
-  overflow: none;
-  padding: 0 auto;
-  margin: 0 auto;
-}
-.container-fluidBug{
-  width: 100vw;
-  align-self: center;
-  align-items: center;
-  align-items: flex-start;
-  flex-wrap: row;
-  overflow: none;
-  padding: 0 auto;
-  margin: 0 auto;
-}
+  }
 
   /*container for Temp class*/
   .statsCont {
@@ -1212,25 +764,465 @@ iframe {
     align-content: center;
   }
 
+    /*container for Temp class*/
+  .commentaryCont {
+    /*CHANGE IN FUTURE*/
+
+    /*margin-bottom: 20vh;*/
+    margin-top: 3vh;
+    min-width: 250px;
+    width: auto;
+    max-width: 275px;
+    height: auto;
+    align-self: flex-start;
+    margin: 0 auto;
+  }
+
+
+
+  img {
+    width: auto;
+    max-width: 350px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  iframe {
+    width: 350px;
+    height: auto;
+    max-width: 90vw;
+    margin: 0 auto;
+  }
+
+  .tagStats {
+    padding-top: 3vh;
+    padding-bottom: 16vh;
+    font-size: 4vw;
+    margin-bottom: 2vh;
+    overflow: hidden;
+  }
+
+  .flexRow {
+    display: inline;
+    padding-bottom: 0vh;
+    padding-left: 3px;
+  }
+
+  .flexRowStats {
+    display: inline;
+    padding-bottom: 0vh;
+    padding-left: 3px;
+  }
+
+  .container-fluid {
+    width: auto;
+    align-self: center;
+    align-items: center;
+    align-items: flex-start;
+    flex-wrap: row;
+    overflow: none;
+    padding: 0 auto;
+    margin: 0 auto;
+  }
+
+  .launchWrapper {
+    width: 100vw;
+  }
+}
+
+@media only screen and (max-width: 369px) {
+  html, body {
+    overflow: scroll;
+    width:100%;
+  }
+
+  .cardContainer {
+    display: flex;
+    min-width: 92vw;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+    /*limit size of dropdown on stats page*/
+  .selectFacts{
+    width: 150px;
+    margin: 0 auto;
+  }
+    /*container for launch class*/
+  .launchCont {
+    margin-top: 0vh;
+    width: auto;
+    max-width: 500px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10vh;
+  }
+
   /*container for Temp class*/
-.commentaryCont {
-  /*CHANGE IN FUTURE*/
+  .graphCont {
+    /*CHANGE IN FUTURE*/
 
-  /*margin-bottom: 20vh;*/
-  margin-top: 3vh;
-  min-width: 250px;
-  width: auto;
-  max-width: 275px;
+    /*margin-bottom: 20vh;*/
+    margin-top: 3vh;
+    width: 300px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #2b2d2f;
+    padding-top: 0vh;
+    padding-left: 0vw;
+    padding-right: 0vw;
+    padding-bottom: 3vh;
+    border-radius: 3vw;
+    align-content: center;
+    align-self: flex-start;
+  }
+
+  .newsstatsPage{
+    margin-top: 40px;
+    width: 100vw;
+    height: auto;
+    display: flex;
+    align-items: stretch;
+    align-items: flex-start;
+    overflow-x: scroll;
+  }
+
+  .selectUser{
+    padding-top: 0vh;
+    width: 70vw;
+    margin: 0 auto;
+  }
+
+  .MuiButton-label {
+    margin-top: 0vh;
+    width: 100%;
+    display: inherit;
+    align-items: inherit;
+    justify-content: inherit;
+  }
+
+  .submitBar {
+    margin-top: 20px;
+    position:'absolute'; bottom:'0'; padding-bottom: '14vh';
+  }
+
+  .highcharts-container {
+    width:100% !important;
+    height:100% !important; 
+  }
+
+  /*used for "logo"*/
+  h1 {
+    font-size: 14vw;
+    color: white;
+    text-align: center;
+    margin-bottom: 0vh;
+    margin-top: 2vh;
+  }
+
+  /*used for launch form*/
+  h2 {
+    font-size: 10vw;
+    color: white;
+    text-align: center;
+    margin-bottom: 0vh;
+  }
+
+  /*used for launch form spacing*/
+  .imFeeling {
+    margin-top: 15vh;
+  }
+
+  .showMeThe {
+    font-size: 10vw;
+    margin-top: 8vh;
+  }
+
+  /*select option wrapper*/
+  .dropdown {
+    align-self: center;
+    margin-top: 2vh;
+    width: 50vw;
+    height: 4vh;
+  }
+
+  /*rules for "submit" on form*/
+  .submitTxt
+  {
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    color: white;
+    font-size: 10vw !important;
+    width: 100vw;
+    height: 10vh;
+    text-align: center;
+    text-align-last: center;
+    bottom: 0vh;
+    position: fixed;
+      bottom: 0;
+  }
+
+  .submitTxt:hover
+  {
+    height: inherit;
+    color: #03bb85;
+  }
+
+  /*prevents any scrolling*/
+  .noScroll {
+    overflow: hidden;
+    position:fixed;
+  }
+
+  /*limit size of dropdown on stats page*/
+  .selectCountry{
+    width: 400px;
+    margin: 0 auto;
+  }
+
+  /*used for any links*/
+  a {
+    font-size: 4vw;
+  }
+
+  .newsCardFooter {
+    margin-top: 1vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .newsCardHeader {
+    margin-bottom: 1vh;
+  }
+
+  .newsCardBody {
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+  }
+
+  .cardDivider {
+    margin: auto;
+    width: 100%;
+    border: 1px solid gray;
+  }
+
+  .emotionChip {
+    margin-left: 0vw;
+    margin: 1vw;
+    font-weight: 'bold';
+    font-size: '4vw';
+  }
+  
+  .tagFacts {
+    padding-top: 1vh;
+    padding-bottom: 5vh;
+    font-size: 4vw;
+    overflow: hidden;
+  }
+
+  .tagCommentary {
+    font-size: 4vw;
+    padding-bottom: 2vh;
+  }
+
+  .flairComp {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /*facts page general div*/
+  .factsPage {
+    margin-top: 40px;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    overflow-x: none;
+  }
+
+  /*facts page general div*/
+  .statsPage {
+    margin-top: 40px;
+  }
+
+  .newsCont {
+    align-self: center;
+    margin-top: 2vh;
+    width: auto;
+    max-width: 250px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #2b2d2f;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    border-radius: 3vw;
+    align-content: center;
+  }
+
+  .factsCont {
+    align-self: center;
+    margin-top: 2vh;
+    width: 250px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #2b2d2f;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    border-radius: 3vw;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /*container for Temp class*/
+  .cardCont {
+  width: 250px;
+  max-width: none;
   height: auto;
-  align-self: flex-start;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #2b2d2f;
+  padding-top: 3vh;
+  padding-left: 0vw;
+  padding-right: 0vw;
+  padding-bottom: 3vh;
+  margin-bottom: 3vh;
+  border-radius: 3vw;
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  }
+
+  /*container for Temp class*/
+  .statsCont {
+    /*CHANGE IN FUTURE*/
+  
+    /*margin-bottom: 20vh;*/
+
+    align-self: center;
+    margin-top: 2vh;
+    width: auto;
+    max-width: 250px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #2b2d2f;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    padding-top: 3vh;
+    padding-bottom: 1vh;
+    border-radius: 3vw;
+    align-content: center;
+  }
+
+  /*container for Temp class*/
+  .topTenCont {
+    /*CHANGE IN FUTURE*/
+  
+    /*margin-bottom: 20vh;*/
+
+    align-self: center;
+    margin-top: 2vh;
+    width: auto;
+    max-width: 300px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #2b2d2f;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    padding-top: 3vh;
+    padding-bottom: 1vh;
+    border-radius: 3vw;
+    align-content: center;
+  }
+
+    /*container for Temp class*/
+  .commentaryCont {
+    /*CHANGE IN FUTURE*/
+
+    /*margin-bottom: 20vh;*/
+    margin-top: 3vh;
+    min-width: 250px;
+    width: auto;
+    max-width: 275px;
+    height: auto;
+    align-self: flex-start;
+    margin: 0 auto;
+  }
+
+
+
+  img {
+    width: auto;
+    max-width: 250px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  iframe {
+    width: 250px;
+    height: auto;
+    max-width: 90vw;
+    margin: 0 auto;
+  }
+
+  .tagStats {
+    padding-top: 3vh;
+    padding-bottom: 16vh;
+    font-size: 4vw;
+    margin-bottom: 2vh;
+    overflow: hidden;
+  }
+
+  .flexRow {
+    display: inline;
+    padding-bottom: 0vh;
+    padding-left: 3px;
+  }
+
+  .flexRowStats {
+    display: inline;
+    padding-bottom: 0vh;
+    padding-left: 3px;
+  }
+
+  .container-fluid {
+    width: auto;
+    align-self: center;
+    align-items: center;
+    align-items: flex-start;
+    flex-wrap: row;
+    overflow: none;
+    padding: 0 auto;
+    margin: 0 auto;
+    padding-top: 10px;
+  }
+
+  .launchWrapper {
+    width: 100vw;
+  }
+
+  .factsCardsContainer {
+    width: auto;
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin: 0 auto;
+    
+  }
 }
-
-.launchWrapper {
-  width: 100vw;
-}
-
-
-}
-
 
