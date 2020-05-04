@@ -83,13 +83,13 @@ class Commentary extends React.Component {
                   <MuiThemeProvider theme={textTheme}>
                     <div className="newsCardHeader">
                       <Typography variant="h5" color="secondary">
-                        <center>Covid Central</center>
+                        <center>Covid-Central</center>
                       </Typography>
                     </div>
                     <hr className="cardDivider" />
                     <div className="newsCardBody">
                       <Typography variant="body2" color="secondary">
-                        Covid Central is a data centralization tool that hosts reliable information regarding the outbreak of the COVID-19 virus.
+                        Covid-Central is a data centralization tool that hosts reliable information regarding the outbreak of the COVID-19 virus.
                         We provide you five pages (Facts, Stats, News, Resources, and Commentary). 
                         <br></br>
                         <br></br>
