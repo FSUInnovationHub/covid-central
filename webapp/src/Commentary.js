@@ -116,7 +116,7 @@ class Commentary extends React.Component {
         </div>
         
         <h1 className="tagCommentary">Service provided by the FSU Innovation Hub <br></br>
-        <a style={hub} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>
+        <a  className="tagCommentary" style={hub} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>
         </div> 
         
       </Container>

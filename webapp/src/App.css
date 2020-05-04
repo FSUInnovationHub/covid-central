@@ -397,8 +397,11 @@ h2 {
 
 .tagCommentary {
   
-  padding-bottom: 2vh;
-  font-size: 1.5vw;
+  padding-top: 1vh;
+  font-size: 25px;
+  padding-bottom: 3vh;
+ 
+  overflow: hidden;
 
 }
 
@@ -629,18 +632,18 @@ iframe {
 }
 
 .tagFacts {
-  padding-top: 3vh;
-  padding-bottom: 16vh;
-  font-size: 1.5vw;
-  margin-bottom: 4vh;
+  padding-top: 1vh;
+  font-size: 25px;
+  padding-bottom: 3vh;
+ 
   overflow: hidden;
 }
 
 .tagStats {
-  padding-top: 3vh;
-  padding-bottom: 16vh;
-  font-size: 1.5vw;
-  margin-bottom: 4vh;
+  padding-top: 1vh;
+  font-size: 25px;
+  padding-bottom: 3vh;
+ 
   overflow: hidden;
 }
 
@@ -694,6 +697,9 @@ iframe {
     margin: 0 auto;
   }
 
+  .finalTag {
+    font-size: 21px;
+  }
 
 
 
@@ -1009,9 +1015,8 @@ iframe {
 
   .tagCommentary {
    
-    padding-bottom: 2vh;
     font-size: 4vw;
-
+    padding-bottom: 2vh;
   }
 
   

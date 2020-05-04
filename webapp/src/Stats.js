@@ -470,8 +470,8 @@ class Stats extends React.Component {
 
 
           
-          <h1 className="tagStats">Service provided by the FSU Innovation Hub <br></br>
-          <a style={hub} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>  
+          <h1 className="tagFacts">Service provided by the FSU Innovation Hub <br></br>
+          <a className="tagFacts" style={hub} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>  
           
         </Container>
         </div>

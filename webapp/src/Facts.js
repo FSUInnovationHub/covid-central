@@ -74,7 +74,7 @@ class Commentary extends React.Component {
     return (   
         <div className="statsPage">  
           <NavigationComponent title="Facts" />
-          <div className="factsCardContainer">
+          
           <div style={{marginTop: "4vh"}}></div>
           <Container fluid>
               
@@ -105,7 +105,7 @@ class Commentary extends React.Component {
                         
                       </Typography>
                       <Typography variant="header1" color="secondary">
-                        
+                        info@innovation.fsu.edu
                       </Typography>
                     </div>
                   </MuiThemeProvider>  
@@ -166,21 +166,12 @@ class Commentary extends React.Component {
                 <div className="cardCont"><img src={hotlines} alt="Logo" /></div>
               </div>
             
-            
-          
-             
-
-            
-              
-
-            
-      
               <h1 className="tagFacts">Service provided by the FSU Innovation Hub <br></br>
-              <a style={hub} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>  
+              <a  className="tagFacts" style={hub} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>  
             
           </Container>
           </div>
-          </div>
+         
         
 
 

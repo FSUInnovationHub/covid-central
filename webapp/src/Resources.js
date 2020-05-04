@@ -54,9 +54,9 @@ class Resources extends React.Component {
         
       </Container>
 
-      <br></br>
-        <h1 className={tag}>Service provided by the FSU Innovation Hub <br></br>
-         <a style={hub} className={desktopUrl} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>
+      <h1 className="tagFacts" style={{paddingTop: "0vh"}}>
+    <br></br>Service provided by the FSU Innovation Hub <br></br>
+        <a style={hub} className="tagFacts" href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>
 
     </div>
 
