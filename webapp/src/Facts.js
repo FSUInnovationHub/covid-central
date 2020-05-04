@@ -74,6 +74,7 @@ class Commentary extends React.Component {
     return (   
         <div className="statsPage">  
           <NavigationComponent title="Facts" />
+
           <div style={{marginTop: "4vh"}}></div>
           <div>
           <Container fluid className="factsContainer-fluid" >
@@ -113,7 +114,12 @@ class Commentary extends React.Component {
                         "flair" have been carefully hand picked by our research team. We hope that you enjoy your experience and if you have any questions please email
                         <br></br>
                         <br></br>
-                        <a className="github">info@innovation.fsu.edu</a>
+
+                        
+                      </Typography>
+                      <Typography variant="header1" color="secondary">
+                        info@innovation.fsu.edu
+
                       </Typography>
                     </div>
                   </MuiThemeProvider>  
@@ -184,15 +190,11 @@ class Commentary extends React.Component {
                 <div className="cardCont"><img src={hotlines} alt="Logo" /></div>
               </div>}
               </div>
-
-            
-      
               <h1 className="tagFacts">Service provided by the FSU Innovation Hub <br></br>
-              <a style={hub} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>  
+              <a  className="tagFacts" style={hub} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>  
             
           </Container>
           </div>
-        </div>
 
 
 

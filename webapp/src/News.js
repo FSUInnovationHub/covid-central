@@ -42,20 +42,27 @@ class NewsPage extends React.Component {
     }
     return (   
 
-<div class="statsPage">
-  <NavigationComponent title="News" />
-  <div class="cardContainer">
-          
-    <Container fluid>
-      <CardsArray resourceType={CardResourceTypes.NEWS} />
-    </Container>
+<div className="desktopCont">
+<div className="statsPage"> 
+<NavigationComponent title="News" />
+        <div class="cardContainer">
+       
+
+      <Container fluid>
+        <CardsArray resourceType={CardResourceTypes.NEWS} />
+      </Container>
       
-    <Container fluid>
-      <h1 className={tag} style={{paddingTop: "0vh"}}>Live news updates powered by <a style={{color: "#2b2d2f"}} className={desktopUrl} href="https://newsapi.org" target="_blank">News API</a>
-      <br></br>{isMobile && <br></br>}{isMobile === false && <div style={{paddingTop: ".5vh"}}></div>} Service provided by the FSU Innovation Hub <br></br>
-      <a style={hub} className={desktopUrl} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>
-    </Container>
-  </div>
+      
+        <h1 className="tagFacts" style={{paddingTop: "0vh"}}>Live news updates powered by <a style={{color: "#2b2d2f"}} className="tagFacts" href="https://newsapi.org" target="_blank">News API</a>
+    <br></br>Service provided by the FSU Innovation Hub <br></br>
+        <a style={hub} className="tagFacts" href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>
+      
+      
+
+    </div>
+
+</div>
+
 </div>
 
       )
