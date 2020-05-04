@@ -5,8 +5,6 @@ import * as Util from './Shared/Util.js'
 import { CardResourceTypes, Emotions } from './Shared/Enums'
 import { SheetsUrl, NewsApi } from './Shared/Constants'
 import NewsCardComponent from './MinorComponents/NewsCardComponent'
-import SwitchBase from '@material-ui/core/internal/SwitchBase';
-import { Alert } from 'react-bootstrap';
 
 //number of categories asked for on any one path of the form
 const numberOfCategories = 7;
@@ -177,12 +175,11 @@ class CardsArray extends React.Component {
           //live data
           //NEW LIVE DATA --- RETURNS 20 CORONAVIRUS ARTICLES FROM THE CURRENT DATE
           if (data2 !== undefined) {
-            for(var i = 0; i < data2['articles'].length; i++)
+            for(i = 0; i < data2['articles'].length; i++)
             { 
               var date = (dateArray(data2['articles'][i]['publishedAt'])[0]).replace(/-/g, '/')
               var time = (dateArray(data2['articles'][i]['publishedAt'])[1])
-              var dictData = {
-                
+              dictData = {
                 page: 'NEWS',
                 emotions: ['all'],
                 url: data2['articles'][i]['url'],
@@ -243,10 +240,8 @@ class CardsArray extends React.Component {
         switch (this.props.resourceType) {
           case CardResourceTypes.NEWS:
             return <div><NewsCardComponent articles={this.state.newsArr} filter={true}/></div>
-            break;
           case CardResourceTypes.STATS:
             return <NewsCardComponent articles={this.state.statsArr} filter={false} />
-            break;
           case CardResourceTypes.RESOURCES:
             return <NewsCardComponent articles={this.state.resourcesArr} filter={true} />
           default:

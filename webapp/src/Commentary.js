@@ -1,14 +1,10 @@
 import React from 'react';
 import './App.css';
 import 'react-spinning-wheel/dist/style.css';
-import { TwitterTimelineEmbed, TwitterShareButton, TwitterFollowButton, TwitterHashtagButton, TwitterMentionButton, TwitterTweetEmbed, TwitterMomentShare, TwitterDMButton, TwitterVideoEmbed, TwitterOnAirButton } from 'react-twitter-embed';
-import CardsArray from './CardsArray'
+import { TwitterTimelineEmbed  } from 'react-twitter-embed';
 import NavigationComponent from './MinorComponents/NavigationComponent'
-import { CardResourceTypes } from './Shared/Enums'
 import { Container } from 'react-bootstrap';
-import Typography from '@material-ui/core/Typography';
 import Select from 'react-select'
-import * as Util from './Shared/Util'
 
 //options of reliable twitter users to render
 const options = [{
@@ -79,53 +75,42 @@ class Commentary extends React.Component {
 
   render()
   {  
-    const isMobile = Util.IsMobileUserAgent()
     return (   
     <div> 
       <NavigationComponent title="Commentary" />
       <div className="factsCardContainer">
         <div className="noscroll" style={{padding: '25px 0px 0px 10px'}}>
-
-      <Container fluid>
-        
-      <div>
-          <div style={{marginTop: "6vh"}}></div>
-          <Select className="selectUser"
-            placeholder={"World Health Organization"}
-            value={this.state.twitterHandle}
-            onChange={this.handleTwitterHandle}
-            options={options}
-            style={{fontSize: "40vw"}}
-          />
-       
-       <div style={{marginTop: "2vh"}}></div> 
-       
-       <div className="commentaryCont">
-        {/*triggers rerender. MUST be here. won't work with simply changing the screename*/}
-        {this.state.change === false && <TwitterTimelineEmbed
-          sourceType="profile"
-          screenName={this.state.username}
-          options={{height: "500px"}}
-        />}
-
-        {this.state.change === true && <TwitterTimelineEmbed
-          sourceType="profile"
-          screenName={this.state.username}
-          options={{height: "500px"}}
-        />}
+          <Container fluid>
+            <div>
+              <div style={{marginTop: "6vh"}}></div>
+              <Select className="selectUser"
+                placeholder={"World Health Organization"}
+                value={this.state.twitterHandle}
+                onChange={this.handleTwitterHandle}
+                options={options}
+                style={{fontSize: "40vw"}}
+              />
+              <div style={{marginTop: "2vh"}}></div> 
+              <div className="commentaryCont">
+                {/*triggers rerender. MUST be here. won't work with simply changing the screename*/}
+                {this.state.change === false && <TwitterTimelineEmbed
+                  sourceType="profile"
+                  screenName={this.state.username}
+                  options={{height: "500px"}}
+                />}
+                {this.state.change === true && <TwitterTimelineEmbed
+                  sourceType="profile"
+                  screenName={this.state.username}
+                  options={{height: "500px"}}
+                />}
+              </div>
+              <h1 className="tagCommentary">Service provided by the FSU Innovation Hub <br></br>
+              <a  className="tagCommentary" style={hub} href="https://innovation.fsu.edu/" target="_blank" rel="noopener noreferrer">innovation.fsu.edu</a></h1>
+            </div> 
+          </Container>
         </div>
-        
-        <h1 className="tagCommentary">Service provided by the FSU Innovation Hub <br></br>
-        <a  className="tagCommentary" style={hub} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>
-        </div> 
-        
-      </Container>
-
       </div>
     </div>
-
-</div>
-
     )
   }
 }

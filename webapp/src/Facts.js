@@ -1,28 +1,14 @@
 import React from 'react';
 import './App.css';
 import 'react-spinning-wheel/dist/style.css';
-import { TwitterTimelineEmbed, TwitterShareButton, TwitterFollowButton, TwitterHashtagButton, TwitterMentionButton, TwitterTweetEmbed, TwitterMomentShare, TwitterDMButton, TwitterVideoEmbed, TwitterOnAirButton } from 'react-twitter-embed';
-import CardsArray from './CardsArray'
 import NavigationComponent from './MinorComponents/NavigationComponent'
-import { CardResourceTypes } from './Shared/Enums'
 import { Container } from 'react-bootstrap';
 import Typography from '@material-ui/core/Typography';
-import Select from 'react-select'
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import dosAndDont from './Content/dosAndDont.jpg'
 import typesOfMasks from './Content/typesOfMasks.png'
 import socialDistancing from './Content/socialDistancing.jpg'
-import filler from './Content/filler.jpg'
 import hotlines from "./Content/hotlines.PNG"
-import * as Util from './Shared/Util'
-
-
-//options of reliable twitter users to render
-const options = [
-    { value: 'General', label: 'General'},
-    { value: 'Masks', label: 'Masks'},
-    { value: 'Social Distancing', label: 'Social Distancing/Hotlines'},
-  ];
 
 const hub = {color: '#eac45f'};
 
@@ -43,30 +29,7 @@ class Commentary extends React.Component {
       masks: true, 
       socialDistancing: true, 
       hotlines: true, 
-
     };
-  }
-  
-  handleCategory = category => {
-    //sets state for the twitter user being queried 
-    //the change boolean MUST be here to ensure a pseudo rerender without losing the option being selected
-    
-    this.setState({category})
-    switch(category['value'])
-    {
-      case "General":
-        this.setState({general: true, masks: true, socialDistancing: true, hotlines: true})
-        break;
-      case "Masks":
-        this.setState({general: false, masks: true, socialDistancing: false, hotlines: false})
-        break
-      case "Social Distancing":
-        this.setState({general: false, masks: false, socialDistancing: true, hotlines: false})
-        break
-      case "Hotlines":
-        this.setState({general: false, masks: false, socialDistancing: false, hotlines: true})
-        break
-    }
   }
 
   render()
@@ -74,10 +37,8 @@ class Commentary extends React.Component {
     return (   
         <div className="statsPage">  
           <NavigationComponent title="Facts" />
-          
           <div style={{marginTop: "4vh"}}></div>
           <Container fluid>
-              
               <div className="flexRow"> 
                 <div className="factsCont">
                   <MuiThemeProvider theme={textTheme}>
@@ -129,7 +90,7 @@ class Commentary extends React.Component {
                         it is not known how or where they became exposed."
                         <br></br>
                         <br></br>
-                        <a href="https://www.cdc.gov/coronavirus/2019-ncov/cases-updates/summary.html" target="_blank"><Typography variant="body2" color="secondary" style={{color: "#7da4ff"}} >Learn More</Typography></a>
+                        <a href="https://www.cdc.gov/coronavirus/2019-ncov/cases-updates/summary.html" target="_blank" rel="noopener noreferrer"><Typography variant="body2" color="secondary" style={{color: "#7da4ff"}} >Learn More</Typography></a>
                       </Typography>
                     </div>
                   </MuiThemeProvider>
@@ -151,32 +112,26 @@ class Commentary extends React.Component {
                         A pandemic is a global outbreak of disease. Pandemics happen when a new virus emerges to infect people and can spread between people sustainably. Because there is little to no pre-existing immunity against the new virus, it spreads worldwide.
                         <br></br>
                         <br></br>
-                        <a href="https://www.who.int/dg/speeches/detail/who-director-general-s-opening-remarks-at-the-media-briefing-on-covid-19---11-march-2020" target="_blank"><Typography variant="body2" color="secondary" style={{color: "#7da4ff"}} >Learn More</Typography></a>
+                        <a href="https://www.who.int/dg/speeches/detail/who-director-general-s-opening-remarks-at-the-media-briefing-on-covid-19---11-march-2020" target="_blank" rel="noopener noreferrer"><Typography variant="body2" color="secondary" style={{color: "#7da4ff"}} >Learn More</Typography></a>
                       </Typography>
                     </div>
                   </MuiThemeProvider> 
                 </div>
-                <div className="cardCont"><img src={typesOfMasks} alt="Logo" /></div>
-                <div className="cardCont"><img src={dosAndDont}  alt="Logo" /></div>
-                <div className="cardCont"><iframe src="https://www.youtube.com/embed/Mgp7DSGN33k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/></div>
-              <div className="cardCont"><iframe src="https://www.youtube.com/embed/DFt9OuSKsOs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/></div>
+                <div className="cardCont"><img src={typesOfMasks} alt="types of masks graphic" /></div>
+                <div className="cardCont"><img src={dosAndDont}  alt="dos and donts graphic" /></div>
+                <div className="cardCont"><iframe title="no sew mask video tutorial" src="https://www.youtube.com/embed/Mgp7DSGN33k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/></div>
+              <div className="cardCont"><iframe title="sew mask video tutorial" src="https://www.youtube.com/embed/DFt9OuSKsOs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/></div>
                 <div style={{marginTop: "3vh"}}></div> 
-                <div className="cardCont"><img src={socialDistancing} alt="Logo" /></div>
-                <div className="cardCont"><iframe src="https://www.youtube.com/embed/UMqi0AfLnro" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/></div>
-                <div className="cardCont"><img src={hotlines} alt="Logo" /></div>
+                <div className="cardCont"><img src={socialDistancing} alt="social distancing graphic" /></div>
+                <div className="cardCont"><iframe title="power of social distancing video" src="https://www.youtube.com/embed/UMqi0AfLnro" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/></div>
+                <div className="cardCont"><img src={hotlines} alt="hotlines graphic" /></div>
               </div>
             
               <h1 className="tagFacts">Service provided by the FSU Innovation Hub <br></br>
-              <a  className="tagFacts" style={hub} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>  
+              <a  className="tagFacts" style={hub} href="https://innovation.fsu.edu/" target="_blank" rel="noopener noreferrer">innovation.fsu.edu</a></h1>  
             
           </Container>
-          </div>
-         
-        
-
-
-
-
+        </div>
       )
      
   }

@@ -3,12 +3,9 @@ import ReactDOM from 'react-dom';
 import './App.css';
 import * as serviceWorker from './serviceWorker';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
-import Temp from './Temp'
 import Stats from './Stats'
 import Launch from './Launch'
 import NewsPage from './News'
-import CardsArray from './CardsArray'
-import UsaGraph from './MinorComponents/UsaGraph'
 import Resources from './Resources'
 import Commentary from './Commentary';
 import Facts from './Facts';
@@ -20,14 +17,12 @@ we would like to render*/
 const routing = (
   <Router>
     <Switch>
-      <Route exact path="/" component={Launch}/>
       <Route exact path="/facts" component={Facts}/>
       <Route exact path="/stats" component={Stats}/>
       <Route exact path="/news" component={NewsPage}/>
       <Route exact path="/resources" component={Resources}/>
       <Route exact path="/commentary" component= {Commentary} />
-      <Route exact path="/*" exact component={Launch} />
-      
+      <Route exact path="/*" component={Launch}/>  
     </Switch>
   </Router>
 )
