@@ -342,7 +342,7 @@ h2 {
 
 /*limit size of dropdown on stats page*/
 .selectUser{
-
+  padding-top: 2vh;
   width: 350px;
   margin: 0 auto;
 }
@@ -396,7 +396,7 @@ h2 {
 
 .tagCommentary {
   
-  padding-top: 1vh;
+  padding-top: 0vh;
   font-size: 25px;
   padding-bottom: 3vh;
  
@@ -783,6 +783,7 @@ a {
   }
 
   .selectUser{
+    padding-top: 0vh;
     width: 70vw;
     margin: 0 auto;
   }
@@ -1015,7 +1016,6 @@ a {
   }
 
   .tagCommentary {
-   
     font-size: 4vw;
     padding-bottom: 2vh;
   }
