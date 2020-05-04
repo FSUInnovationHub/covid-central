@@ -348,8 +348,10 @@ class Stats extends React.Component {
                           {this.state.worldUpdatedDay}
                         </Typography>
                         <br></br>
-                        <Typography style={link} href="https://covidtracking.com/" target="_blank">
+                        <Typography >
+                        <a style={link} href="https://covidtracking.com/" target="_blank">
                         Source
+                        </a>
                         </Typography>
                 </MuiThemeProvider>
               </div>
@@ -392,9 +394,9 @@ class Stats extends React.Component {
                           {this.state.stateUpdatedDay}
                         </Typography>
                         <br></br>
-                        <Typography style={link} href="https://covid19api.com/" target="_blank">
+                        <a style={link} href="https://covid19api.com/" target="_blank">
                         Source
-                        </Typography>
+                        </a>
                     </MuiThemeProvider>
                 </div>
               </div>
@@ -428,8 +430,10 @@ class Stats extends React.Component {
                   {topTenCountryNames}
                   </Table>
               </div>
-              <Typography style={link} href="https://covid19api.com/" target="_blank">
+              <Typography>
+              <a style={link} href="https://covid19api.com/" target="_blank">
                 Source
+              </a>
               </Typography>
             </div>
          
@@ -454,8 +458,10 @@ class Stats extends React.Component {
                   {topTenStates}
                   </Table>
               </div>
-              <Typography style={link} href="https://covid19api.com/" target="_blank">
-                Source
+              <Typography>
+                <a style={link} href="https://covidtracking.com/" target="_blank">
+                  Source
+                </a>
               </Typography>
             </div>
             </div>  
