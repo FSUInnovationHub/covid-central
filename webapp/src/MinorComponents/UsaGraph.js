@@ -35,10 +35,10 @@ class UsaGraph extends React.Component {
   }
 
   componentWillMount() {
-    var widthSize = "450"
+    var widthSize = 355
     if(Util.IsMobileUserAgent())
     {
-      widthSize = 350
+      widthSize = 355
     }
     Promise.all([
       fetch("https://covidtracking.com/api/v1/us/daily.json"),

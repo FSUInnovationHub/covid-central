@@ -3,6 +3,7 @@ import './App.css';
 import 'react-spinning-wheel/dist/style.css';
 import NumberFormat from 'react-number-format';
 import Select from 'react-select'
+import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 
 import * as Util from './Shared/Util.js'
 import NavigationComponent from './MinorComponents/NavigationComponent'
@@ -20,13 +21,13 @@ var listOfStates = [];
 
 //sort by world or state options NOTE- No recoveries have been reported by states.
 const topTenOptions = [
-  { value: 'positives', label: 'By Known Cases', color: 'orange' },
-  {value: 'recovered', label: 'By Known Recoveries', color: 'green' },
-  { value: 'deaths', label: 'By Known Deaths', color: 'red' },
+  { value: 'positives', label: 'Cases', color: 'orange' },
+  {value: 'recovered', label: 'Recoveries', color: 'green' },
+  { value: 'deaths', label: 'Deaths', color: 'red' },
 ];
 const topTenOptionsState = [
-  { value: 'positives', label: 'By Known Cases', color: 'orange' },
-  { value: 'deaths', label: 'By Known Deaths', color: 'red' },
+  { value: 'positives', label: 'Known Cases', color: 'orange' },
+  { value: 'deaths', label: 'Known Deaths', color: 'red' },
 ]
 
 
@@ -37,6 +38,13 @@ const red = {color: 'red'};
 const gray = {color: 'gray'};
 const link = {color: '#7da4ff'};
 const hub = {color: '#eac45f'};
+
+const textTheme = createMuiTheme({
+  palette: {
+    primary: { main: "#e91e63", contrastText: "#fff" },
+    secondary: { main: "#fff", contrastText: "#000" }
+  }
+});
 
 //this function converts the time to the local user's time zone and then seperates the day and time
 //0 is day, 1 is time
@@ -231,32 +239,7 @@ class Stats extends React.Component {
 
   render()
   {
-    const isMobile = Util.IsMobileUserAgent()
-    var wrapper = "newsstatsPage"
-    var cardContainer = "statsCardContainer"
-    var cardClass = "statsContDesktop"
-    var numbers = "numbersDesktop"
-    var updatedAt = "updatedAtDesktop"
-    var dataSource = "dataSourceDesktop"
-    var selectCountry = "selectCountryDesktop"
-    var graphCont = "graphContDesktop"
-    var topTenText = "topTenTextDesktop"
-    var tag = "tagCommentary"
-    var desktopUrl = "hubLink"
-    if(isMobile)
-    {
-      wrapper="statsPage"
-      cardClass="statsCont"
-      numbers="numbers"
-      updatedAt="updatedAt"
-      dataSource="dataSource"
-      selectCountry="selectCountry"
-      graphCont="graphCont"
-      topTenText=undefined
-      tag="tagStats"
-      desktopUrl="hubLink"
-      cardContainer=undefined
-    }
+    
     
     //maps out the top ten countries. the conditional rendering is used to pick the color of the figures being shown.
     //ex) recoveries renders green
@@ -265,19 +248,19 @@ class Stats extends React.Component {
     const topTenCountryNames = this.state.topTenCountries.map((item, index) =>
       <tbody>
         <tr>
-        <td className={topTenText}>{index + 1}</td>
-      <td className={topTenText} key={item}>{item[0]}</td>
+        <td>{index + 1}</td>
+      <td key={item}>{item[0]}</td>
       {this.state.byKnownWorld['value'] === "deaths" ? (
-        <td className={topTenText}><NumberFormat style={red} value={item[1]} displayType={'text'} thousandSeparator={true}/></td>
+        <td><NumberFormat style={red} value={item[1]} displayType={'text'} thousandSeparator={true}/></td>
       )
       :
       (
         this.state.byKnownWorld['value'] === "recovered" ? (
-          <td className={topTenText}><NumberFormat style={green} value={item[1]} displayType={'text'} thousandSeparator={true}/></td>
+          <td ><NumberFormat style={green} value={item[1]} displayType={'text'} thousandSeparator={true}/></td>
         )
         :
         (
-          <td className={topTenText}><NumberFormat style={orange} value={item[1]} displayType={'text'} thousandSeparator={true}/></td>
+          <td><NumberFormat style={orange} value={item[1]} displayType={'text'} thousandSeparator={true}/></td>
         )
       )}
       </tr>
@@ -289,20 +272,20 @@ class Stats extends React.Component {
     const topTenStates = this.state.topTenStates.map((item, index) =>
     <tbody>
     <tr>
-    <td className={topTenText}>{index + 1}</td>
-      <td className={topTenText} key={item}>{item[0]}</td>
+    <td>{index + 1}</td>
+      <td key={item}>{item[0]}</td>
     
       {this.state.byKnownStates['value'] === "deaths" ? (
-        <td className={topTenText}><NumberFormat style={red} value={item[1]} displayType={'text'} thousandSeparator={true}/></td>
+        <td><NumberFormat style={red} value={item[1]} displayType={'text'} thousandSeparator={true}/></td>
       )
       :
       (
         this.state.byKnownStates['value'] === "recovered" ? (
-          <td className={topTenText}><NumberFormat style={green} value={item[1]} displayType={'text'} thousandSeparator={true}/></td>
+          <td><NumberFormat style={green} value={item[1]} displayType={'text'} thousandSeparator={true}/></td>
         )
         :
         (
-          <td className={topTenText}><NumberFormat style={orange} value={item[1]} displayType={'text'} thousandSeparator={true}/></td>
+          <td><NumberFormat style={orange} value={item[1]} displayType={'text'} thousandSeparator={true}/></td>
         )
       )}
       </tr>
@@ -313,276 +296,180 @@ class Stats extends React.Component {
     const types = ["linear", "logarithmic"];
     const charts = types.map((type, i) =>
     
-    <div className={graphCont}>
+    <div className="graphCont">
       <br></br>
       <UsaGraph key={i} type={type}></UsaGraph> </div>
     );
-    //<div><UsaGraph key={"logarithmic"} type="logarithmic"></UsaGraph> </div>
     
    
-    return isMobile ? (
+    return (
       
-    <div> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
-<div className={wrapper}>
-  
-
-<NavigationComponent title="Stats" />
-      <div style={{padding: '25px 10px 0px 10px'}}>
-        <Typography variant="caption" color="inherit">
-    {/*Last Updated: {(new Date()).toLocaleTimeString()}*/}
-        </Typography>
-      </div>
-
-    <Container fluid>
-      {/*COUNTRY TRACKER WIDGET*/}
-       <div className={cardClass} style={{width: "auto", maxWidth: ""}}>
-        <Select className={selectCountry}
-          placeholder={"World"}
-          value={this.state.country}
-          onChange={this.handleCountry}
-          options={listOfCountries}
-        />
-          <div>
-            <h1 className={numbers}>Total Cases: <br></br><NumberFormat style={orange} value={this.state.positives} displayType={'text'} thousandSeparator={true}/></h1>
-            <h1 className={numbers}>Recoveries: <br></br><NumberFormat style={green} value={this.state.recovered} displayType={'text'} thousandSeparator={true}/></h1>
-            <h1 className={numbers}>Deaths: <br></br><NumberFormat style={red} value={this.state.deaths} displayType={'text'} thousandSeparator={true}/></h1>
-            <br></br>
-            <a className={updatedAt} style={gray}>{this.state.worldUpdatedTime} </a>
-            <br></br>
-            <a className={updatedAt} style={gray} >{this.state.worldUpdatedDay} </a>
-            <a className={dataSource} style={link} href="https://covid19api.com/" target="_blank"><div className={dataSource}> Source </div></a>
-            <br></br>
-          </div>
-        </div>
-    </Container>
-
-    <Container fluid>
-      {/*STATE TRACKER WIDGET*/}
-      <div className={cardClass}>
-          <Select className={selectCountry}
-            placeholder={"FL"}
-            value={this.state.state}
-            onChange={this.handleState}
-            options={listOfStates}
-          />
-          <div>
-            <h1 className={numbers}>Positives: <br></br><NumberFormat style={orange} value={this.state.statePositives} displayType={'text'} thousandSeparator={true}/></h1>
-            <h1 className={numbers}>Negatives: <br></br><NumberFormat style={green} value={this.state.stateNegatives} displayType={'text'} thousandSeparator={true}/></h1>
-            <h1 className={numbers}>Deaths: <br></br><NumberFormat style={red} value={this.state.stateDead} displayType={'text'} thousandSeparator={true}/></h1>
-            <br></br>
-            <a style={gray} className={updatedAt}> {this.state.stateUpdatedTime}</a>
-            <br></br>
-            <a style={gray} className={updatedAt}> {this.state.stateUpdatedDay}</a>
-            <a className={dataSource} style={link} href="https://covidtracking.com/" target="_blank"><div className={dataSource}> Source </div></a>
-          </div>
-        </div>
-    </Container>
-
-    <Container fluid style={{paddingLeft: "12.5px"}}>
-      <center>
-      <div id="container" >
-      {charts}
-      
-      </div>
-      </center>
-    </Container>
-
-    <Container fluid>
-      {/*TOP TEN COUNTRIES WIDGET*/}
-      <div className={cardClass}>
-          <h1 className={numbers}>Top Ten Countries <br></br> <br></br></h1>
-          <Select className={selectCountry}
-            placeholder={"By Known Cases"}
-            value={this.state.byKnownWorld}
-            onChange={this.handleByKnownWorld}
-            options={topTenOptions}
-          />
-          <div>
-          {/*Bootsrap table*/}
-            <Table striped bordered   className="topTen">
-              <thead>
-              <th className={topTenText}>Rank</th>
-              <th className={topTenText}>Country</th>
-              <th className={topTenText}>Number</th>
-              </thead>
-              {topTenCountryNames}
-              </Table>
-            <br></br>
-          </div>
-            <a className={dataSource} style={link} href="https://covid19api.com/" target="_blank"><div className={dataSource}> Source </div></a>
-        </div>
-    </Container>
-  
-    <Container fluid>
-      {/*TOP TEN STATES WIDGET*/}
-      <div className={cardClass}>
-          <h1 className={numbers}>Top Ten States <br></br> <br></br></h1>
-          <Select className={selectCountry}
-            placeholder={"By Known Cases"}
-            value={this.state.byKnownStates}
-            onChange={this.handleByKnownStates}
-            options={topTenOptionsState}
-          />
-          <div>
-          {/*Bootsrap table*/}
-          <Table striped bordered  className="topTen">
-              <thead>
-              <th className={topTenText}>Rank</th>
-              <th className={topTenText}>State</th>
-              <th className={topTenText}>Number</th>
-              </thead>
-              
-              {topTenStates}
-              </Table>
-            <br></br>
-          </div>
-            <a className={dataSource} style={link} href="https://covidtracking.com/" target="_blank"><div className={dataSource}> Source </div></a>
-        </div>
-    </Container>
-
-    <Container fluid  style={{paddingLeft: "10px"}}>
-        <CardsArray resourceType={CardResourceTypes.STATS} />
-        <h1 className={tag}>Service provided by the FSU Innovation Hub <br></br>
-         <a className={desktopUrl} style={hub} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>
-        
-    </Container>
-
-    
-</div>
-</div>
-      )
-      :
-      (
-        <div className="desktopCont">
-
-<NavigationComponent title="Stats" />
-<br>
-</br>
-
-
-      <div className={cardContainer}>
-        
-      
-      {/*COUNTRY TRACKER WIDGET*/}
-       <div className={cardClass}>
-        <Select className={selectCountry}
-          placeholder={"World"}
-          value={this.state.country}
-          onChange={this.handleCountry}
-          options={listOfCountries}
-        />
-          <div>
-            <h1 className={numbers}>Total Cases: <br></br><NumberFormat style={orange} value={this.state.positives} displayType={'text'} thousandSeparator={true}/></h1>
-            <h1 className={numbers}>Recoveries: <br></br><NumberFormat style={green} value={this.state.recovered} displayType={'text'} thousandSeparator={true}/></h1>
-            <h1 className={numbers}>Deaths: <br></br><NumberFormat style={red} value={this.state.deaths} displayType={'text'} thousandSeparator={true}/></h1>
-            <br></br>
-            <div><a className={updatedAt} style={gray}>{this.state.worldUpdatedTime} </a></div>
+      <div className="statsPage"> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
+        <div className="cardContainer">
+          <NavigationComponent title="Stats" />
+          <Container fluid >
           
-            <div><a className={updatedAt} style={gray}>{this.state.worldUpdatedDay} </a></div>
-            <a className={dataSource} style={link} href="https://covid19api.com/" target="_blank"><div className={dataSource}> Source </div></a>
-            <br></br>
-
-          </div>
-        </div>
-   
-      {/*STATE TRACKER WIDGET*/}
-      <div className={cardClass}>
-          <Select className={selectCountry}
-            placeholder={"FL"}
-            value={this.state.state}
-            onChange={this.handleState}
-            options={listOfStates}
-          />
-          <div>
-            <h1 className={numbers}>Positives: <br></br><NumberFormat style={orange} value={this.state.statePositives} displayType={'text'} thousandSeparator={true}/></h1>
-            <h1 className={numbers}>Negatives: <br></br><NumberFormat style={green} value={this.state.stateNegatives} displayType={'text'} thousandSeparator={true}/></h1>
-            <h1 className={numbers}>Deaths: <br></br><NumberFormat style={red} value={this.state.stateDead} displayType={'text'} thousandSeparator={true}/></h1>
-            <br></br>
-            <div><a style={gray} className={updatedAt}> {this.state.stateUpdatedTime}</a></div>
+            {/*COUNTRY TRACKER WIDGET*/}
+            <div className="flexRowStats">
+            <div className="statsCont" style={{marginTop: "20px"}}>
+              <Select className="selectFacts"
+                placeholder={"World"}
+                value={this.state.country}
+                onChange={this.handleCountry}
+                options={listOfCountries}/>
+              <div>
+                <MuiThemeProvider theme={textTheme}>
+                        <Typography variant="h5" color="secondary">
+                          <center>
+                            <br></br>
+                            Total Cases:
+                            <br></br>
+                            <NumberFormat style={{color: "orange"}} value={this.state.positives} displayType={'text'} thousandSeparator={true}/>
+                            <br></br>
+                          </center>
+                          <center>
+                            Recoveries:
+                            <br></br>
+                            <NumberFormat style={{color: "green"}} value={this.state.recovered} displayType={'text'} thousandSeparator={true}/>
+                            <br></br>
+                          </center>
+                          <center>
+                            Deaths:
+                            <br></br>
+                            <NumberFormat style={{color: "red"}} value={this.state.deaths} displayType={'text'} thousandSeparator={true}/>
+                            <br></br>
+                            <br></br>
+                          </center>
+                          
+                        </Typography>
+                        <Typography style={{color: "gray", float: "right"}}>
+                          &nbsp; &nbsp; {this.state.worldUpdatedTime}
+                          <br></br>
+                          {this.state.worldUpdatedDay}
+                        </Typography>
+                        <br></br>
+                        <Typography style={link} href="https://covidtracking.com/" target="_blank">
+                        Source
+                        </Typography>
+                </MuiThemeProvider>
+              </div>
+            </div>
+        
+            {/*STATE TRACKER WIDGET*/}
+              <div className="statsCont" style={{marginTop: "20px"}}>
+                <Select className="selectFacts"
+                  placeholder={"FL"}
+                  value={this.state.state}
+                  onChange={this.handleState}
+                  options={listOfStates}/>
+                <div>
+                  <MuiThemeProvider theme={textTheme}>
+                        <Typography variant="h5" color="secondary">
+                          <center>
+                            <br></br>
+                            Total Cases:
+                            <br></br>
+                            <NumberFormat style={{color: "orange"}} value={this.state.statePositives} displayType={'text'} thousandSeparator={true}/>
+                            <br></br>
+                          </center>
+                          <center>
+                            Recoveries:
+                            <br></br>
+                            <NumberFormat style={{color: "green"}} value={this.state.stateNegatives} displayType={'text'} thousandSeparator={true}/>
+                            <br></br>
+                          </center>
+                          <center>
+                            Deaths:
+                            <br></br>
+                            <NumberFormat style={{color: "red"}} value={this.state.stateDead} displayType={'text'} thousandSeparator={true}/>
+                            <br></br>
+                            <br></br>
+                          </center>
+                        </Typography>
+                        <Typography style={{color: "gray", float: "right"}}>
+                          &nbsp; &nbsp; {this.state.stateUpdatedTime}
+                          <br></br>
+                          {this.state.stateUpdatedDay}
+                        </Typography>
+                        <br></br>
+                        <Typography style={link} href="https://covid19api.com/" target="_blank">
+                        Source
+                        </Typography>
+                    </MuiThemeProvider>
+                </div>
+              </div>
          
-            <div><a style={gray} className={updatedAt}> {this.state.stateUpdatedDay}</a></div>
-            <a className={dataSource} style={link} href="https://covidtracking.com/" target="_blank"><div className={dataSource}> Source </div></a>
-          </div>
-        </div>
-        
-       
-      <div id="container" >
-      {charts[0]}
-      </div>
-      
-      
-      
-      
-      
-      
-      {/*TOP TEN COUNTRIES WIDGET*/}
-      <div className={cardClass}>
-          <h1 className={numbers} style={{marginBottom: "1.5vh"}}>Top Ten Countries<br></br></h1>
-          <Select className={selectCountry}
-            placeholder={"By Known Cases"}
-            value={this.state.byKnownWorld}
-            onChange={this.handleByKnownWorld}
-            options={topTenOptions}
-          />
-          <div>
-          {/*Bootsrap table*/}
-            <Table striped bordered   className="topTen">
-              <thead>
-              <th className={topTenText}>Rank</th>
-              <th className={topTenText}>Country</th>
-              <th className={topTenText}>Number</th>
-              </thead>
-              {topTenCountryNames}
-              </Table>
-            <br></br>
-          </div>
-            <a className={dataSource} style={link} href="https://covid19api.com/" target="_blank"><div className={dataSource}> Source </div></a>
-        </div>
-        
-        
-    
-      {/*TOP TEN STATES WIDGET*/}
-      <div className={cardClass}>
-          <h1 className={numbers} style={{marginBottom: "1.5vh"}}>Top Ten States <br></br></h1>
-          <Select className={selectCountry}
-            placeholder={"By Known Cases"}
-            value={this.state.byKnownStates}
-            onChange={this.handleByKnownStates}
-            options={topTenOptionsState}
-          />
-          <div>
-          {/*Bootsrap table*/}
-          <Table striped bordered  className="topTen">
-              <thead>
-              <th className={topTenText}>Rank</th>
-              <th className={topTenText}>State</th>
-              <th className={topTenText}>Number</th>
-              </thead>
-              
-              {topTenStates}
-              </Table>
-            <br></br>
-          </div>
-            <a className={dataSource} style={link} href="https://covidtracking.com/" target="_blank"><div className={dataSource}> Source </div></a>
-        
-    
-        </div>
-        <div id="container" >
-      {charts[1]}
-      
-      </div>
-      </div>
-        
-        
-        <CardsArray resourceType={CardResourceTypes.STATS} />
-        
-        <br></br>
-        <h1 className={tag}>Service provided by the FSU Innovation Hub <br></br>
-         <a className={desktopUrl} style={hub} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>
-    
-</div>
+            <div id="container" style={{marginTop: "20px"}} >
+              {charts[0]}
+            </div>
+
+            <div id="container" style={{marginTop: "20px"}}>
+              {charts[1]}
+            </div>
+          
+            {/*TOP TEN COUNTRIES WIDGET*/}
+            <div className="topTenCont" style={{marginTop: "20px"}}>
+              <Select 
+                className="selectTop"
+                placeholder={"Cases"}
+                value={this.state.byKnownWorld}
+                onChange={this.handleByKnownWorld}
+                options={topTenOptions}/>
+              <br></br>
+              <div>
+                {/*Bootsrap table*/}
+                
+                <Table striped bordered style={{color: "white", fontStyle: "bold"}}>
+                  <thead>
+                  <th>Rank</th>
+                  <th>Country</th>
+                  <th>Number</th>
+                  </thead>
+                  {topTenCountryNames}
+                  </Table>
+              </div>
+              <Typography style={link} href="https://covid19api.com/" target="_blank">
+                Source
+              </Typography>
+            </div>
+         
+            {/*TOP TEN STATES WIDGET*/}
+            <div className="topTenCont" style={{marginTop: "20px"}}>
+              <Select 
+                className="selectTop"
+                placeholder={"Cases"}
+                value={this.state.byKnownStates}
+                onChange={this.handleByKnownStates}
+                options={topTenOptionsState}/>
+              <br></br>
+              <div>
+                {/*Bootsrap table*/}
+                
+                <Table striped bordered style={{color: "white", fontStyle: "bold"}}>
+                  <thead>
+                  <th>Rank</th>
+                  <th>Country</th>
+                  <th>Number</th>
+                  </thead>
+                  {topTenStates}
+                  </Table>
+              </div>
+              <Typography style={link} href="https://covid19api.com/" target="_blank">
+                Source
+              </Typography>
+            </div>
+            </div>  
+            {/*stats related news/resources*/}
+            <CardsArray resourceType={CardResourceTypes.STATS} />
 
 
+          
+          <h1 className="tagStats">Service provided by the FSU Innovation Hub <br></br>
+          <a style={hub} href="https://innovation.fsu.edu/" target="_blank">innovation.fsu.edu</a></h1>  
+          
+        </Container>
+        </div>
+      </div>
       )
   }
 }
