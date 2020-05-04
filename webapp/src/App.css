@@ -323,7 +323,7 @@ h2 {
 }
 
 .innerContentCont {
-  margin: auto;
+  margin: 0 auto;
   padding-top:3vh;
   
 }
@@ -529,8 +529,18 @@ h2 {
   }
 
 
-  .container-fluid {
+  .container-fluidBug {
     width: 100vw;
+    align-items: center;
+    align-items: flex-start;
+    flex-wrap: row;
+    overflow: none;
+    padding: 0 auto;
+    margin: 0 auto;
+    
+  }
+  .container-fluid {
+    width: auto;
     align-items: center;
     align-items: flex-start;
     flex-wrap: row;
@@ -1081,6 +1091,16 @@ iframe {
 }
 
 .container-fluid {
+  width: auto;
+  align-self: center;
+  align-items: center;
+  align-items: flex-start;
+  flex-wrap: row;
+  overflow: none;
+  padding: 0 auto;
+  margin: 0 auto;
+}
+.container-fluidBug{
   width: 100vw;
   align-self: center;
   align-items: center;
@@ -1089,8 +1109,6 @@ iframe {
   overflow: none;
   padding: 0 auto;
   margin: 0 auto;
-
-  
 }
 
   /*container for Temp class*/

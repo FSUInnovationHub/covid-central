@@ -72,11 +72,12 @@ class Commentary extends React.Component {
   render()
   {  
     return (   
-        <div className="factsPage">  
+        <div className="statsPage">  
+          <div className="cardContainer">
           <NavigationComponent title="Facts" />
           <div style={{marginTop: "4vh"}}></div>
-          <div>
-          <Container fluid className="factsContainer-fluid" >
+          
+          <Container fluid>
             
               <Select className="selectFacts"
                 placeholder={"General"}
@@ -86,8 +87,8 @@ class Commentary extends React.Component {
                 style={{fontSize: "40vw"}}
               />
             
-              <div style={{marginTop: "2vh"}}></div> 
-              <div className="cardContainer">
+              
+              
               {this.state.general && 
               <div className="flexRow"> 
                 <div className="newsCont">
@@ -113,7 +114,9 @@ class Commentary extends React.Component {
                         "flair" have been carefully hand picked by our research team. We hope that you enjoy your experience and if you have any questions please email
                         <br></br>
                         <br></br>
-                        <a className="github">info@innovation.fsu.edu</a>
+                      </Typography>
+                      <Typography variant="header1" color="secondary">
+                      info@innovation.fsu.edu
                       </Typography>
                     </div>
                   </MuiThemeProvider>  
@@ -183,7 +186,7 @@ class Commentary extends React.Component {
                 <div className="cardCont"><iframe src="https://www.youtube.com/embed/UMqi0AfLnro" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/></div>
                 <div className="cardCont"><img src={hotlines} alt="Logo" /></div>
               </div>}
-              </div>
+              
 
             
       
@@ -192,7 +195,8 @@ class Commentary extends React.Component {
             
           </Container>
           </div>
-        </div>
+          </div>
+        
 
 
 

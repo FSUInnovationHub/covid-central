@@ -46,8 +46,7 @@ class NewsPage extends React.Component {
 <div className={divClass}> 
 <NavigationComponent title="News" />
         <div class="innerContentCont">
-       
-
+          
       <Container fluid>
         <CardsArray resourceType={CardResourceTypes.NEWS} />
       </Container>
