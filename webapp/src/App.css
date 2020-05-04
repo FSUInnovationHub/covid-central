@@ -84,7 +84,7 @@ h2 {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: scroll;
+  
 }
 
 .navBanner {
@@ -739,10 +739,10 @@ a {
 .launchCont {
   margin-top: 0vh;
   width: 100vw;
-  height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
-  overflow: scroll;
+  margin-bottom: 10vh;
 }
 
 .hubLink {
@@ -1077,6 +1077,8 @@ a {
     padding-bottom: 1vh;
     border-radius: 3vw;
     align-content: center;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   /*container for Temp class*/
@@ -1098,6 +1100,8 @@ a {
   margin-bottom: 3vh;
   border-radius: 3vw;
   align-content: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 img {
