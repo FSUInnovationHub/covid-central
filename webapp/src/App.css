@@ -28,7 +28,7 @@ h1 {
 
 /*used for link*/
 a {
-  font-size: 2.5vw;
+  font-size: 16px;
 }
 
 /*used for sources*/
@@ -342,6 +342,7 @@ h2 {
 
 /*limit size of dropdown on stats page*/
 .selectUser{
+  padding-top: 25px;
 
   width: 350px;
   margin: 0 auto;
@@ -590,11 +591,12 @@ h2 {
     border-radius: 14px;
     align-content: center;
     align-self: flex-start;
+    margin-bottom: 2vh;
   }
 
   /*loose card content*/
 .cardCont {
-  margin-top: 3vh;
+  margin-top: 2vh;
   width: auto;
   height: auto;
   display: flex;
@@ -642,9 +644,6 @@ iframe {
   overflow: hidden;
 }
 
-a {
-  font-size: 1.5vw;
-}
  /*limit size of dropdown on stats page*/
  .selectFacts{
   width: 150px;
@@ -777,6 +776,7 @@ a {
 
   .selectUser{
     width: 70vw;
+    padding-top: 0vh;
     margin: 0 auto;
   }
 
@@ -1071,6 +1071,7 @@ a {
     padding-bottom: 1vh;
     border-radius: 3vw;
     align-content: center;
+
   }
 
   /*container for Temp class*/
