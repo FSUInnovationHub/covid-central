@@ -1000,18 +1000,18 @@ a {
   }
 
   .tag {
-    padding-top: 3vh;
-    padding-bottom: 12vh;
+    padding-top: 1vh;
+    padding-bottom: 5vh;
     font-size: 4vw;
-    margin-bottom: 4vh;
+    
     overflow: hidden;
   }
   
   .tagFacts {
-    padding-top: 3vh;
-    padding-bottom: 16vh;
+    padding-top: 1vh;
+    padding-bottom: 5vh;
     font-size: 4vw;
-    margin-bottom: 4vh;
+    
     overflow: hidden;
   }
 
@@ -1085,7 +1085,7 @@ a {
 
   /*margin-bottom: 20vh;*/
   
-  width: 90vw;
+  width: 350px;
   max-width: none;
   height: auto;
   display: flex;
@@ -1102,13 +1102,13 @@ a {
 
 img {
   width: auto;
-  max-width: 90vw;
+  max-width: 350px;
   height: auto;
   margin: 0 auto;
 }
 
 iframe {
-  width: 89.8vw;
+  width: 350px;
   height: auto;
   max-width: 90vw;
   margin: 0 auto;
@@ -1119,7 +1119,7 @@ iframe {
   padding-top: 3vh;
   padding-bottom: 16vh;
   font-size: 4vw;
-  margin-bottom: 4vh;
+  margin-bottom: 2vh;
   overflow: hidden;
 }
 
