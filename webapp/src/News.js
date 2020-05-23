@@ -12,9 +12,9 @@ const hub = {color: '#eac45f'};
 class NewsPage extends React.Component { 
 
   render()
-  alert("The live news feed component is currently unavailable as we are attempting to resolve a bug associated with NEWS API (we believe the bug is on their end)."
   {  
     return (   
+      { alert("The live news feed component is currently unavailable as we are attempting to resolve a bug associated with NEWS API (we believe the bug is on their end and we've reached out)."}
     <div className="desktopCont">
       <div className="newsstatsPage"> 
         <NavigationComponent title="News" />
