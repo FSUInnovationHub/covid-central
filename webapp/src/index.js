@@ -10,8 +10,6 @@ import Resources from './Resources'
 import Commentary from './Commentary';
 import Facts from './Facts';
 
-
-
 /*using react router we set a constant equal to whatever component
 we would like to render*/
 const routing = (

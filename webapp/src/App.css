@@ -25,6 +25,7 @@ h1 {
   text-align: center;
   margin-bottom: 0vh;
   margin-top: 2vh;
+  font-family: 'Roboto', sans-serif;
 }
 
 /*used for sources*/
@@ -33,12 +34,23 @@ h1 {
   float: left;
 }
 
+.MuiButton-outlinedSizeLarge {
+  font-size: 0.9375rem;
+  width: 30%;
+  height: 40px;
+  margin-left: 30%;
+  font-size: 20px;
+  border-radius: 30px;
+}
+
 /*used for launch form*/
 h2 {
   color: white;
   text-align: center;
   margin-bottom: 0vh;
   margin-top: 2vh;
+  font-size: xxx-large;
+  font-family: 'Roboto', sans-serif;
 }
 
 /*container for launch class*/
@@ -62,7 +74,7 @@ h2 {
   margin-top: 2vh;
   width: 244.8px;
   max-height: 4vh;
-  background-color: #7da4ff;
+  /* background-color: #7da4ff; */
 }
 
 /*submit option css*/
@@ -74,12 +86,23 @@ h2 {
 }
 
 .MuiButton-label {
-  width: 100%;
+  width: 30%;
+  height: 40px;
+  margin-left: 5%;
   display: inherit;
   align-items: inherit;
   justify-content: inherit;
+  font-size: 20px;
+  border-radius: 30px;
 }
 
+.MuiButton-root.Mui-disabled {
+  color: rgba(0, 0, 0, 0.26);
+  width: 30%;
+  height: 40px;
+  margin-left: 35%;
+  border-radius: 30px;
+}
 /*rules for the text bar at the bottom of the page*/
 .submitTxt
 {
@@ -101,12 +124,12 @@ h2 {
 .submitTxt:hover
 {
   height: 0vw;
-  color: #03bb85;
+  color: white;
 }
 
 .showMeThe {
   margin-top: 2vh;
-  font-size: 43.2px;
+  font-size: x-large;
 }
 
 .newsstatsPage{
@@ -232,7 +255,9 @@ h2 {
 
 .submitBar {
   margin-top: 58px;
-  position:'absolute'; bottom:'0'; padding-bottom: '0vh';
+  position:'absolute'; 
+  bottom:'0'; 
+  padding-bottom: '14vh';
 }
 
 .github {
@@ -440,7 +465,7 @@ margin: 0 auto;
 /*orlando will parse through and clean this up before next friday*/
 
 /*special CSS rules for mobile devices UP TO IPAD PRO WIDTH*/
-@media only screen and (min-width: 370px) and (max-width: 500px) {
+@media only screen and (min-width: 370px) and (max-width: 414px) {
 
   html, body {
     overflow: scroll;
@@ -513,11 +538,22 @@ margin: 0 auto;
     display: inherit;
     align-items: inherit;
     justify-content: inherit;
+    border-radius: 30px;
   }
+
+  .MuiButton-root.Mui-disabled {
+    color: rgba(0, 0, 0, 0.26);
+    width: 50%;
+    height: 40px;
+    border-radius: 30px;
+}
 
   .submitBar {
     margin-top: 20px;
-    position:'absolute'; bottom:'0'; padding-bottom: '14vh';
+    position:'absolute'; 
+    bottom:'0'; 
+    padding-bottom: '14vh';
+    margin-left: 26%;
   }
 
   .highcharts-container {
@@ -548,7 +584,7 @@ margin: 0 auto;
   }
 
   .showMeThe {
-    font-size: 10vw;
+    font-size: 6vw;
     margin-top: 8vh;
   }
 
@@ -567,20 +603,21 @@ margin: 0 auto;
     border: none;
     font-weight: bold;
     color: white;
-    font-size: 10vw !important;
-    width: 100vw;
-    height: 10vh;
+    font-size: small !important;
+    width: 150px;
+    height: 30px;
     text-align: center;
     text-align-last: center;
+    margin-right: 20%;
     bottom: 0vh;
     position: fixed;
-      bottom: 0;
+    bottom: 0;
   }
 
   .submitTxt:hover
   {
     height: inherit;
-    color: #03bb85;
+    color: white;
   }
 
   /*prevents any scrolling*/
@@ -891,15 +928,17 @@ margin: 0 auto;
 
   .MuiButton-label {
     margin-top: 0vh;
-    width: 100%;
+    width: 50%;
     display: inherit;
     align-items: inherit;
     justify-content: inherit;
+    border-radius: 30px;
   }
 
   .submitBar {
     margin-top: 20px;
     position:'absolute'; bottom:'0'; padding-bottom: '14vh';
+    margin-left: 34%;
   }
 
   .highcharts-container {
