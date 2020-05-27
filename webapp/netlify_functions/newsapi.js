@@ -7,7 +7,7 @@ exports.handler = (event, context, callback) => {
   request(newsApiUrl, function(error, response, body) {
     callback(null, {
       statusCode: 200,
-      body: JSON.stringify(body)
+      body: body
     });
   });
 }
