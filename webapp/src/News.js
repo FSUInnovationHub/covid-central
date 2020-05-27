@@ -15,7 +15,6 @@ class NewsPage extends React.Component {
   {  
     return (   
     <div className="desktopCont">
-      { alert("The live news feed component is currently unavailable as we are attempting to resolve a bug associated with NEWS API (we believe the bug is on their end and we've reached out).")}
       <div className="newsstatsPage"> 
         <NavigationComponent title="News" />
         <div class="innerContentCont">
