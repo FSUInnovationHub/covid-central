@@ -58,7 +58,7 @@ class CardsArray extends React.Component {
 
     // only fetch from news api if visiting news page
     if (this.props.resourceType === CardResourceTypes.NEWS) {
-      //fetchUrls.push(fetch(NewsApi).then(res => res.json()));
+      fetchUrls.push(fetch(NewsApi).then(res => res.json()));
     }
 
     Promise.all(fetchUrls)
