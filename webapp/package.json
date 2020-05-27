@@ -25,6 +25,7 @@
     "react-spinners": "^0.8.1",
     "react-spinning-wheel": "^1.1.7",
     "react-twitter-embed": "^3.0.3",
+    "request": "^2.88.2",
     "typescript": "^3.8.3"
   },
   "scripts": {
