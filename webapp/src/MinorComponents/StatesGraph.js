@@ -19,9 +19,8 @@ var graphStyles = {
   }
 };
 
-
 //This page will display the current statistics from the COVID-19 Outbreak Specific to the USA
-class UsaGraph extends React.Component {   
+class StatesGraph extends React.Component {   
 
   constructor(props) {
     super(props);
@@ -30,7 +29,7 @@ class UsaGraph extends React.Component {
       yDataPos: [],
       yDataDea: [],
       xData: {categories: []},
-      render: false //Set render state to false
+      render: false
       
     };
   }
@@ -42,7 +41,7 @@ class UsaGraph extends React.Component {
       widthSize = 300
     }
     Promise.all([
-      fetch("https://covidtracking.com/api/v1/us/daily.json"),
+      fetch("https://covidtracking.com/api/v1/states/daily.json"),
     ])
       .then(([res1]) => Promise.all([res1.json()]))
       .then(([data1]) => 
@@ -51,13 +50,15 @@ class UsaGraph extends React.Component {
           //iterate through response, creating a date 
           for(var i = (data1.length-1); i >= 0; i--)
           {
+            if(data1[i]['state'] === this.props.state['label'])
+            {
             var dateString = data1[i]['date'].toString()
             var year = dateString.substring(0,4);
             var month = dateString.substring(4,6);
             var day  = dateString.substring(6,8);
             var date = new Date(year, month - 1, day);
             
-            if(date < new Date(2020, 2, 16))
+            if(date < new Date(2020, 3, 1))
             {
               continue;
             }
@@ -74,7 +75,8 @@ class UsaGraph extends React.Component {
             this.state.xData['categories'].push(dict['day'])
             dataArray.push(dict)
           }
-          
+          }
+
           //set chart config 
           this.setState({
             usaArray: dataArray,
@@ -111,7 +113,7 @@ class UsaGraph extends React.Component {
             },
               //titles and such
               title: {text: 'COVID-19'},
-              subtitle: {text: "".concat('United States of America', '<br></br><a className="dataSource" style="color: #7da4ff" href="https://covid19api.com/" rel="noopener" target="_blank"><div className="dataSource"> Source </div></a>')},
+              subtitle: {text: "".concat(this.props.state['value'], '<br></br><a className="dataSource" style="color: #7da4ff" href="https://covidtracking.com/" rel="noopener" target="_blank"><div className="dataSource"> Source </div></a>')},
               navigator: {enabled: true},
               //series settings
               series: [
@@ -137,7 +139,7 @@ class UsaGraph extends React.Component {
               yAxis: 
               {
                 title: {text: ""},
-                type: this.props.type,
+                type: "linear",
                 allowDecimals: false,
                 showEmpty: false, 
               },
@@ -154,10 +156,12 @@ class UsaGraph extends React.Component {
 
   render()
   {    
+    
     return (<div>
-        {this.state.render && <ReactHighcharts config={createBarChart(this.state.mainConfig)} {...graphStyles}/>}
+        {this.state.render && <ReactHighcharts config={createBarChart(this.state.mainConfig)} {...graphStyles} />}
+      
     </div>)
   }
 }
 
-export default UsaGraph;
+export default StatesGraph;

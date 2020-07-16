@@ -423,7 +423,27 @@ margin: 0 auto;
   display: flex;
   flex-direction: column;
   background-color: #2b2d2f;
-  padding-top: 0vh;
+  padding-top: 3vh;
+  padding-left: 0vw;
+  padding-right: 0vw;
+  padding-bottom: 3vh;
+  border-radius: 14px;
+  align-content: center;
+  align-self: flex-start;
+  margin: 0 auto;
+}
+
+.statesGraphCont {
+  /*CHANGE IN FUTURE*/
+
+  /*margin-bottom: 20vh;*/
+  margin-top: 3vh;
+  width: 355px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #2b2d2f;
+  padding-top: 3vh;
   padding-left: 0vw;
   padding-right: 0vw;
   padding-bottom: 3vh;
@@ -473,6 +493,26 @@ margin: 0 auto;
 
   /*container for Temp class*/
   .graphCont {
+    /*CHANGE IN FUTURE*/
+
+    /*margin-bottom: 20vh;*/
+    margin-top: 3vh;
+    width: 300px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #2b2d2f;
+    padding-top: 0vh;
+    padding-left: 0vw;
+    padding-right: 0vw;
+    padding-bottom: 3vh;
+    border-radius: 3vw;
+    align-content: center;
+    align-self: flex-start;
+  }
+
+  /*container for Temp class*/
+  .statesGraphCont {
     /*CHANGE IN FUTURE*/
 
     /*margin-bottom: 20vh;*/
@@ -855,6 +895,26 @@ margin: 0 auto;
 
   /*container for Temp class*/
   .graphCont {
+    /*CHANGE IN FUTURE*/
+
+    /*margin-bottom: 20vh;*/
+    margin-top: 3vh;
+    width: 300px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #2b2d2f;
+    padding-top: 0vh;
+    padding-left: 0vw;
+    padding-right: 0vw;
+    padding-bottom: 3vh;
+    border-radius: 3vw;
+    align-content: center;
+    align-self: flex-start;
+  }
+
+  /*container for Temp class*/
+  .statesGraphCont {
     /*CHANGE IN FUTURE*/
 
     /*margin-bottom: 20vh;*/
