@@ -9,6 +9,7 @@ import NewsPage from './News'
 import Resources from './Resources'
 import Commentary from './Commentary';
 import Facts from './Facts';
+import StatesGraph from './MinorComponents/StatesGraph'
 
 
 
@@ -22,6 +23,7 @@ const routing = (
       <Route exact path="/news" component={NewsPage}/>
       <Route exact path="/resources" component={Resources}/>
       <Route exact path="/commentary" component= {Commentary} />
+      <Route exact path="/graph" component= {StatesGraph} />
       <Route exact path="/*" component={Launch}/>  
     </Switch>
   </Router>

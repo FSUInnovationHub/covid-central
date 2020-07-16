@@ -8,6 +8,7 @@ import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import * as Util from './Shared/Util.js'
 import NavigationComponent from './MinorComponents/NavigationComponent'
 import UsaGraph from './MinorComponents/UsaGraph'
+import StatesGraph from './MinorComponents/StatesGraph'
 import { Container, Table } from 'react-bootstrap';
 
 import CardsArray from './CardsArray'
@@ -84,6 +85,8 @@ class Stats extends React.Component {
       worldUpdatedTime: null,
       topTenCountries: [],
       state: "",
+      stateIndex: 0,
+      stateGraph: "Select State",
       statePositives: null,
       stateNegatives: null,
       stateDead: null,
@@ -121,8 +124,6 @@ class Stats extends React.Component {
         {
           //this.setState({lastUpdated: new Date(data1['Date'])})
           //this for loop iterates through the entire APi response and pushed each cluster of data to the listOfCountries array.
-        
-
           for(var i = 0; i < data1['Countries'].length; i++)
           {
             if(data1['Countries'][i].Country === 'US')
@@ -196,6 +197,8 @@ class Stats extends React.Component {
     return topTen
   }
 
+  
+
   handleCountry = country => {
     //sets states for the individual country being queried
     this.setState({
@@ -214,9 +217,26 @@ class Stats extends React.Component {
       stateNegatives: state['negatives'],
       stateDead: state['deaths'],
       stateUpdatedDay: dateArray(state['lastUpdated'])[0],
-      stateUpdatedTime: dateArray(state['lastUpdated'])[1]
+      stateUpdatedTime: dateArray(state['lastUpdated'])[1],
     })
   }
+
+  handleStateGraph = stateGraph => {
+    //sets states for the individual state being queried
+    var tempInd = null; 
+    for(var x = 0; x < listOfStates.length; x++)
+    {
+      if(listOfStates[x]=== stateGraph)
+      {
+        tempInd = x
+      }
+    }
+    this.setState({
+      stateGraph,
+      stateIndex: tempInd
+    })
+  }
+
 
   handleByKnownWorld = byKnownWorld => {
     //sets states for the individual country being queried
@@ -292,13 +312,20 @@ class Stats extends React.Component {
     );
 
 
-    const types = ["linear", "logarithmic"];
+    const types = ["linear"];
     const charts = types.map((type, i) =>
     
     <div className="graphCont">
       <br></br>
       <UsaGraph key={i} type={type}></UsaGraph> </div>
     );
+    
+    
+    const stateCharts = listOfStates.map((state, i) =>
+      <StatesGraph key={i} state={state}></StatesGraph> 
+    );
+
+    
     
    
     return (
@@ -407,6 +434,18 @@ class Stats extends React.Component {
             <div id="container" style={{marginTop: "20px"}}>
               {charts[1]}
             </div>
+
+            <div className="graphCont" id="container" style={{marginTop: "20px"}}>
+              <br></br>
+              <Select className="selectFacts"
+                placeholder={this.state.stateGraph}
+                value={this.state.stateGraph}
+                onChange={this.handleStateGraph}
+                options={listOfStates}/>
+              <div className="graphCont">
+              {stateCharts[this.state.stateIndex]}
+              </div>
+            </div>
           
             {/*TOP TEN COUNTRIES WIDGET*/}
             <div className="topTenCont" style={{marginTop: "20px"}}>
@@ -418,9 +457,9 @@ class Stats extends React.Component {
                 options={topTenOptions}/>
               <br></br>
               <div>
-                {/*Bootsrap table*/}
+                {/*Bootstrap table*/}
                 
-                <Table striped bordered style={{color: "white", fontStyle: "bold"}}>
+                <Table striped bordered style={{color: "white", fontStyle: "bold", marginTop: '2vh'}}>
                   <thead>
                   <th>Rank</th>
                   <th>Country</th>
@@ -448,7 +487,7 @@ class Stats extends React.Component {
               <div>
                 {/*Bootsrap table*/}
                 
-                <Table striped bordered style={{color: "white", fontStyle: "bold"}}>
+                <Table striped bordered style={{color: "white", fontStyle: "bold", marginTop: '2vh'}}>
                   <thead>
                   <th>Rank</th>
                   <th>Country</th>
