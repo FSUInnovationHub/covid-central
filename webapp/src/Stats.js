@@ -426,7 +426,7 @@ class Stats extends React.Component {
                     </MuiThemeProvider>
                 </div>
               </div>
-         
+
             <div id="container" style={{marginTop: "20px"}} >
               {charts[0]}
             </div>
@@ -435,7 +435,8 @@ class Stats extends React.Component {
               {charts[1]}
     </div>
 
-            <div className="graphCont" id="container" style={{marginTop: "20px"}}>
+
+      {/*<div className="graphCont" id="container" style={{marginTop: "20px"}}>
               <br></br>
               <Select className="selectFacts"
                 placeholder={this.state.stateGraph}
@@ -445,7 +446,7 @@ class Stats extends React.Component {
               <div className="graphCont">
               {stateCharts[this.state.stateIndex]}
               </div>
-            </div>
+            </div>*/}
           
             {/*TOP TEN COUNTRIES WIDGET*/}
             <div className="topTenCont" style={{marginTop: "20px"}}>
