@@ -427,13 +427,7 @@ class Stats extends React.Component {
                 </div>
               </div>
          
-            <div id="container" style={{marginTop: "20px"}} >
-              {charts[0]}
-            </div>
-
-            <div id="container" style={{marginTop: "20px"}}>
-              {charts[1]}
-            </div>
+           
 
       {/*<div className="graphCont" id="container" style={{marginTop: "20px"}}>
               <br></br>
