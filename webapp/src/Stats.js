@@ -117,7 +117,7 @@ class Stats extends React.Component {
     Promise.all([
       //fetch('https://covidtracking.com/api/v1/states/current.json'),
       fetch('https://api.covid19api.com/summary'),
-      fetch('https://covidtracking.com/api/v1/states/current.json'),
+      fetch('/.netlify/functions/covidtracking'),
     ])
       .then(([res1, res2]) => Promise.all([res1.json(), res2.json()]))
       .then(([data1, data2]) =>
@@ -426,8 +426,15 @@ class Stats extends React.Component {
                     </MuiThemeProvider>
                 </div>
               </div>
-         
-           
+
+            <div id="container" style={{marginTop: "20px"}} >
+              {charts[0]}
+            </div>
+
+            <div id="container" style={{marginTop: "20px"}}>
+              {charts[1]}
+    </div>
+
 
       {/*<div className="graphCont" id="container" style={{marginTop: "20px"}}>
               <br></br>
