@@ -151,7 +151,7 @@ class StatesGraph extends React.Component {
   componentDidMount() {
     setTimeout(function() { //Start the timer
         this.setState({render: true}) //After 1 second, set render to true
-    }.bind(this), 3000)
+    }.bind(this), 6000)
   }
 
   render()
