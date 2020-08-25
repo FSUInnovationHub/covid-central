@@ -42,7 +42,7 @@ class UsaGraph extends React.Component {
       widthSize = 300
     }
     Promise.all([
-      fetch("https://covidtracking.com/api/v1/us/daily.json"),
+      fetch("/.netlify/functions/usa"),
     ])
       .then(([res1]) => Promise.all([res1.json()]))
       .then(([data1]) => 

@@ -3,6 +3,7 @@ import '../App.css';
 import 'react-spinning-wheel/dist/style.css';
 import ReactHighcharts from "react-highcharts";
 import { createBarChart } from "@pxblue/highcharts";
+import Typography from '@material-ui/core/Typography';
 import * as Util from '../Shared/Util'
 // eslint-disable-line prefer-template
 
@@ -18,6 +19,7 @@ var graphStyles = {
     }
   }
 };
+
 
 //This page will display the current statistics from the COVID-19 Outbreak Specific to the USA
 class StatesGraph extends React.Component {   
@@ -41,7 +43,7 @@ class StatesGraph extends React.Component {
       widthSize = 300
     }
     Promise.all([
-      fetch("https://covidtracking.com/api/v1/states/daily.json"),
+      fetch("/.netlify/functions/states"),
     ])
       .then(([res1]) => Promise.all([res1.json()]))
       .then(([data1]) => 
@@ -151,13 +153,14 @@ class StatesGraph extends React.Component {
   componentDidMount() {
     setTimeout(function() { //Start the timer
         this.setState({render: true}) //After 1 second, set render to true
-    }.bind(this), 800)
+    }.bind(this), 10000)
   }
 
   render()
   {    
     
     return (<div>
+        {!this.state.render && <center><Typography variant="h5" color="secondary">10 sec load...<br></br>cause: large database</Typography></center>}
         {this.state.render && <ReactHighcharts config={createBarChart(this.state.mainConfig)} {...graphStyles} />}
       
     </div>)
