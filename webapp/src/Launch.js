@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
 import 'react-spinning-wheel/dist/style.css';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import DesktopUserNoticeComponent from './MinorComponents/DesktopUserNoticeComponent'
 
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
@@ -45,12 +46,12 @@ class Launch extends React.Component {
     return (   
       <div className="launchCont"> {/* DO NOT REMOVE THIS DIV COMPONENT*/}
         <div className="launchCont" style={{position:'relative'}}>
-          <h1>Covid-Central</h1>
+          <h2>Covid-Central</h2>
           <br></br>
 
           <DesktopUserNoticeComponent />
 
-          <div className="newsCont" style={{marginRight: "auto",marginLeft:"auto"}}>
+          <div className="newsCont" style={{marginTop: "-12px",marginRight: "auto",marginLeft:"auto"}}>
 
             <MuiThemeProvider theme={textTheme}>
               <div className="newsCardHeader">
@@ -66,9 +67,7 @@ class Launch extends React.Component {
                   Covid-Central is an effort by a group of interns from Florida State University&#39;s Innovation Hub and outside collaborators. Our goal is to provide a centralized hub filled with reliable information, resources, and statistics regarding the outbreak of the COVID-19 virus. 
                   <br></br>
                   <br></br>
-                This is an open source project. 
-                <br></br>
-                <a href="https://github.com/FSUInnovationHub/covid-central" target="_blank" rel="noopener noreferrer" className="github">Github</a>
+                   This Is An Open-Source Project: <a href="https://github.com/FSUInnovationHub/covid-central" target="_blank" rel="noopener noreferrer" className="github"> <FontAwesomeIcon icon={faGithub} /> </a>
                 </Typography>
               </div>
         
@@ -78,13 +77,13 @@ class Launch extends React.Component {
             </MuiThemeProvider>
           </div>
 
-          <h2 className="showMeThe" style={{marginTop: "2vh"}}>show me the</h2>
+          <h2 className="showMeThe" style={{marginTop: "2vh"}}> Pick A Category: </h2>
           <div className="dropdown">
             
             <Select
               style={{width:'auto',display:'block', verticalAlign:'center'}}
               autoWidth={true}
-              renderValue={(selected => { return !selected ? "Pick category" : selected})}
+              renderValue={(selected => { return !selected ? "select one" : selected})}
               displayEmpty={true}
               value={this.state.source || ''}
               onChange={this.handleSource}>
@@ -95,10 +94,12 @@ class Launch extends React.Component {
             </Select>
            </div>
 
-           <div className="submitBar">
+          <div className="submitBar">
               <Button 
                   className="submitTxt"
-                  variant="text"
+                  variant="outlined"
+                  color="primary"
+                  size="medium"
                   href={"/" + (this.state.source).toLowerCase()}
                   disabled={this.state.source === ""}>
                   Submit

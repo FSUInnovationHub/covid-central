@@ -11,8 +11,6 @@ import Commentary from './Commentary';
 import Facts from './Facts';
 import StatesGraph from './MinorComponents/StatesGraph'
 
-
-
 /*using react router we set a constant equal to whatever component
 we would like to render*/
 const routing = (
